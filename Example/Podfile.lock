@@ -1,0 +1,21 @@
+PODS:
+  - LEImageFrameworks (0.1.0)
+  - SDWebImage (3.8.1):
+    - SDWebImage/Core (= 3.8.1)
+  - SDWebImage/Core (3.8.1)
+
+DEPENDENCIES:
+  - LEImageFrameworks (from `../`)
+  - SDWebImage
+
+EXTERNAL SOURCES:
+  LEImageFrameworks:
+    :path: ../
+
+SPEC CHECKSUMS:
+  LEImageFrameworks: e7fddf5e94339c5dd765952a72cfdb853aaa923f
+  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
+
+PODFILE CHECKSUM: 87092a07ad5be27706a051720c29eb0c2255cdcd
+
+COCOAPODS: 1.0.1

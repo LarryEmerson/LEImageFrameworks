@@ -179,6 +179,7 @@
 				6003F5AC195388D20070C39A /* Resources */,
 				7CA90CB52A2E707C139EB2EB /* [CP] Embed Pods Frameworks */,
 				2563EF50BB894B94BD0D8E57 /* [CP] Copy Pods Resources */,
+				DB8148F759E168BB2AE97021 /* Find unused imports */,
 			);
 			buildRules = (
 			);
@@ -309,6 +310,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LEImageFrameworks_Tests/Pods-LEImageFrameworks_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		DB8148F759E168BB2AE97021 /* Find unused imports */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Find unused imports";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/bin/sh \"/Users/LarryEmerson/Library/Application Support/Developer/Shared/Xcode/Plug-ins/xcfui.xcplugin/Contents/Resources/fui_script.sh\" \"/Volumes/MacHD/LarryEmerson/RemoteGits/LEImageFrameworks/Example\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -539,6 +554,7 @@
 				8097795B1D2F799200E36104 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

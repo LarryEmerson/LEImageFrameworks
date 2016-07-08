@@ -37,5 +37,4 @@ s.source_files = 'LEImageFrameworks/Classes/**/*'
 # s.frameworks = 'UIKit', 'MapKit'
 s.dependency 'LEFrameworks'
 s.dependency 'SDWebImage'
-s.requires_arc      = true
 end

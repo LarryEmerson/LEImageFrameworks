@@ -1,9 +1,8 @@
 {
   "name": "LEImageFrameworks",
   "version": "0.1.0",
-  "summary": "A short description of LEImageFrameworks.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/LEImageFrameworks",
+  "summary": "图片缓存，滚动广告，单张图片选择，图片切割",
+  "homepage": "https://github.com/LarryEmerson/LEImageFrameworks",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,11 +11,19 @@
     "LarryEmerson": "larryemerson@163.com"
   },
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/LEImageFrameworks.git",
+    "git": "https://github.com/LarryEmerson/LEImageFrameworks.git",
     "tag": "0.1.0"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "7.0"
   },
-  "source_files": "LEImageFrameworks/Classes/**/*"
+  "source_files": "LEImageFrameworks/Classes/**/*",
+  "dependencies": {
+    "LEFrameworks": [
+
+    ],
+    "SDWebImage": [
+
+    ]
+  }
 }

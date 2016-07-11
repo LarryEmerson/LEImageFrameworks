@@ -91,15 +91,15 @@
     imageDataSource=data;
     int width=self.bounds.size.width;
     int cellWidth=(width-cellSpace*(cellCols-1))/cellCols;
-    int count=data.count;
-    int cacheCount=cellsCache.count;
-    int row=count/cellCols+(count%cellCols>0?1:0);
+    NSInteger count=data.count;
+    NSInteger cacheCount=cellsCache.count;
+    NSInteger row=count/cellCols+(count%cellCols>0?1:0);
     [self leSetSize:CGSizeMake(width, cellWidth*row+(row-1>0?(row-1)*cellSpace:0))];
     
-    int max=MAX(count, cellsCache.count);
+    NSInteger max=MAX(count, cellsCache.count);
     max=MAX(max, cellMax);
     LEImagePreviewCell *cell=nil;
-    for (int i=0; i<max; i++) {
+    for (NSInteger i=0; i<max; i++) {
         if(i<count){
             if(i<cacheCount){
                 cell=[cellsCache objectAtIndex:i];

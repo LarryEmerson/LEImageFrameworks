@@ -10,5 +10,5 @@
 #import "LE_PZPhotoView.h"
 
 @interface LEImagesPreview : LEBaseViewController
--(id) initWithImageDataSource:(NSArray *) data CurrentIndex:(int) index ImageUrlPrefix:(NSString *) prefix QiniuImageView2:(BOOL) qiniu;
+-(id) initWithImageDataSource:(NSArray *) data CurrentIndex:(NSInteger) index ImageUrlPrefix:(NSString *) prefix QiniuImageView2:(BOOL) qiniu;
 @end

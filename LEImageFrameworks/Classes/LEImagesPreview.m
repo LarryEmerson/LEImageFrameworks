@@ -13,7 +13,7 @@
 @end
 @implementation LEImagesPreviewPage{
     NSArray *imageDataSource;
-    int curIndex;
+    NSInteger curIndex;
     UIScrollView *curScrollView;
     UIPageControl *curPageControl;
     NSMutableArray *arrayPhotos;
@@ -22,7 +22,7 @@
     NSString *curURLPrefix;
     BOOL qiniuImageView2;
 }
--(id) initWithViewController:(LEBaseViewController *)vc ImageDataSource:(NSArray *) data Index:(int) index ImageUrlPrefix:(NSString *) prefix QiniuImageView2:(BOOL) qiniu{
+-(id) initWithViewController:(LEBaseViewController *)vc ImageDataSource:(NSArray *) data Index:(NSInteger) index ImageUrlPrefix:(NSString *) prefix QiniuImageView2:(BOOL) qiniu{
     imageDataSource=data;
     curIndex=index;
     curURLPrefix=prefix;
@@ -46,7 +46,7 @@
     [curPageControl setFrame:CGRectMake(width/2-curPageControl.bounds.size.width/2, height-LayoutSideSpace27, curPageControl.bounds.size.width, curPageControl.bounds.size.height)];
     [curPageControl setNumberOfPages:imageDataSource.count];
     [curPageControl setHidesForSinglePage:YES];
-    for (int i=0; i<imageDataSource.count; i++) {
+    for (NSInteger i=0; i<imageDataSource.count; i++) {
         NSString *url=[curURLPrefix stringByAppendingString:[imageDataSource objectAtIndex:i]];
         if(qiniuImageView2){
             url=[NSString stringWithFormat:@"%@?imageView2/1/w/%d/h/%d",url, width*[LEUIFramework sharedInstance].curScreenScale, width*[LEUIFramework sharedInstance].curScreenScale];
@@ -79,7 +79,7 @@
 
 @implementation LEImagesPreview{
     NSArray *imageDataSource;
-    int curIndex;
+    NSInteger curIndex;
     LEImagesPreviewPage *page;
     UIStatusBarStyle lastStatusStyle;
     BOOL isBarHide;
@@ -92,7 +92,7 @@
     lastStatusStyle=[[UIApplication sharedApplication] statusBarStyle];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
 }
--(id) initWithImageDataSource:(NSArray *) data CurrentIndex:(int) index ImageUrlPrefix:(NSString *) prefix QiniuImageView2:(BOOL) qiniu{
+-(id) initWithImageDataSource:(NSArray *) data CurrentIndex:(NSInteger) index ImageUrlPrefix:(NSString *) prefix QiniuImageView2:(BOOL) qiniu{
     imageDataSource=data;
     curIndex=index;
     self= [super init];

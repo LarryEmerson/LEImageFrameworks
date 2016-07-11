@@ -11,7 +11,7 @@
 
 @interface LEImagePickerPreviewPage : LEBaseView<UIScrollViewDelegate>
 @property (nonatomic) NSMutableArray *curCells;
--(void) setPage:(int) index;
+-(void) setPage:(NSInteger) index;
 @end
 @implementation LEImagePickerPreviewPage{
     UIScrollView *curScrollview;
@@ -19,7 +19,7 @@
     int width;
     int height;
     NSMutableArray *arrayPhotos;
-    int curIndex;
+    NSInteger curIndex;
 }
 -(void) setExtraViewInits{
     arrayPhotos=[[NSMutableArray alloc] init];
@@ -45,10 +45,10 @@
     [self refreshPage];
 }
 -(void) refreshPage{
-    int count=self.curCells.count-1;
+    NSInteger count=self.curCells.count-1;
     [curScrollview setContentSize:CGSizeMake(width*count, height)];
     [curPageControl setNumberOfPages:count];
-    for (int i=0; i<count; i++) {
+    for (NSInteger i=0; i<count; i++) {
         UIImageView *view=[[UIImageView alloc] initWithFrame:CGRectMake(width*i, 0, width, height)];
         LEImagePickerCell *cell=[self.curCells objectAtIndex:i];
         [view setImage:cell.image];
@@ -57,7 +57,7 @@
         [arrayPhotos addObject:view];
     }
 }
--(void) setPage:(int) index{
+-(void) setPage:(NSInteger) index{
     curIndex=index;
     [curScrollview scrollRectToVisible:CGRectMake(width*index, 0, width, height) animated:YES];
     [curPageControl setCurrentPage:index];
@@ -109,7 +109,7 @@
     BOOL isBarHide;
     UIImage *curDeleteIcon;
 }
--(id) initWithImagePickerCells:(NSMutableArray *) cells Index:(int) index DeleteIcon:(UIImage *) delete{
+-(id) initWithImagePickerCells:(NSMutableArray *) cells Index:(NSInteger) index DeleteIcon:(UIImage *) delete{
     curDeleteIcon=delete;
     self=[super init];
     page=[[LEImagePickerPreviewPage alloc] initWithViewController:self];
@@ -263,7 +263,7 @@
     [self reLayoutCells]; 
 }
 -(void) onImagePickerCellClickedWith:(LEImagePickerCell *)cell{ 
-    int index=[self.curCellCache indexOfObject:cell];
+    NSInteger index=[self.curCellCache indexOfObject:cell];
     if(index==self.curCellCache.count-1){
         if(self.curCellCache.count<=cellMax){
             UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"选择图片来源" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照", @"图库", nil];
@@ -295,11 +295,11 @@
     [self reLayoutCells];
 }
 -(void) reLayoutCells{
-    for (int i=0; i<self.curCellCache.count; i++) {
+    for (NSInteger i=0; i<self.curCellCache.count; i++) {
         LEImagePickerCell *cell=[self.curCellCache objectAtIndex:i];
         [cell setFrame:CGRectMake((i%cellCols)*(cellWidth+cellSpace), i/cellCols*cellWidth+(i/cellCols)*cellSpace, cellWidth, cellWidth)];
     }
-    int row=self.curCellCache.count/cellCols+(self.curCellCache.count%cellCols>0?1:0);
+    NSInteger row=self.curCellCache.count/cellCols+(self.curCellCache.count%cellCols>0?1:0);
     [self leSetSize:CGSizeMake(self.bounds.size.width, cellWidth*row+(row-1>0?(row-1)*cellSpace:0))];
     [[self.curCellCache objectAtIndex:self.curCellCache.count-1] setHidden:self.curCellCache.count-1==cellMax];
 }

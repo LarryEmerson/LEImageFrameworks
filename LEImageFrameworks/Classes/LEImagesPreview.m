@@ -31,9 +31,9 @@
 }
 -(void) setExtraViewInits{
     arrayPhotos=[[NSMutableArray alloc] init];
-    width=self.bounds.size.width;
-    height=self.bounds.size.height;
-    curScrollView=[[UIScrollView alloc] initWithAutoLayoutSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:self EdgeInsects:UIEdgeInsetsZero]];
+    width=self.curFrameWidth;
+    height=self.curFrameHight;
+    curScrollView=[[UIScrollView alloc] initWithAutoLayoutSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:self.viewContainer EdgeInsects:UIEdgeInsetsZero]];
     [curScrollView setContentSize:CGSizeMake(width*imageDataSource.count, height)];
     [curScrollView setPagingEnabled:YES];
     [curScrollView setDelegate:self];
@@ -42,7 +42,7 @@
     [curScrollView setBackgroundColor:[LEUIFramework sharedInstance].colorNavigationBar];
     //    [curScrollView setBounces:NO];
     curPageControl=[[UIPageControl alloc] init];
-    [self addSubview:curPageControl];
+    [self.viewContainer addSubview:curPageControl];
     [curPageControl setFrame:CGRectMake(width/2-curPageControl.bounds.size.width/2, height-LayoutSideSpace27, curPageControl.bounds.size.width, curPageControl.bounds.size.height)];
     [curPageControl setNumberOfPages:imageDataSource.count];
     [curPageControl setHidesForSinglePage:YES];

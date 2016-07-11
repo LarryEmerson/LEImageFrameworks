@@ -222,11 +222,11 @@ static LESingleImagePicker *curLESingleImagePicker;
     }];
 }
 -(void) onCancelImageCropper{
-    NSLogFunc;
+    //    NSLogFunc;
     [cropper.navigationController popViewControllerAnimated:YES];
 }
 -(void) onDoneCroppedWithImage:(UIImage *)image{
-    NSLogFunc;
+    //    NSLogFunc;
     NSData *imageData = UIImageJPEGRepresentation(image, 1);
     UIImage *compressedImage = [UIImage imageWithData:imageData];
     if(curDelegate){

@@ -7,11 +7,10 @@
 //  Copyright (c) 2013年 Babytree. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "NSData+GIF.h"
+#import <UIKit/UIKit.h> 
 #import "LEUIFramework.h"
 #import "LEImageCache.h"
-
+#import "UIImage+GIF.h"
 
 #define HMBannerWidth 30
 #define HMBannerOffset 15

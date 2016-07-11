@@ -147,7 +147,7 @@
     }else if (pageStyle == PageStyle_Right){
         [self.pageControl setFrame:CGRectMake(self.bounds.size.width-LayoutSideSpace-width+curPageStyleOffset.x, self.bounds.size.height-HMBannerOffset+curPageStyleOffset.y, width, HMBannerOffset)];
     }else if (pageStyle == PageStyle_Middle){
-        [self.pageControl setFrame:CGRectMake((self.bounds.size.width-width)/2+curPageStyleOffset.x, self.bounds.size.height-HMBannerOffset-self.pageControl.bounds.size.height+curPageStyleOffset.y, width, HMBannerOffset+self.pageControl.bounds.size.height)];
+        [self.pageControl setFrame:CGRectMake((self.bounds.size.width-width)/2+curPageStyleOffset.x, self.bounds.size.height-HMBannerOffset-self.pageControl.bounds.size.height+curPageStyleOffset.y, width, HMBannerOffset)];
     }else if (pageStyle == PageStyle_None){
         [self.pageControl setHidden:YES];
     }
@@ -277,7 +277,7 @@
     }
 }
 - (void)startRolling{
-    if (![self.imagesArray isNotEmpty]){
+    if (!self.imagesArray||self.imagesArray.count==0){
         return;
     }
     [self stopRolling];

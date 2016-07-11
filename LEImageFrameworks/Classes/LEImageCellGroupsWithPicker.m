@@ -23,9 +23,9 @@
 }
 -(void) setExtraViewInits{
     arrayPhotos=[[NSMutableArray alloc] init];
-    width=self.bounds.size.width;
-    height=self.bounds.size.height;
-    curScrollview=[[UIScrollView alloc] initWithAutoLayoutSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:self Anchor:LEAnchorInsideTopCenter Offset:CGPointZero CGSize:self.bounds.size]];
+    width=self.curFrameWidth;
+    height=self.curFrameHight;
+    curScrollview=[[UIScrollView alloc] initWithAutoLayoutSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:self.viewContainer EdgeInsects:UIEdgeInsetsZero]];
     
     [curScrollview setPagingEnabled:YES];
     [curScrollview setDelegate:self];
@@ -34,7 +34,7 @@
     [curScrollview setBackgroundColor:[LEUIFramework sharedInstance].colorNavigationBar];
     
     curPageControl=[[UIPageControl alloc] init];
-    [self addSubview:curPageControl];
+    [self.viewContainer addSubview:curPageControl];
     [curPageControl setFrame:CGRectMake(width/2-curPageControl.bounds.size.width/2, height-LayoutSideSpace27, curPageControl.bounds.size.width, curPageControl.bounds.size.height)];
     [curPageControl setHidesForSinglePage:YES];
     
@@ -288,7 +288,7 @@
     }
     cellWidth=(self.bounds.size.width-cellSpace*(cellCols-1))/cellCols;
     self.curCellCache=[[NSMutableArray alloc] init];
-    LEImagePickerCell *cellAdd=[[LEImagePickerCell alloc] initWithFrame:CGRectMake(0, 0, cellWidth, cellWidth)];
+    LEImagePickerCell *cellAdd=[[LEImagePickerCell alloc] initWithFrame:CGRectMake(0, 0, cellWidth, cellWidth) Delegate:self];
     [cellAdd setImage:curAddImage];
     [self addSubview:cellAdd];
     [self.curCellCache addObject:cellAdd];

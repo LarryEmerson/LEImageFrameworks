@@ -13,6 +13,10 @@
 #define IntToString(__int) [NSString stringWithFormat:@"%d",(int)__int]
 #define NSIntegerToInt(__int) (int)__int
 
+
+
+
+
 @implementation UIViewController (Extension)
 -(void) setLeftBarButtonWithImage:(UIImage *)img SEL:(SEL)sel{
     [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithImage:img style:UIBarButtonItemStylePlain target:self action:sel] animated:YES];
@@ -26,7 +30,12 @@
 -(void) setNavigationTitle:(NSString *) title{
     [self.navigationItem setTitle:title];
 }
-
+-(void) leThroughNavigationAnimatedPush:(UIViewController *) vc{
+    [self.navigationController pushViewController:vc animated:YES];
+}
+-(void) lePopSelfAnimated{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 -(void) onVCBack{
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -744,7 +753,7 @@ static void * LEAutoResizeObserversKey = (void *) @"LEAutoResizeObservers";
     int viewTagIncrement;
 }
 
-#pragma Singleton
+#pragma Singleton 
 static LEUIFramework *theSharedInstance = nil;
 + (instancetype) sharedInstance { @synchronized(self) { if (theSharedInstance == nil) { theSharedInstance = [[self alloc] init];
     theSharedInstance.colorNavigationBar=[UIColor colorWithRed:0.1686 green:0.1922 blue:0.2392 alpha:1.0];

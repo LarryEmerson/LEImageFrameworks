@@ -7,17 +7,221 @@
 //
 
 #import "ViewController.h"
-//#import "LEImageFrameworks.h"
+#import "LEImageFrameworks.h" 
 
-@interface ViewController ()
+
+//DemoTableViewPageWithBannerImageView
+@interface DemoTableViewPageWithBannerImageView : LE_HMBannerViewImageView
+@end
+@implementation DemoTableViewPageWithBannerImageView{
+    UILabel *curLabel;
+}
+-(void) initUI{
+    curLabel=[LEUIFramework getUILabelWithSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:self Anchor:LEAnchorInsideBottomRight Offset:CGPointMake(-StatusBarHeight/2, -StatusBarHeight/2) CGSize:CGSizeZero] LabelSettings:[[LEAutoLayoutLabelSettings alloc] initWithText:nil FontSize:15 Font:nil Width:self.globalVar.ScreenWidth-StatusBarHeight Height:0 Color:ColorBlack Line:0 Alignment:NSTextAlignmentRight]];
+    [curLabel setBackgroundColor:ColorMask2];
+}
+-(void) setData:(NSDictionary *)data{
+    if([data objectForKey:@"text"]){
+        [curLabel leSetText:[data objectForKey:@"text"]];
+    }else{
+        [curLabel leSetText:@""];
+    }
+    [super setData:data];
+}
+@end
+//DemoTableViewPageWithBannerSubView
+@interface DemoTableViewPageWithBannerSubView : LEBannerSubview
+@end
+@implementation DemoTableViewPageWithBannerSubView{
+    UILabel *curText;
+}
+-(void) initUI{
+    curText=[LEUIFramework getUILabelWithSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:self Anchor:LEAnchorInsideTopLeft Offset:CGPointMake(NavigationBarHeight/4, NavigationBarHeight/4) CGSize:CGSizeZero] LabelSettings:[[LEAutoLayoutLabelSettings alloc] initWithText:nil FontSize:15 Font:nil Width:self.globalVar.ScreenWidth-NavigationBarHeight/2 Height:0 Color:ColorBlack Line:0 Alignment:NSTextAlignmentLeft]];
+    [self setBackgroundColor:[UIColor colorWithRed:1.000 green:0.000 blue:0.000 alpha:0.520]];
+    [curText setBackgroundColor:[UIColor colorWithRed:0.503 green:0.780 blue:1.000 alpha:0.510]];
+}
+-(void) setData:(NSDictionary *) data{
+    [curText leSetText:[data objectForKey:@"text"]];
+    [self leSetSize:CGSizeMake(self.globalVar.ScreenWidth, NavigationBarHeight/2+curText.bounds.size.height)];
+    [self notifyHeightChange];
+}
+@end
+//DemoTableViewPageWithBannerCell
+@interface DemoTableViewPageWithBannerCell : LEBaseTableViewCell
+@end
+@implementation DemoTableViewPageWithBannerCell{
+    UILabel *curLabel;
+}
+-(void) initUI{
+    self.hasArrow=YES;
+    self.hasBottomSplit=YES;
+    int space=10;
+    curLabel=[LEUIFramework getUILabelWithSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:self Anchor:LEAnchorInsideLeftCenter Offset:CGPointMake(space, 0) CGSize:CGSizeMake(DefaultCellHeight, DefaultCellHeight-space*2)] LabelSettings:[[LEAutoLayoutLabelSettings alloc] initWithText:nil FontSize:LayoutFontSize14 Font:nil Width:0 Height:0 Color:ColorBlack Line:1 Alignment:NSTextAlignmentLeft]];
+    [curLabel setBackgroundColor:[UIColor greenColor]];
+}
+-(void) setData:(NSDictionary *)data IndexPath:(NSIndexPath *)path{
+    [super setData:data IndexPath:path];
+    [curLabel leSetText:[[data objectForKey:KeyOfCellTitle] StringValue]];
+    [curLabel leSetSize:CGSizeMake(DefaultCellHeight+[[data objectForKey:KeyOfCellTitle] intValue], curLabel.bounds.size.height)];
+}
+@end
+
+//DemoTableViewPageWithBanner
+@interface DemoTableViewPageWithBanner : LETableViewPageWithBanner
+@end
+@implementation DemoTableViewPageWithBanner{
+    NSString *subviewString;
+}
+-(void) onExtraInits{
+    subviewString=@"这一句可以写一句很长的句子，然后测试一下看看是否自动换行";
+    [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(onRefreshData) userInfo:nil repeats:NO];
+}
+-(void) onBannerSelectedWithIndex:(NSInteger)index{
+    NSLogObject([NSNumber numberWithInteger:index]);
+    subviewString=[NSString stringWithFormat:@"%@ Banner At %d", subviewString, (int)index];
+    [self onSetBannerData:nil SubviewData:@{@"text":subviewString}];
+}
+-(void) onTableViewCellSelectedWithInfo:(NSDictionary *)info{
+    NSLogObject(info);
+    NSIndexPath *path=[info objectForKey:@"cellindex"];
+    //    int status=[[info objectForKey:@"cellstatus"] intValue];
+    subviewString=[NSString stringWithFormat:@"%@ Cell At %d", subviewString, (int)path.row];
+    [self onSetBannerData:nil SubviewData:@{@"text":subviewString}];
+}
+-(void) onRefreshData{
+    NSMutableArray *dataArray = [[NSMutableArray alloc] init];
+    NSMutableDictionary *bannerDic1 = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superplus/img/logo_white_ee663702.png", @"img_url", nil];
+    [bannerDic1  setValue:@"这是第一段测试语句 这是第一段测试语句 这是第一段测试语句" forKey:@"text"];
+    [dataArray addObject:bannerDic1];
+    NSMutableDictionary *bannerDic2 = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"http://cdn.cocimg.com/assets/images/logo.png?15018", @"img_url", nil];
+    [bannerDic2  setValue:@"这是第二段段测试语句" forKey:@"text"];
+    [dataArray addObject:bannerDic2];
+    //
+    [self onFreshDataLogic:[@[@{KeyOfCellTitle: @"50"},@{KeyOfCellTitle:@"100"},@{KeyOfCellTitle:@"150"}]mutableCopy]];
+    [self onSetBannerData:dataArray SubviewData:@{@"text":subviewString}];
+}
+-(void) onLoadMore{
+    [self onLoadMoreLogic:[@[@{KeyOfCellTitle:@"40"},@{KeyOfCellTitle:@"100"},@{KeyOfCellTitle:@"200"}]mutableCopy]];
+}
+@end
+
+@interface TestCell : LEBaseTableViewCell
+@end
+@implementation TestCell{
+    UILabel *label;
+}
+-(void) initUI{
+    label=[LEUIFramework getUILabelWithSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:self Anchor:LEAnchorInsideLeftCenter Offset:CGPointMake(LayoutSideSpace, 0) CGSize:CGSizeZero] LabelSettings:[[LEAutoLayoutLabelSettings alloc] initWithText:@"" FontSize:14 Font:nil Width:0 Height:0 Color:ColorBlack Line:1 Alignment:NSTextAlignmentLeft]];
+}
+-(void) setData:(id)data IndexPath:(NSIndexPath *)path{
+    [super setData:data IndexPath:path];
+    [label leSetText:data];
+}
+@end
+
+@interface TestCellGroupsWithPicker : LEBaseViewController
+@end
+@implementation TestCellGroupsWithPicker
+
+-(void) viewDidLoad{
+    [super viewDidLoad];
+    [self setNavigationTitle:@"LEImageCellGroupsWithPicker"];
+    LEBaseView *view=[[LEBaseView alloc] initWithViewController:self];
+    LEImageCellGroupsWithPicker *picker=[[LEImageCellGroupsWithPicker alloc] initWithAutoLayoutSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:view.viewContainer Anchor:LEAnchorInsideCenter Offset:CGPointZero CGSize:CGSizeMake(view.curFrameWidth,view.curFrameWidth)] Space:2 Cols:4 Max:9 AddImage:[ColorBlue imageStrechedFromSizeOne] DeleteImage:[ColorTest imageWithSize:CGSizeMake(20, 40)] ViewController:self];
+    [picker setBackgroundColor:ColorGrayLight];
+}
+@end
+
+@interface TestGridWithPreview : LEBaseViewController
+@end
+@implementation TestGridWithPreview
+
+-(void) viewDidLoad{
+    [super viewDidLoad];
+    [self setNavigationTitle:@"LEImagesGridWithPreview"];
+    [self setLeftBarButtonAsBackWith:IMG_ArrowLeft];
+    LEBaseView *view=[[LEBaseView alloc] initWithViewController:self];
+    LEImagesGrid *grid=[[LEImagesGrid alloc] initWithAutoLayoutSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:view.viewContainer Anchor:LEAnchorInsideCenter Offset:CGPointZero CGSize:CGSizeMake(view.curFrameWidth, view.curFrameWidth)] Space:10 Cols:3 Max:15 ImageUrlPrefix:nil QiniuImageView2:NO ViewController:self];
+    [grid setBackgroundColor:ColorGrayLight];
+    [grid setImageDataSource:@[@"https://www.baidu.com/img/bd_logo1.png",@"http://cdn.cocimg.com/assets/images/logo.png?15018"]];
+}
+@end
+
+@interface ViewController ()<LETableViewCellSelectionDelegate,LEImageCropperDelegate,LEMultiImagePickerDelegate>
 
 @end
 
-@implementation ViewController
+@implementation ViewController{
+    UIImageView *curImage;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
+    [self setExtendedLayoutIncludesOpaqueBars:NO];
+    [self setEdgesForExtendedLayout:UIRectEdgeLeft&UIRectEdgeRight&UIRectEdgeBottom];
+    [self setNavigationTitle:@"LEImageFrameworks 测试"];
+    LEBaseTableView *tb=[[LEBaseTableView alloc] initWithSettings:[[LETableViewSettings alloc] initWithSuperViewContainer:self.view ParentView:self.view TableViewCell:@"TestCell" EmptyTableViewCell:nil GetDataDelegate:nil TableViewCellSelectionDelegate:self]];
+    [tb onRefreshedWithData:[@[@"LE_HMBannerView BannerStayAtTheTop", @"LE_HMBannerView BannerScrollWithCells" ,@"LEImageCellGroupsWithPicker",@"LEImagesGridWithPreview",@"LESingleImagePicker",@"LEMultiImagePicker"]mutableCopy]];
+    [tb setTopRefresh:NO];
+    [tb setBottomRefresh:NO];
+    curImage=[LEUIFramework getUIImageViewWithSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:self.view Anchor:LEAnchorInsideBottomCenter Offset:CGPointMake(0, -NavigationBarHeight-StatusBarHeight) CGSize:CGSizeMake(200, 100)] Image:nil];
+    [curImage setAnimationDuration:1];
+    [curImage setAlpha:0.6];
+    [curImage setContentMode:UIViewContentModeCenter];
+    [curImage setAnimationRepeatCount:0];
+}
+-(void) onTableViewCellSelectedWithInfo:(NSDictionary *)info{
+    NSIndexPath *index=[info objectForKey:KeyOfCellIndexPath];
+    switch (index.row) {
+        case 0:
+        {
+            DemoTableViewPageWithBanner *vc=[[DemoTableViewPageWithBanner alloc] initWithCellClassName:@"DemoTableViewPageWithBannerCell" EmptyCellClassName:nil BannerStyle:BannerStayAtTheTop BannerImageViewClassName:@"DemoTableViewPageWithBannerImageView" BannerSubviewClassName:@"DemoTableViewPageWithBannerSubView" TabbarHeight:0];
+            [self.navigationController pushViewController:vc animated:YES];
+            [vc setNavigationTitle:@"测试Banner停靠在最上方的情况"];
+        }
+            break;
+        case 1:
+        {
+            DemoTableViewPageWithBanner *vc=[[DemoTableViewPageWithBanner alloc] initWithCellClassName:@"DemoTableViewPageWithBannerCell" EmptyCellClassName:nil BannerStyle:BannerScrollWithCells BannerImageViewClassName:@"DemoTableViewPageWithBannerImageView" BannerSubviewClassName:@"DemoTableViewPageWithBannerSubView" TabbarHeight:0];
+            [self.navigationController pushViewController:vc animated:YES];
+            [vc setNavigationTitle:@"测试Banner跟随列表滚动的情况"];
+        }
+            break;
+        case 2:
+        {
+            TestCellGroupsWithPicker *vc=[[TestCellGroupsWithPicker alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case 3:
+        {
+            TestGridWithPreview *vc=[[TestGridWithPreview alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case 4:
+        {
+            [LESingleImagePicker onLESingleImagePickerWithSuperView:self.view ViewController:self Title:@"LESingleImagePicker" Aspect:2 Delegate:self];
+        }
+            break;
+        case 5:
+        {
+            LEMultiImagePicker *vc=[[LEMultiImagePicker alloc] initWithImagePickerDelegate:self];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        default:
+            break;
+    }
+}
+-(void) onDoneCroppedWithImage:(UIImage *)image{
+    [self onShowImages:@[image]];
+}
+-(void) onMultiImagePickedWith:(NSArray *)images{
+    [self onShowImages:images];
+}
+-(void) onShowImages:(NSArray *) array{
+    [curImage setAnimationImages:array];
+    [curImage startAnimating];
 }
 @end

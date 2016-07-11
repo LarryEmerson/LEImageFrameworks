@@ -69,7 +69,8 @@
     LEImagesPreview *preview=[[LEImagesPreview alloc] initWithImageDataSource:imageDataSource CurrentIndex:index ImageUrlPrefix:curURLPrefix QiniuImageView2:qiniuImageView2];
     [curViewController.navigationController pushViewController:preview animated:YES];
 }
--(id) initWithAutoLayoutSettings:(LEAutoLayoutSettings *)settings Space:(int) space Cols:(int) cols Max:(int) max ImageUrlPrefix:(NSString *) prefix QiniuImageView2:(BOOL) qiniu{
+-(id) initWithAutoLayoutSettings:(LEAutoLayoutSettings *)settings Space:(int) space Cols:(int) cols Max:(int) max ImageUrlPrefix:(NSString *) prefix QiniuImageView2:(BOOL) qiniu ViewController:vc{
+    curViewController=vc;
     curURLPrefix=prefix;
     if(!curURLPrefix)curURLPrefix=@"";
     qiniuImageView2=qiniu;

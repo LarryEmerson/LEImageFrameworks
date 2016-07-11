@@ -1,5 +1,5 @@
 use_frameworks!
-target 'LEImageFrameworks_Tests' do
+target 'LEImageFrameworks_Test' do
   pod 'LEImageFrameworks', :path => '../'
   pod 'SDWebImage'
   

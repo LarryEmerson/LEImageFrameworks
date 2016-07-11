@@ -11,7 +11,7 @@
 
 #import "LEUIFramework.h"
 #import <QuartzCore/QuartzCore.h>
-#import <UIImageView+WebCache.h>
+#import "UIImageView+WebCache.h"
 
 @protocol LEImageDownloadDelegate <NSObject>
 -(void) onDownloadImageWithError:(NSError *) error;

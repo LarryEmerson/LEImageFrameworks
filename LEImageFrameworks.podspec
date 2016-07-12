@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 s.name             = 'LEImageFrameworks'
-s.version          = '0.1.3'
+s.version          = '0.1.4'
 s.summary          = '图片缓存，滚动广告，单张图片选择，图片切割，朋友圈图片选择器封装，朋友圈图片查看器封装'
 
 # This description is used to generate tags and improve search results.

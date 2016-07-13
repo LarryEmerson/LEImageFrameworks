@@ -82,8 +82,13 @@ static void * UIImageDownloadDelegateKey = (void *) @"UIImageDownloadDelegateKey
 
 @implementation LEImageCache
 static NSMutableDictionary *imageCache;
+#pragma Singleton
 static LEImageCache *theSharedInstance = nil;
-+ (instancetype) sharedInstance { @synchronized(self) { if (theSharedInstance == nil) { theSharedInstance = [[self alloc] init]; if(!imageCache)imageCache=[[NSMutableDictionary alloc] init];} } return theSharedInstance; }
++ (instancetype) sharedInstance { @synchronized(self) { if (theSharedInstance == nil) { theSharedInstance = [[self alloc] init];
+} } return theSharedInstance; }
++ (id) allocWithZone:(NSZone *)zone { @synchronized(self) { if (theSharedInstance == nil) { theSharedInstance = [super allocWithZone:zone]; return theSharedInstance; } } return nil; }
++ (id) copyWithZone:(NSZone *)zone { return self; }
++ (id) mutableCopyWithZone:(NSZone *)zone { return self; }
 //
 -(void) addImage:(UIImage *) image toCacheWithKey:(NSString *) key{
     [imageCache setObject:image forKey:key];

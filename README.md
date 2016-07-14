@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/cocoapods/l/LEImageFrameworks.svg?style=flat)](http://cocoapods.org/pods/LEImageFrameworks)
 [![Platform](https://img.shields.io/cocoapods/p/LEImageFrameworks.svg?style=flat)](http://cocoapods.org/pods/LEImageFrameworks)
 
-![](https://github.com/LarryEmerson/LEAllFrameworksGif/blob/master/Example/LEImageFrameworks.gif)
+![](https://github.com/LarryEmerson/LEAllFrameworksGif/blob/master/LEImageFrameworks.gif)
 
 
 ## Frameworks
@@ -18,7 +18,7 @@
 
 
 ### 3-LEImagesGridWithPreview 已发布的朋友圈图片九宫格，点击图片即可顺序全屏预览。
-![](https://github.com/LarryEmerson/LEAllFrameworksGif/blob/master/Example/LEImagesGridWithPreview.png)
+![](https://github.com/LarryEmerson/LEAllFrameworksGif/blob/master/LEImagesGridWithPreview.png)
 
 ### 4-LESingleImagePicker 用于设置头像背景等单张图片。
 ###### 调用方式为静态方法：+(void) onLESingleImagePickerWithSuperView:(UIView *) superView ViewController:(UIViewController *) viewController Title:(NSString *) title Aspect:(float) aspect Delegate:(id<LEImageCropperDelegate>) delegate;

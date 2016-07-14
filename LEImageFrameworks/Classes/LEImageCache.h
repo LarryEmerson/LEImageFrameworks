@@ -18,14 +18,13 @@
 -(void) onDownloadedImageWith:(UIImage *) image;
 @end
 
-@interface UIImageView (LoadImageWithUrl)
-@property (nonatomic) UIImage *lePlaceholderImage;
-@property (nonatomic) id<LEImageDownloadDelegate> leImageDownloadDelegate;
+@interface UIImageView (LEExtensionDownload)
 -(void) leSetImageWithUrlString:(NSString *) url;
 -(void) leSetImageForQiniuWithUrlString:(NSString *) url Width:(int)w Height:(int) h;
 -(void) leSetImageForQiniuWithUrlString:(NSString *) url;
 -(void) leAddToImageCacheWithUrl:(NSString *) url;
-
+-(void) leSetPlaceholder:(UIImage *) image;
+-(void) leSetImageDownloadDelegate:(id<LEImageDownloadDelegate>) delegate;
 -(void) leSetCornerRadius:(int) radius;
 +(UIImageView *) leGetImageViewWithSettings:(LEAutoLayoutSettings *) settings Image:(UIImage *) image;
 +(UIImageView *) leGetImageViewWithSettings:(LEAutoLayoutSettings *) settings Image:(UIImage *) image CornerRadius:(int) radius;
@@ -33,7 +32,6 @@
 
 @interface LEImageCache : NSObject
 +(instancetype) sharedInstance;
-
 -(void) addImage:(UIImage *) image toCacheWithKey:(NSString *) key;
 -(UIImage *) getImageFromCacheWithKey:(NSString *) key;
 -(NSMutableDictionary *) getImageCache;

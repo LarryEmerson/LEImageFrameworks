@@ -8,7 +8,11 @@
 
 #import "LEImageCache.h"
 
-@implementation UIImageView (LoadImageWithUrl)
+@interface UIImageView ()
+@property (nonatomic) UIImage *lePlaceholderImage;
+@property (nonatomic) id<LEImageDownloadDelegate> leImageDownloadDelegate;
+@end
+@implementation UIImageView (LEExtensionDownload)
 static void * UIImageViewPlaceHolderKey = (void *) @"UIImageViewPlaceHolder";
 - (UIImage *) lePlaceholderImage {
     return objc_getAssociatedObject(self, UIImageViewPlaceHolderKey);
@@ -58,6 +62,12 @@ static void * UIImageDownloadDelegateKey = (void *) @"UIImageDownloadDelegateKey
     if(self.image){
         [[LEImageCache sharedInstance] addImage:self.image toCacheWithKey:url];
     }
+}
+-(void) leSetPlaceholder:(UIImage *) image{
+    self.lePlaceholderImage=image;
+}
+-(void) leSetImageDownloadDelegate:(id<LEImageDownloadDelegate>) delegate{
+    self.leImageDownloadDelegate=delegate;
 }
 -(void) leSetCornerRadius:(int) radius{
     [self.layer setMasksToBounds:YES];

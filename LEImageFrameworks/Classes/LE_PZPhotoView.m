@@ -32,11 +32,11 @@
     return self;
 }
 -(void) setImageDownloadDelegate:(id<LEImageDownloadDelegate>) delegate{
-    [self.imageView setImageDownloadDelegate:delegate];
+    [self.imageView setLeImageDownloadDelegate:delegate];
 }
 -(void) setImageURL:(NSString *) url AndAspect:(float) aspect{
     [self.imageView setFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.width/aspect)];
-    [self.imageView setImageWithUrlString:url];
+    [self.imageView leSetImageWithUrlString:url];
     self.contentSize = self.imageView.frame.size;
     [self setMaxMinZoomScalesForCurrentBounds];
     [self setZoomScale:self.minimumZoomScale animated:FALSE];

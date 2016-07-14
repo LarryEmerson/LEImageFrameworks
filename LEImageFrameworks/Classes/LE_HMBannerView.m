@@ -17,7 +17,7 @@
 }
 -(void) setData:(NSDictionary *) data{
     NSString *url=[data objectForKey:@"img_url"];
-    [self setImageWithUrlString:url];
+    [self leSetImageWithUrlString:url];
 }
 -(void) initUI{}
 @end

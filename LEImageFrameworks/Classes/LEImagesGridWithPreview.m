@@ -48,7 +48,7 @@
     if(qiniuImageView2){
         url=[NSString stringWithFormat:@"%@?imageView2/1/w/%d/h/%d",url, (int)self.bounds.size.width*(int)LESCREEN_SCALE, (int)self.bounds.size.height*(int)LESCREEN_SCALE];
     }
-    [self setImageWithUrlString:url];
+    [self leSetImageWithUrlString:url];
 }
 @end
 

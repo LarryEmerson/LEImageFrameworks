@@ -19,16 +19,16 @@
 @end
 
 @interface UIImageView (LoadImageWithUrl)
-@property (nonatomic) UIImage *placeholderImage;
-@property (nonatomic) id<LEImageDownloadDelegate> imageDownloadDelegate;
--(void) setImageWithUrlString:(NSString *) url;
--(void) setImageForQiniuWithUrlString:(NSString *) url Width:(int)w Height:(int) h;
--(void) setImageForQiniuWithUrlString:(NSString *) url;
--(void) addToImageCacheWithUrl:(NSString *) url;
+@property (nonatomic) UIImage *lePlaceholderImage;
+@property (nonatomic) id<LEImageDownloadDelegate> leImageDownloadDelegate;
+-(void) leSetImageWithUrlString:(NSString *) url;
+-(void) leSetImageForQiniuWithUrlString:(NSString *) url Width:(int)w Height:(int) h;
+-(void) leSetImageForQiniuWithUrlString:(NSString *) url;
+-(void) leAddToImageCacheWithUrl:(NSString *) url;
 
--(void) setCornerRadius:(int) radius;
-+(UIImageView *) getUIImageViewWithSettings:(LEAutoLayoutSettings *) settings Image:(UIImage *) image;
-+(UIImageView *) getUIImageViewWithSettings:(LEAutoLayoutSettings *) settings Image:(UIImage *) image CornerRadius:(int) radius;
+-(void) leSetCornerRadius:(int) radius;
++(UIImageView *) leGetImageViewWithSettings:(LEAutoLayoutSettings *) settings Image:(UIImage *) image;
++(UIImageView *) leGetImageViewWithSettings:(LEAutoLayoutSettings *) settings Image:(UIImage *) image CornerRadius:(int) radius;
 @end
 
 @interface LEImageCache : NSObject

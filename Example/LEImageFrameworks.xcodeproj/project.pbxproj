@@ -13,7 +13,6 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		778790206C740754275C67A4 /* Pods_LEImageFrameworks_Test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 925648524299752D36A0051B /* Pods_LEImageFrameworks_Test.framework */; };
-		80528AAC1D33734700AA2056 /* LEImageFrameworks.gif in Resources */ = {isa = PBXBuildFile; fileRef = 80528AAB1D33734700AA2056 /* LEImageFrameworks.gif */; };
 		8097794A1D2F799200E36104 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 809779491D2F799200E36104 /* main.m */; };
 		8097794D1D2F799200E36104 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8097794C1D2F799200E36104 /* AppDelegate.m */; };
 		809779501D2F799200E36104 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8097794F1D2F799200E36104 /* ViewController.m */; };
@@ -37,7 +36,6 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
-		80528AAB1D33734700AA2056 /* LEImageFrameworks.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = LEImageFrameworks.gif; sourceTree = "<group>"; };
 		809779461D2F799200E36104 /* LEImageFrameworks_Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LEImageFrameworks_Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		809779491D2F799200E36104 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8097794B1D2F799200E36104 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -142,7 +140,6 @@
 				163D8A1B4F04FE3CA271A8B8 /* LEImageFrameworks.podspec */,
 				B56B15C40B0D8DC9F382FBB0 /* README.md */,
 				47ADD78A12C35FFC3BF81AB1 /* LICENSE */,
-				80528AAB1D33734700AA2056 /* LEImageFrameworks.gif */,
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
@@ -267,7 +264,6 @@
 			files = (
 				809779581D2F799200E36104 /* LaunchScreen.storyboard in Resources */,
 				809779551D2F799200E36104 /* Assets.xcassets in Resources */,
-				80528AAC1D33734700AA2056 /* LEImageFrameworks.gif in Resources */,
 				809779531D2F799200E36104 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -553,7 +549,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = LEImageFrameworks_Test/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.larryemerson.LEFrameworks-Test.LEImageFrameworks-Test";
@@ -572,7 +568,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = LEImageFrameworks_Test/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.larryemerson.LEFrameworks-Test.LEImageFrameworks-Test";

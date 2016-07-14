@@ -26,7 +26,7 @@
 -(void) setExtraViewInits{
     [self.viewContainer setBackgroundColor:[UIColor colorWithRed:0.412 green:0.396 blue:0.409 alpha:1.000]];
     scrollView=[[UIScrollView alloc] initWithAutoLayoutSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:self.viewContainer Anchor:LEAnchorInsideCenter Offset:CGPointZero CGSize:CGSizeMake(self.curFrameWidth, self.curFrameWidth/curAspect)]];
-    [scrollView setBackgroundColor:ColorClear];
+    [scrollView setBackgroundColor:LEColorClear];
     [scrollView setDelegate:self];
     [scrollView setShowsHorizontalScrollIndicator:NO];
     [scrollView setShowsVerticalScrollIndicator:NO];
@@ -46,10 +46,10 @@
     [scrollView setClipsToBounds:NO];
     
     UIView *topCover=[[UIView alloc]initWithFrame:CGRectMake(0, 0, self.curFrameWidth, scrollView.frame.origin.y)];
-    [topCover setBackgroundColor:ColorMask5];
+    [topCover setBackgroundColor:LEColorMask5];
     [self.viewContainer addSubview:topCover];
     UIView *bottomView=[[UIView alloc]initWithFrame:CGRectMake(0, scrollView.frame.origin.y+scrollView.bounds.size.height, self.curFrameWidth, self.curFrameHight-scrollView.bounds.size.height)];
-    [bottomView setBackgroundColor:ColorMask5];
+    [bottomView setBackgroundColor:LEColorMask5];
     [self.viewContainer addSubview:bottomView];
 }
 - (void)cancelCropping {
@@ -154,7 +154,7 @@ static LESingleImagePicker *curLESingleImagePicker;
             }];
         }else{
             curDelegate=nil;
-            [viewController.view addLocalNotification:@"摄像头打开失败，请检查是否被禁用"];
+            [viewController.view leAddLocalNotification:@"摄像头打开失败，请检查是否被禁用"];
         }
     }
     return self;
@@ -222,11 +222,11 @@ static LESingleImagePicker *curLESingleImagePicker;
     }];
 }
 -(void) onCancelImageCropper{
-    //    NSLogFunc;
+    //    LELogFunc;
     [cropper.navigationController popViewControllerAnimated:YES];
 }
 -(void) onDoneCroppedWithImage:(UIImage *)image{
-    //    NSLogFunc;
+    //    LELogFunc;
     NSData *imageData = UIImageJPEGRepresentation(image, 1);
     UIImage *compressedImage = [UIImage imageWithData:imageData];
     if(curDelegate){

@@ -31,13 +31,9 @@
 #import "LECurveProgressView.h"
 #import "LEWaveProgressView.h"
 #import "LEScanQRCode.h"
+#import "LEShowQrcode.h"
 #import "LESegmentView.h"
 #import "LEWebView.h"
-#import "DJRefresh.h"
-#import "DJRefreshBottomView.h"
-#import "DJRefreshMacro.h"
-#import "DJRefreshTopView.h"
-#import "DJRefreshView.h"
 
 FOUNDATION_EXPORT double LEFrameworksVersionNumber;
 FOUNDATION_EXPORT const unsigned char LEFrameworksVersionString[];

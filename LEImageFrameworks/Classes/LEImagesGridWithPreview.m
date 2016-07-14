@@ -33,8 +33,8 @@
 
 -(void) initUI{
     [self setUserInteractionEnabled:YES];
-    tapButton=[LEUIFramework getUIButtonWithSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:self EdgeInsects:UIEdgeInsetsZero] ButtonSettings:[[LEAutoLayoutUIButtonSettings alloc] initWithTitle:nil FontSize:0 Font:nil Image:nil BackgroundImage:nil Color:nil SelectedColor:nil MaxWidth:0 SEL:@selector(onClick) Target:self]];
-    [tapButton setBackgroundImage:[ColorMask2 imageStrechedFromSizeOne] forState:UIControlStateHighlighted];
+    tapButton=[LEUIFramework leGetButtonWithSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:self EdgeInsects:UIEdgeInsetsZero] ButtonSettings:[[LEAutoLayoutUIButtonSettings alloc] initWithTitle:nil FontSize:0 Font:nil Image:nil BackgroundImage:nil Color:nil SelectedColor:nil MaxWidth:0 SEL:@selector(onClick) Target:self]];
+    [tapButton setBackgroundImage:[LEColorMask2 leImageStrechedFromSizeOne] forState:UIControlStateHighlighted];
 }
 -(void) onClick{
     if(curDelegate&&[curDelegate respondsToSelector:@selector(onImagesGridCellClickedWithIndex:)]){
@@ -46,7 +46,7 @@
     curIndex=index;
     NSString *url=[curURLPrefix stringByAppendingString:[imageDataSource objectAtIndex:curIndex]];
     if(qiniuImageView2){
-        url=[NSString stringWithFormat:@"%@?imageView2/1/w/%d/h/%d",url, (int)self.bounds.size.width*[LEUIFramework sharedInstance].curScreenScale, (int)self.bounds.size.height*[LEUIFramework sharedInstance].curScreenScale];
+        url=[NSString stringWithFormat:@"%@?imageView2/1/w/%d/h/%d",url, (int)self.bounds.size.width*(int)LESCREEN_SCALE, (int)self.bounds.size.height*(int)LESCREEN_SCALE];
     }
     [self setImageWithUrlString:url];
 }

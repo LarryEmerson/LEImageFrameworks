@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/cocoapods/l/LEImageFrameworks.svg?style=flat)](http://cocoapods.org/pods/LEImageFrameworks)
 [![Platform](https://img.shields.io/cocoapods/p/LEImageFrameworks.svg?style=flat)](http://cocoapods.org/pods/LEImageFrameworks)
 
-![](https://github.com/LarryEmerson/LEImageFrameworks/blob/master/Example/LEImageFrameworks.gif)
+![](https://github.com/LarryEmerson/LEAllFrameworksGif/blob/master/Example/LEImageFrameworks.gif)
 
 
 ## Frameworks
@@ -13,12 +13,12 @@
 ###### 分为两种显示方式：1-BannerStayAtTheTop 在视图的顶部，不会随着列表的滚动而滚动 2-BannerScrollWithCells 在视图的顶部，但是处在列表中，会随着列表的滚动而滚动
 
 ### 2-LEImageCellGroupsWithPicker 朋友圈发布图片时的图片多选控件，点击“+”添加多张图片，点击图片打开预览并且提供删除正在预览的图片的功能。
-![](https://github.com/LarryEmerson/LEImageFrameworks/blob/master/Example/LEImageCellGroupsWithPicker.png)
+![](https://github.com/LarryEmerson/LEAllFrameworksGif/blob/master/LEImageCellGroupsWithPicker.png)
 
 
 
 ### 3-LEImagesGridWithPreview 已发布的朋友圈图片九宫格，点击图片即可顺序全屏预览。
-![](https://github.com/LarryEmerson/LEImageFrameworks/blob/master/Example/LEImagesGridWithPreview.png)
+![](https://github.com/LarryEmerson/LEAllFrameworksGif/blob/master/Example/LEImagesGridWithPreview.png)
 
 ### 4-LESingleImagePicker 用于设置头像背景等单张图片。
 ###### 调用方式为静态方法：+(void) onLESingleImagePickerWithSuperView:(UIView *) superView ViewController:(UIViewController *) viewController Title:(NSString *) title Aspect:(float) aspect Delegate:(id<LEImageCropperDelegate>) delegate;

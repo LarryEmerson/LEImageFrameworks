@@ -31,11 +31,11 @@
     [curScrollview setDelegate:self];
     [curScrollview setShowsHorizontalScrollIndicator:NO];
     [curScrollview setShowsVerticalScrollIndicator:NO];
-    [curScrollview setBackgroundColor:[LEUIFramework sharedInstance].colorNavigationBar];
+    [curScrollview setBackgroundColor:[LEUIFramework sharedInstance].leColorNavigationBar];
     
     curPageControl=[[UIPageControl alloc] init];
     [self.viewContainer addSubview:curPageControl];
-    [curPageControl setFrame:CGRectMake(width/2-curPageControl.bounds.size.width/2, height-LayoutSideSpace27, curPageControl.bounds.size.width, curPageControl.bounds.size.height)];
+    [curPageControl setFrame:CGRectMake(width/2-curPageControl.bounds.size.width/2, height-LELayoutSideSpace27, curPageControl.bounds.size.width, curPageControl.bounds.size.height)];
     [curPageControl setHidesForSinglePage:YES];
     
 }
@@ -122,10 +122,10 @@
     isBarHide=self.navigationController.navigationBarHidden;
     [self.navigationController setNavigationBarHidden:NO];
     [self.view addSubview:page];
-    [self setLeftBarButtonAsBackWith:IMG_ArrowLeft];
+    [self leSetLeftBarButtonAsBackWith:LEIMG_ArrowLeft];
     [self.navigationItem setTitle:@"图片编辑"];
     if(curDeleteIcon){
-        [self setRightBarButtonWithImage:curDeleteIcon SEL:@selector(onRight)];
+        [self leSetRightBarButtonWithImage:curDeleteIcon SEL:@selector(onRight)];
     }
 }
 
@@ -162,8 +162,8 @@
 
 -(void) initUI{
     [self setUserInteractionEnabled:YES];
-    tapButton=[LEUIFramework getUIButtonWithSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:self EdgeInsects:UIEdgeInsetsZero] ButtonSettings:[[LEAutoLayoutUIButtonSettings alloc] initWithTitle:nil FontSize:0 Font:nil Image:nil BackgroundImage:nil Color:nil SelectedColor:nil MaxWidth:0 SEL:@selector(onClick) Target:self]];
-    [tapButton setBackgroundImage:[ColorMask2 imageStrechedFromSizeOne] forState:UIControlStateHighlighted];
+    tapButton=[LEUIFramework leGetButtonWithSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:self EdgeInsects:UIEdgeInsetsZero] ButtonSettings:[[LEAutoLayoutUIButtonSettings alloc] initWithTitle:nil FontSize:0 Font:nil Image:nil BackgroundImage:nil Color:nil SelectedColor:nil MaxWidth:0 SEL:@selector(onClick) Target:self]];
+    [tapButton setBackgroundImage:[LEColorMask2 leImageStrechedFromSizeOne] forState:UIControlStateHighlighted];
 }
 -(void) onClick{
     if(curDelegate&&[curDelegate respondsToSelector:@selector(onImagePickerCellClickedWith:)]){

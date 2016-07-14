@@ -39,17 +39,17 @@
     [curScrollView setDelegate:self];
     [curScrollView setShowsHorizontalScrollIndicator:NO];
     [curScrollView setShowsVerticalScrollIndicator:NO];
-    [curScrollView setBackgroundColor:[LEUIFramework sharedInstance].colorNavigationBar];
+    [curScrollView setBackgroundColor:[LEUIFramework sharedInstance].leColorNavigationBar];
     //    [curScrollView setBounces:NO];
     curPageControl=[[UIPageControl alloc] init];
     [self.viewContainer addSubview:curPageControl];
-    [curPageControl setFrame:CGRectMake(width/2-curPageControl.bounds.size.width/2, height-LayoutSideSpace27, curPageControl.bounds.size.width, curPageControl.bounds.size.height)];
+    [curPageControl setFrame:CGRectMake(width/2-curPageControl.bounds.size.width/2, height-LELayoutSideSpace27, curPageControl.bounds.size.width, curPageControl.bounds.size.height)];
     [curPageControl setNumberOfPages:imageDataSource.count];
     [curPageControl setHidesForSinglePage:YES];
     for (NSInteger i=0; i<imageDataSource.count; i++) {
         NSString *url=[curURLPrefix stringByAppendingString:[imageDataSource objectAtIndex:i]];
         if(qiniuImageView2){
-            url=[NSString stringWithFormat:@"%@?imageView2/1/w/%d/h/%d",url, width*[LEUIFramework sharedInstance].curScreenScale, width*[LEUIFramework sharedInstance].curScreenScale];
+            url=[NSString stringWithFormat:@"%@?imageView2/1/w/%d/h/%d",url, width*(int)LESCREEN_SCALE, width*(int)LESCREEN_SCALE];
         }
         LE_PZPhotoView  *view=[[LE_PZPhotoView  alloc] initWithFrame:CGRectMake(width*i, 0, width, height)];
         [view setImageURL:url AndAspect:1];

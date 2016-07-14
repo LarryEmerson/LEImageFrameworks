@@ -78,8 +78,8 @@
         }
         for (NSInteger i = 0; i < 3; i++) {
             LE_HMBannerViewImageView *imageView =nil;
-            SuppressPerformSelectorLeakWarning(
-                                               imageView=[[curImageViewClassName getInstanceFromClassName] performSelector:NSSelectorFromString(@"init")];
+          LESuppressPerformSelectorLeakWarning(
+                                               imageView=[[curImageViewClassName leGetInstanceFromClassName] performSelector:NSSelectorFromString(@"init")];
                                                );
             [imageView setFrame:scrollView.bounds];
             imageView.userInteractionEnabled = YES;
@@ -93,7 +93,7 @@
             }
             [scrollView addSubview:imageView];
         }
-        self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(LayoutSideSpace, frame.size.height-HMBannerOffset, HMBannerWidth, HMBannerOffset)];
+        self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(LELayoutSideSpace, frame.size.height-HMBannerOffset, HMBannerWidth, HMBannerOffset)];
         self.pageControl.numberOfPages = self.imagesArray.count;
         [self.pageControl setUserInteractionEnabled:NO];
         [self addSubview:self.pageControl];
@@ -143,9 +143,9 @@
         width=HMBannerSize;
     }
     if (pageStyle == PageStyle_Left){
-        [self.pageControl setFrame:CGRectMake(LayoutSideSpace+curPageStyleOffset.x, self.bounds.size.height-HMBannerOffset+curPageStyleOffset.y, width, HMBannerOffset)];
+        [self.pageControl setFrame:CGRectMake(LELayoutSideSpace+curPageStyleOffset.x, self.bounds.size.height-HMBannerOffset+curPageStyleOffset.y, width, HMBannerOffset)];
     }else if (pageStyle == PageStyle_Right){
-        [self.pageControl setFrame:CGRectMake(self.bounds.size.width-LayoutSideSpace-width+curPageStyleOffset.x, self.bounds.size.height-HMBannerOffset+curPageStyleOffset.y, width, HMBannerOffset)];
+        [self.pageControl setFrame:CGRectMake(self.bounds.size.width-LELayoutSideSpace-width+curPageStyleOffset.x, self.bounds.size.height-HMBannerOffset+curPageStyleOffset.y, width, HMBannerOffset)];
     }else if (pageStyle == PageStyle_Middle){
         [self.pageControl setFrame:CGRectMake((self.bounds.size.width-width)/2+curPageStyleOffset.x, self.bounds.size.height-HMBannerOffset-self.pageControl.bounds.size.height+curPageStyleOffset.y, width, HMBannerOffset)];
     }else if (pageStyle == PageStyle_None){
@@ -161,7 +161,7 @@
             [BannerCloseButton setContentVerticalAlignment:UIControlContentVerticalAlignmentTop];
             [BannerCloseButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
             [BannerCloseButton addTarget:self action:@selector(closeBanner) forControlEvents:UIControlEventTouchUpInside];
-            [BannerCloseButton setImage:[[LEUIFramework sharedInstance] getImageFromLEFrameworksWithName:@"banner_close"] forState:UIControlStateNormal];
+            [BannerCloseButton setImage:[[LEUIFramework sharedInstance] leGetImageFromLEFrameworksWithName:@"banner_close"] forState:UIControlStateNormal];
             BannerCloseButton.exclusiveTouch = YES;
             [self addSubview:BannerCloseButton];
         }

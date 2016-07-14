@@ -19,19 +19,19 @@
     globalVar=[LEUIFramework sharedInstance];
     self=[super initWithFrame:frame];
     bannerDelegate=delegate;
-    bannerView=[[LE_HMBannerView alloc] initWithFrame:CGRectMake(0, 0, globalVar.ScreenWidth, globalVar.ScreenWidth*DefaultBannerHeightRate) scrollDirection:ScrollDirectionLandscape images:nil ImageViewClassName:bannerImageView];
+    bannerView=[[LE_HMBannerView alloc] initWithFrame:CGRectMake(0, 0, LESCREEN_WIDTH, LESCREEN_WIDTH*DefaultBannerHeightRate) scrollDirection:ScrollDirectionLandscape images:nil ImageViewClassName:bannerImageView];
     [bannerView setDelegate:self];
     [bannerView setRollingDelayTime:2];
     [bannerView setPageControlStyle:PageStyle_Middle]; 
     [self addSubview:bannerView];
     if(subView){
-        SuppressPerformSelectorLeakWarning(
-                                           bannerSubview=[[subView getInstanceFromClassName] performSelector:NSSelectorFromString(@"initWithDelegate:") withObject:self];
+      LESuppressPerformSelectorLeakWarning(
+                                           bannerSubview=[[subView leGetInstanceFromClassName] performSelector:NSSelectorFromString(@"initWithDelegate:") withObject:self];
                                            );
-        [bannerSubview setFrame:CGRectMake(0, globalVar.ScreenWidth*DefaultBannerHeightRate, globalVar.ScreenWidth, DefaultBannerSubviewHeight)];
+        [bannerSubview setFrame:CGRectMake(0, LESCREEN_WIDTH*DefaultBannerHeightRate, LESCREEN_WIDTH, DefaultBannerSubviewHeight)];
         [self addSubview:bannerSubview];
     }
-    [self setFrame:CGRectMake(0, 0, globalVar.ScreenWidth, globalVar.ScreenWidth*DefaultBannerHeightRate+(bannerSubview?DefaultBannerSubviewHeight:0))];
+    [self setFrame:CGRectMake(0, 0, LESCREEN_WIDTH, LESCREEN_WIDTH*DefaultBannerHeightRate+(bannerSubview?DefaultBannerSubviewHeight:0))];
     return self;
 }
 -(void) setBannerData:(NSArray *) bannerData SubviewData:(NSDictionary *)subview{
@@ -44,8 +44,8 @@
     }
 }
 -(void) onFrameResizedWithHeight:(int)height{
-    [bannerSubview setFrame:CGRectMake(0, bannerView.bounds.size.height, globalVar.ScreenWidth, height)];
-    [self setFrame:CGRectMake(0, 0, globalVar.ScreenWidth, globalVar.ScreenWidth*DefaultBannerHeightRate+height)];
+    [bannerSubview setFrame:CGRectMake(0, bannerView.bounds.size.height, LESCREEN_WIDTH, height)];
+    [self setFrame:CGRectMake(0, 0, LESCREEN_WIDTH, LESCREEN_WIDTH*DefaultBannerHeightRate+height)];
     if([bannerDelegate respondsToSelector:NSSelectorFromString(@"onFrameResizedWithHeight:")]){
         [bannerDelegate onFrameResizedWithHeight:self.bounds.size.height];
     }
@@ -64,25 +64,25 @@
 -(id) initWithSelectionDelegate:(id<LETableViewCellSelectionDelegate>) delegate SubviewClassName:(NSString *) subview BannerImageViewClassName:(NSString *) bannerImageView{
     LETableViewCellSettings *settings=[[LETableViewCellSettings alloc] initWithSelectionDelegate:delegate TableViewCellStyle:UITableViewCellStyleDefault reuseIdentifier:@"Banner" EnableGesture:NO];
     self=[super initWithSettings:settings];
-    bannerView=[[LE_HMBannerView alloc] initWithFrame:CGRectMake(0, 0, self.globalVar.ScreenWidth, self.globalVar.ScreenWidth*DefaultBannerHeightRate) scrollDirection:ScrollDirectionLandscape images:nil ImageViewClassName:bannerImageView];
+    bannerView=[[LE_HMBannerView alloc] initWithFrame:CGRectMake(0, 0, LESCREEN_WIDTH, LESCREEN_WIDTH*DefaultBannerHeightRate) scrollDirection:ScrollDirectionLandscape images:nil ImageViewClassName:bannerImageView];
     [self addSubview:bannerView];
     [bannerView setDelegate:self];
     [bannerView setRollingDelayTime:2];
     [bannerView setPageControlStyle:PageStyle_Middle];
     if(subview){
-        SuppressPerformSelectorLeakWarning(
-                                           bannerSubview=[[subview getInstanceFromClassName] performSelector:NSSelectorFromString(@"initWithDelegate:") withObject:self];
+      LESuppressPerformSelectorLeakWarning(
+                                           bannerSubview=[[subview leGetInstanceFromClassName] performSelector:NSSelectorFromString(@"initWithDelegate:") withObject:self];
                                            );
-        [bannerSubview setFrame:CGRectMake(0, bannerView.bounds.size.height, self.globalVar.ScreenWidth, DefaultBannerSubviewHeight)];
+        [bannerSubview setFrame:CGRectMake(0, bannerView.bounds.size.height, LESCREEN_WIDTH, DefaultBannerSubviewHeight)];
         [self addSubview:bannerSubview];
     }
     
-    [self setCellHeight:self.globalVar.ScreenWidth*DefaultBannerHeightRate+(subview?DefaultBannerSubviewHeight:0)];
+    [self setCellHeight:LESCREEN_WIDTH*DefaultBannerHeightRate+(subview?DefaultBannerSubviewHeight:0)];
     return self;
 }
 -(void) onFrameResizedWithHeight:(int)height{
-    [bannerSubview setFrame:CGRectMake(0, bannerView.bounds.size.height, self.globalVar.ScreenWidth, height)];
-    [self setCellHeight:self.globalVar.ScreenWidth*DefaultBannerHeightRate+height];
+    [bannerSubview setFrame:CGRectMake(0, bannerView.bounds.size.height, LESCREEN_WIDTH, height)];
+    [self setCellHeight:LESCREEN_WIDTH*DefaultBannerHeightRate+height];
 }
 -(void) setBannerData:(NSArray *)data IndexPath:(NSIndexPath *)path SubviewData:(NSDictionary *) subview{
     self.curIndexPath=path;
@@ -159,8 +159,8 @@
     if(bannerStyle==BannerStayAtTheTop){
         LEBaseTableViewCell *cell=[self dequeueReusableCellWithIdentifier:CommonTableViewReuseableCellIdentifier];
         if(!cell){
-            SuppressPerformSelectorLeakWarning(
-                                               cell=[[self.tableViewCellClassName getInstanceFromClassName] performSelector:NSSelectorFromString(@"initWithSettings:") withObject:[[LETableViewCellSettings alloc] initWithSelectionDelegate:self.cellSelectionDelegate]];
+          LESuppressPerformSelectorLeakWarning(
+                                               cell=[[self.tableViewCellClassName leGetInstanceFromClassName] performSelector:NSSelectorFromString(@"initWithSettings:") withObject:[[LETableViewCellSettings alloc] initWithSelectionDelegate:self.cellSelectionDelegate]];
                                                );
         }
         if(cell&&indexPath.row<self.itemsArray.count){
@@ -180,8 +180,8 @@
             }else{
                 LEBaseTableViewCell *cell=[self dequeueReusableCellWithIdentifier:CommonTableViewReuseableCellIdentifier];
                 if(!cell){
-                    SuppressPerformSelectorLeakWarning(
-                                                       cell=[[self.tableViewCellClassName getInstanceFromClassName] performSelector:NSSelectorFromString(@"initWithSettings:") withObject:[[LETableViewCellSettings alloc] initWithSelectionDelegate:self.cellSelectionDelegate]];
+                  LESuppressPerformSelectorLeakWarning(
+                                                       cell=[[self.tableViewCellClassName leGetInstanceFromClassName] performSelector:NSSelectorFromString(@"initWithSettings:") withObject:[[LETableViewCellSettings alloc] initWithSelectionDelegate:self.cellSelectionDelegate]];
                                                        );
                 }
                 int index=(int)indexPath.row-(curBannerData?1:0);
@@ -248,20 +248,20 @@
 //点击事件
 -(void) onBannerSelectedWithIndex:(NSInteger)index{
     [curParent onBannerSelectedWithIndex:index];
-    //    NSLog(@"触发Banner点击事件，子类需要重写onBannerSelectedWithIndex方法。当前点击了第%@张Banner",[NSNumber numberWithInteger:index]);
+    //    LELog(@"触发Banner点击事件，子类需要重写onBannerSelectedWithIndex方法。当前点击了第%@张Banner",[NSNumber numberWithInteger:index]);
 }
 -(void) onTableViewCellSelectedWithInfo:(NSDictionary *)info{
     [curParent onTableViewCellSelectedWithInfo:info];
-    //    NSLog(@"参数tableViewDelegate=nil, 调用父类onTableViewCellSelectedWithInfo。%@",info);
+    //    LELog(@"参数tableViewDelegate=nil, 调用父类onTableViewCellSelectedWithInfo。%@",info);
 }
 //数据请求
 -(void) onRefreshData{
     [curParent onRefreshData];
-    //    NSLog(@"触发下拉刷新，子类需要重写onRefreshData方法，待获取到数据后需要执行onFreshDataLogic方法");
+    //    LELog(@"触发下拉刷新，子类需要重写onRefreshData方法，待获取到数据后需要执行onFreshDataLogic方法");
 }
 -(void) onLoadMore{
     [curParent onLoadMore];
-    //    NSLog(@"上拉获取更多，子类需要重写onLoadMore方法，待获取到数据后需要执行onLoadMoreLogic");
+    //    LELog(@"上拉获取更多，子类需要重写onLoadMore方法，待获取到数据后需要执行onLoadMoreLogic");
 }
 //高度变动通知
 -(void) onFrameResizedWithHeight:(int)height{

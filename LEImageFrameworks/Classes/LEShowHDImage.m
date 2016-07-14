@@ -30,14 +30,14 @@
     if (self) {
         [self setAlpha:0];
         globalVar = [LEUIFramework sharedInstance];
-        [self setFrame:CGRectMake(0, 0, globalVar.ScreenWidth, globalVar.ScreenHeight)];
+        [self setFrame:CGRectMake(0, 0, LESCREEN_WIDTH, LESCREEN_HEIGHT)];
         [self setBackgroundColor:[UIColor blackColor]];
         loading=[[LELoadingAnimationView alloc]init];
         
         [loading startAnimation];
-        [loading setFrame:CGRectMake(globalVar.ScreenWidth/2-loading.viewWidth/2, globalVar.ScreenHeight/2-loading.viewHeight/2, loading.viewWidth, loading.viewHeight)];
+        [loading setFrame:CGRectMake(LESCREEN_WIDTH/2-loading.viewWidth/2, LESCREEN_HEIGHT/2-loading.viewHeight/2, loading.viewWidth, loading.viewHeight)];
         //
-        pzView=[[LE_PZPhotoView  alloc]initWithFrame:CGRectMake(0, 0, globalVar.ScreenWidth, globalVar.ScreenHeight)];
+        pzView=[[LE_PZPhotoView  alloc]initWithFrame:CGRectMake(0, 0, LESCREEN_WIDTH, LESCREEN_HEIGHT)];
         [pzView setPhotoViewDelegate:self];
         [loading startAnimation];
         [pzView setImageURL:url AndAspect:aspect];
@@ -56,7 +56,7 @@
     [loading stopAnimation];
 }
 - (void)onDownloadedImageWith:(UIImage *)image{
-    //    NSLog(@"photoViewDidDownloadedImage");
+    //    LELog(@"photoViewDidDownloadedImage");
     [loading stopAnimation];
 }
 - (void)photoViewDidSingleTap:(LE_PZPhotoView  *)photoView{

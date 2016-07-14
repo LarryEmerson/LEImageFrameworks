@@ -26,10 +26,10 @@ static void * UIImageDownloadDelegateKey = (void *) @"UIImageDownloadDelegateKey
 }
 
 -(void) setImageForQiniuWithUrlString:(NSString *) url Width:(int)w Height:(int) h{
-    [self setImageWithUrlString:[NSString stringWithFormat:@"%@?imageView2/1/w/%d/h/%d",url,w*[LEUIFramework sharedInstance].curScreenScale,h*[LEUIFramework sharedInstance].curScreenScale]];
+    [self setImageWithUrlString:[NSString stringWithFormat:@"%@?imageView2/1/w/%d/h/%d",url,w*(int)LESCREEN_SCALE,h*(int)LESCREEN_SCALE]];
 }
 -(void) setImageForQiniuWithUrlString:(NSString *) url{
-    [self setImageWithUrlString:[NSString stringWithFormat:@"%@?imageView2/1/w/%d/h/%d",url,(int)self.bounds.size.width*[LEUIFramework sharedInstance].curScreenScale,(int)self.bounds.size.height*[LEUIFramework sharedInstance].curScreenScale]];
+    [self setImageWithUrlString:[NSString stringWithFormat:@"%@?imageView2/1/w/%d/h/%d",url,(int)self.bounds.size.width*(int)LESCREEN_SCALE,(int)self.bounds.size.height*(int)LESCREEN_SCALE]];
 }
 -(void) setImageWithUrlString:(NSString *) url {
     if(url){
@@ -37,7 +37,7 @@ static void * UIImageDownloadDelegateKey = (void *) @"UIImageDownloadDelegateKey
         if(img){
             [self setImage:img];
         }else{
-            //            NSLogObject(url);
+            //            LELogObject(url);
             [self sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:self.placeholderImage completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL){
                 if(error){
                     [self setImage:self.placeholderImage];

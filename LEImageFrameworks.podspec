@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 s.name             = 'LEImageFrameworks'
-s.version          = '0.1.8'
+s.version          = '0.1.9'
 s.summary          = '图片缓存，滚动广告，单张图片选择，图片切割，朋友圈图片选择器封装，朋友圈图片查看器封装'
 
 # This description is used to generate tags and improve search results.
@@ -27,7 +27,7 @@ s.source           = { :git => 'https://github.com/LarryEmerson/LEImageFramework
 
 s.ios.deployment_target = '7.0'
 
-s.source_files = 'LEImageFrameworks/Classes/**/*'
+s.source_files = 'LEImageFrameworks/Classes/*.{h,m}'
 
 # s.resource_bundles = {
 #   'LEImageFrameworks' => ['LEImageFrameworks/Assets/*.png']

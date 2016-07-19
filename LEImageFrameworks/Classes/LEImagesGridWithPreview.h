@@ -13,5 +13,5 @@
 
 @interface LEImagesGrid : UIView
 -(id) initWithAutoLayoutSettings:(LEAutoLayoutSettings *)settings Space:(int) space Cols:(int) cols Max:(int) max ImageUrlPrefix:(NSString *) prefix QiniuImageView2:(BOOL) qiniu ViewController:(UIViewController *) vc;
--(void) setImageDataSource:(NSArray *) data; 
+-(void) leSetImageDataSource:(NSArray *) data; 
 @end

@@ -21,7 +21,7 @@
 ![](https://github.com/LarryEmerson/LEAllFrameworksGif/blob/master/LEImagesGridWithPreview.png)
 
 ### 4-LESingleImagePicker 用于设置头像背景等单张图片。
-###### 调用方式为静态方法：+(void) onLESingleImagePickerWithSuperView:(UIView *) superView ViewController:(UIViewController *) viewController Title:(NSString *) title Aspect:(float) aspect Delegate:(id<LEImageCropperDelegate>) delegate;
+###### 调用方式为静态方法：+(void) leOnSingleImagePickerWithSuperView:(UIView *) superView ViewController:(UIViewController *) viewController Title:(NSString *) title Aspect:(float) aspect Delegate:(id<LEImageCropperDelegate>) delegate;
 ###### superview 是否为nil表示是否提供弹出窗，用来选择图片来源。
 ###### aspect=-1时表示不对选择的图片进行裁剪，否则提供裁剪界面 
 

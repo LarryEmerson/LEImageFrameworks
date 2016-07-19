@@ -21,11 +21,11 @@
     NSMutableArray *arrayPhotos;
     NSInteger curIndex;
 }
--(void) setExtraViewInits{
+-(void) leExtraInits{
     arrayPhotos=[[NSMutableArray alloc] init];
-    width=self.curFrameWidth;
-    height=self.curFrameHight;
-    curScrollview=[[UIScrollView alloc] initWithAutoLayoutSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:self.viewContainer EdgeInsects:UIEdgeInsetsZero]];
+    width=self.leCurrentFrameWidth;
+    height=self.leCurrentFrameHight;
+    curScrollview=[[UIScrollView alloc] initWithAutoLayoutSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:self.leViewContainer EdgeInsects:UIEdgeInsetsZero]];
     
     [curScrollview setPagingEnabled:YES];
     [curScrollview setDelegate:self];
@@ -34,7 +34,7 @@
     [curScrollview setBackgroundColor:[LEUIFramework sharedInstance].leColorNavigationBar];
     
     curPageControl=[[UIPageControl alloc] init];
-    [self.viewContainer addSubview:curPageControl];
+    [self.leViewContainer addSubview:curPageControl];
     [curPageControl setFrame:CGRectMake(width/2-curPageControl.bounds.size.width/2, height-LELayoutSideSpace27, curPageControl.bounds.size.width, curPageControl.bounds.size.height)];
     [curPageControl setHidesForSinglePage:YES];
     
@@ -91,14 +91,14 @@
     }else if(curIndex-1>=0){
         [self setPage:curIndex-1];
     }else{
-        [self.curViewController.navigationController popViewControllerAnimated:YES];
+        [self.leCurrentViewController.navigationController popViewControllerAnimated:YES];
     }
 }
 @end
 
 @protocol LEImagePickerPreviewDelegate <NSObject>
 
--(void) onDonePickingImagesWith:(NSMutableArray *) array;
+-(void) leOnDonePickingImagesWith:(NSMutableArray *) array;
 
 @end
 @interface LEImagePickerPreview : LEBaseViewController
@@ -136,7 +136,7 @@
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:isBarHide animated:YES];
     if(self.delegate){
-        [self.delegate onDonePickingImagesWith:page.curCells];
+        [self.delegate leOnDonePickingImagesWith:page.curCells];
     }
 } 
 @end
@@ -156,11 +156,11 @@
 -(id) initWithFrame:(CGRect)frame Delegate:(id<LEImagePickerCellDelegate>) delegate{
     curDelegate=delegate;
     self=[super initWithFrame:frame];
-    [self initUI];
+    [self leExtraInits];
     return self;
 }
 
--(void) initUI{
+-(void) leExtraInits{
     [self setUserInteractionEnabled:YES];
     tapButton=[LEUIFramework leGetButtonWithSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:self EdgeInsects:UIEdgeInsetsZero] ButtonSettings:[[LEAutoLayoutUIButtonSettings alloc] initWithTitle:nil FontSize:0 Font:nil Image:nil BackgroundImage:nil Color:nil SelectedColor:nil MaxWidth:0 SEL:@selector(onClick) Target:self]];
     [tapButton setBackgroundImage:[LEColorMask2 leImageStrechedFromSizeOne] forState:UIControlStateHighlighted];
@@ -195,7 +195,7 @@
     curAddImage=add;
     curDeleteImage=delete;
     self= [super initWithAutoLayoutSettings:settings];
-    [self initUI];
+    [self leExtraInits];
     return self;
 }
 
@@ -237,7 +237,7 @@
         [curViewController.navigationController pushViewController:vc animated:YES];
     }
 }
--(void) onMultiImagePickedWith:(NSArray *)images{
+-(void) leOnMultiImagePickedWith:(NSArray *)images{
     for (int i=0; i<images.count; i++) {
         if(self.curCellCache.count<=cellMax){
             UIImage *oriImage = [images objectAtIndex:i];
@@ -275,11 +275,11 @@
         [curViewController.navigationController pushViewController:preview animated:YES];
     }
 }
--(void) onDonePickingImagesWith:(NSMutableArray *)array{
+-(void) leOnDonePickingImagesWith:(NSMutableArray *)array{
     self.curCellCache =array;
     [self reLayoutCells];
 }
--(void) initUI{
+-(void) leExtraInits{
     //    if(cellSpace==0){
     //        cellSpace=LayoutSideSpace;
     //    }

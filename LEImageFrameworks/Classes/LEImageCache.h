@@ -14,11 +14,11 @@
 #import "UIImageView+WebCache.h"
 
 @protocol LEImageDownloadDelegate <NSObject>
--(void) onDownloadImageWithError:(NSError *) error;
--(void) onDownloadedImageWith:(UIImage *) image;
+-(void) leOnDownloadImageWithError:(NSError *) error;
+-(void) leOnDownloadedImageWith:(UIImage *) image;
 @end
 
-@interface UIImageView (LEExtensionDownload)
+@interface UIImageView (LEExtensileOnDownload)
 -(void) leSetImageWithUrlString:(NSString *) url;
 -(void) leSetImageForQiniuWithUrlString:(NSString *) url Width:(int)w Height:(int) h;
 -(void) leSetImageForQiniuWithUrlString:(NSString *) url;
@@ -32,7 +32,7 @@
 
 @interface LEImageCache : NSObject
 +(instancetype) sharedInstance;
--(void) addImage:(UIImage *) image toCacheWithKey:(NSString *) key;
--(UIImage *) getImageFromCacheWithKey:(NSString *) key;
--(NSMutableDictionary *) getImageCache;
+-(void) leAddImage:(UIImage *) image toCacheWithKey:(NSString *) key;
+-(UIImage *) leGetImageFromCacheWithKey:(NSString *) key;
+-(NSMutableDictionary *) leGetImageCache;
 @end

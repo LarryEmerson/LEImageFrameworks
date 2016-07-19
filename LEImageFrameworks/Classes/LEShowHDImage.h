@@ -11,5 +11,5 @@
 #import "LEUIFramework.h"  
 @interface LEShowHDImage : UIView<UIScrollViewDelegate,LE_PZPhotoViewDelegate>
 - (id)initWithUrl:(NSString *) url AndAspect:(float) aspect;
-+ (void) showHDImageWithUrl:(NSString *) url Aspect:(float) aspect; 
++ (void) leShowHDImageWithUrl:(NSString *) url Aspect:(float) aspect; 
 @end

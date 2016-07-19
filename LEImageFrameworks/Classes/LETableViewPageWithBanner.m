@@ -19,40 +19,40 @@
     globalVar=[LEUIFramework sharedInstance];
     self=[super initWithFrame:frame];
     bannerDelegate=delegate;
-    bannerView=[[LE_HMBannerView alloc] initWithFrame:CGRectMake(0, 0, LESCREEN_WIDTH, LESCREEN_WIDTH*DefaultBannerHeightRate) scrollDirection:ScrollDirectionLandscape images:nil ImageViewClassName:bannerImageView];
-    [bannerView setDelegate:self];
-    [bannerView setRollingDelayTime:2];
-    [bannerView setPageControlStyle:PageStyle_Middle]; 
+    bannerView=[[LE_HMBannerView alloc] initWithFrame:CGRectMake(0, 0, LESCREEN_WIDTH, LESCREEN_WIDTH*LEDefaultBannerHeightRate) scrollDirection:ScrollDirectionLandscape images:nil ImageViewClassName:bannerImageView];
+    [bannerView leSetDelegate:self];
+    [bannerView leSetRollingDelayTime:2];
+    [bannerView leSetPageControlStyle:PageStyle_Middle];
     [self addSubview:bannerView];
     if(subView){
-      LESuppressPerformSelectorLeakWarning(
-                                           bannerSubview=[[subView leGetInstanceFromClassName] performSelector:NSSelectorFromString(@"initWithDelegate:") withObject:self];
-                                           );
-        [bannerSubview setFrame:CGRectMake(0, LESCREEN_WIDTH*DefaultBannerHeightRate, LESCREEN_WIDTH, DefaultBannerSubviewHeight)];
+        LESuppressPerformSelectorLeakWarning(
+                                             bannerSubview=[[subView leGetInstanceFromClassName] performSelector:NSSelectorFromString(@"initWithDelegate:") withObject:self];
+                                             );
+        [bannerSubview setFrame:CGRectMake(0, LESCREEN_WIDTH*LEDefaultBannerHeightRate, LESCREEN_WIDTH, LEDefaultBannerSubviewHeight)];
         [self addSubview:bannerSubview];
     }
-    [self setFrame:CGRectMake(0, 0, LESCREEN_WIDTH, LESCREEN_WIDTH*DefaultBannerHeightRate+(bannerSubview?DefaultBannerSubviewHeight:0))];
+    [self setFrame:CGRectMake(0, 0, LESCREEN_WIDTH, LESCREEN_WIDTH*LEDefaultBannerHeightRate+(bannerSubview?LEDefaultBannerSubviewHeight:0))];
     return self;
 }
--(void) setBannerData:(NSArray *) bannerData SubviewData:(NSDictionary *)subview{
+-(void) leSetBannerData:(NSArray *) bannerData SubviewData:(NSDictionary *)subview{
     if(bannerData){
-        [bannerView reloadBannerWithData:bannerData];
-        [bannerView startRolling];
+        [bannerView leReloadBannerWithData:bannerData];
+        [bannerView leStartRolling];
     }
     if(subview){
-        [bannerSubview setData:subview];
+        [bannerSubview leSetData:subview];
     }
 }
--(void) onFrameResizedWithHeight:(int)height{
+-(void) leOnFrameResizedWithHeight:(int)height{
     [bannerSubview setFrame:CGRectMake(0, bannerView.bounds.size.height, LESCREEN_WIDTH, height)];
-    [self setFrame:CGRectMake(0, 0, LESCREEN_WIDTH, LESCREEN_WIDTH*DefaultBannerHeightRate+height)];
-    if([bannerDelegate respondsToSelector:NSSelectorFromString(@"onFrameResizedWithHeight:")]){
-        [bannerDelegate onFrameResizedWithHeight:self.bounds.size.height];
+    [self setFrame:CGRectMake(0, 0, LESCREEN_WIDTH, LESCREEN_WIDTH*LEDefaultBannerHeightRate+height)];
+    if([bannerDelegate respondsToSelector:NSSelectorFromString(@"leOnFrameResizedWithHeight:")]){
+        [bannerDelegate leOnFrameResizedWithHeight:self.bounds.size.height];
     }
 } 
--(void) bannerView:(LE_HMBannerView *)bannerView didSelectImageView:(NSInteger)index withData:(NSDictionary *)bannerData{
+-(void) leBannerView:(LE_HMBannerView *)bannerView didSelectImageView:(NSInteger)index withData:(NSDictionary *)bannerData{
     if(bannerDelegate){
-        [bannerDelegate onBannerSelectedWithIndex:index];
+        [bannerDelegate leOnBannerSelectedWithIndex:index];
     }
 }
 @end
@@ -64,39 +64,39 @@
 -(id) initWithSelectionDelegate:(id<LETableViewCellSelectionDelegate>) delegate SubviewClassName:(NSString *) subview BannerImageViewClassName:(NSString *) bannerImageView{
     LETableViewCellSettings *settings=[[LETableViewCellSettings alloc] initWithSelectionDelegate:delegate TableViewCellStyle:UITableViewCellStyleDefault reuseIdentifier:@"Banner" EnableGesture:NO];
     self=[super initWithSettings:settings];
-    bannerView=[[LE_HMBannerView alloc] initWithFrame:CGRectMake(0, 0, LESCREEN_WIDTH, LESCREEN_WIDTH*DefaultBannerHeightRate) scrollDirection:ScrollDirectionLandscape images:nil ImageViewClassName:bannerImageView];
+    bannerView=[[LE_HMBannerView alloc] initWithFrame:CGRectMake(0, 0, LESCREEN_WIDTH, LESCREEN_WIDTH*LEDefaultBannerHeightRate) scrollDirection:ScrollDirectionLandscape images:nil ImageViewClassName:bannerImageView];
     [self addSubview:bannerView];
-    [bannerView setDelegate:self];
-    [bannerView setRollingDelayTime:2];
-    [bannerView setPageControlStyle:PageStyle_Middle];
+    [bannerView leSetDelegate:self];
+    [bannerView leSetRollingDelayTime:2];
+    [bannerView leSetPageControlStyle:PageStyle_Middle];
     if(subview){
-      LESuppressPerformSelectorLeakWarning(
-                                           bannerSubview=[[subview leGetInstanceFromClassName] performSelector:NSSelectorFromString(@"initWithDelegate:") withObject:self];
-                                           );
-        [bannerSubview setFrame:CGRectMake(0, bannerView.bounds.size.height, LESCREEN_WIDTH, DefaultBannerSubviewHeight)];
+        LESuppressPerformSelectorLeakWarning(
+                                             bannerSubview=[[subview leGetInstanceFromClassName] performSelector:NSSelectorFromString(@"initWithDelegate:") withObject:self];
+                                             );
+        [bannerSubview setFrame:CGRectMake(0, bannerView.bounds.size.height, LESCREEN_WIDTH, LEDefaultBannerSubviewHeight)];
         [self addSubview:bannerSubview];
     }
     
-    [self setCellHeight:LESCREEN_WIDTH*DefaultBannerHeightRate+(subview?DefaultBannerSubviewHeight:0)];
+    [self leSetCellHeight:LESCREEN_WIDTH*LEDefaultBannerHeightRate+(subview?LEDefaultBannerSubviewHeight:0)];
     return self;
 }
--(void) onFrameResizedWithHeight:(int)height{
+-(void) leOnFrameResizedWithHeight:(int)height{
     [bannerSubview setFrame:CGRectMake(0, bannerView.bounds.size.height, LESCREEN_WIDTH, height)];
-    [self setCellHeight:LESCREEN_WIDTH*DefaultBannerHeightRate+height];
+    [self leSetCellHeight:LESCREEN_WIDTH*LEDefaultBannerHeightRate+height];
 }
--(void) setBannerData:(NSArray *)data IndexPath:(NSIndexPath *)path SubviewData:(NSDictionary *) subview{
-    self.curIndexPath=path;
+-(void) leSetBannerData:(NSArray *)data IndexPath:(NSIndexPath *)path SubviewData:(NSDictionary *) subview{
+    self.leIndexPath=path;
     if(data){
-        [bannerView reloadBannerWithData:data];
-        [bannerView startRolling];
+        [bannerView leReloadBannerWithData:data];
+        [bannerView leStartRolling];
     }
     if(subview&&bannerSubview){
-        [bannerSubview setData:subview];
+        [bannerSubview leSetData:subview];
     }
 }
--(void) bannerView:(LE_HMBannerView *)bannerView didSelectImageView:(NSInteger)index withData:(NSDictionary *)bannerData{
-    if(self.selectionDelegate){
-        [self.selectionDelegate onTableViewCellSelectedWithInfo:@{KeyOfCellIndexPath:self.curIndexPath,KeyOfCellClickStatus:[NSNumber numberWithInteger:index]}];
+-(void) leBannerView:(LE_HMBannerView *)bannerView didSelectImageView:(NSInteger)index withData:(NSDictionary *)bannerData{
+    if(self.leSelectionDelegate){
+        [self.leSelectionDelegate leOnTableViewCellSelectedWithInfo:@{LEKeyOfIndexPath:self.leIndexPath,LEKeyOfClickStatus:[NSNumber numberWithInteger:index]}];
     }
 }
 @end
@@ -106,24 +106,20 @@
 }
 -(id) initWithDelegate:(id)delegate{
     frameDelegate=delegate;
-    self.globalVar=[LEUIFramework sharedInstance];
     self= [super init];
-    [self initUI];
+    [self leExtraInits];
     if(frameDelegate){
-        [frameDelegate onFrameResizedWithHeight:self.frame.size.height];
+        [frameDelegate leOnFrameResizedWithHeight:self.frame.size.height];
     }
     return self;
 }
--(void) setData:(NSDictionary *) data{
+-(void) leSetData:(NSDictionary *) data{
     //set your subview's contents here and reset subview's frame
-    [self notifyHeightChange];
+    [self leNotifyHeightChange];
 }
--(void) initUI{
-    
-}
--(void) notifyHeightChange{
+-(void) leNotifyHeightChange{
     if(frameDelegate){
-        [frameDelegate onFrameResizedWithHeight:self.frame.size.height];
+        [frameDelegate leOnFrameResizedWithHeight:self.frame.size.height];
     }
 }
 @end
@@ -132,18 +128,18 @@
     NSArray *curBannerData;
     NSDictionary *curSubViewData;
     NSString *subViewClassName;
-    TableViewBannerStyle bannerStyle;
+    LEBannerStyle bannerStyle;
     NSString * bannerImageViewClassName;
 }
 
--(NSInteger) _numberOfRowsInSection:(NSInteger) section{
+-(NSInteger) leNumberOfRowsInSection:(NSInteger) section{
     if(bannerStyle==BannerStayAtTheTop){
-        return self.itemsArray.count;
+        return self.leItemsArray.count;
     }else{
-        return self.itemsArray.count+(curBannerData?1:0);
+        return self.leItemsArray.count+(curBannerData?1:0);
     }
 }
--(void) setBannerData:(NSArray *)bannerData SubviewData:(NSDictionary *) subView{
+-(void) leSetBannerData:(NSArray *)bannerData SubviewData:(NSDictionary *) subView{
     if(bannerData){
         curBannerData=bannerData;
     }
@@ -155,38 +151,38 @@
     }
 }
 
--(UITableViewCell *) _cellForRowAtIndexPath:(NSIndexPath *) indexPath{
+-(UITableViewCell *) leCellForRowAtIndexPath:(NSIndexPath *) indexPath{
     if(bannerStyle==BannerStayAtTheTop){
-        LEBaseTableViewCell *cell=[self dequeueReusableCellWithIdentifier:CommonTableViewReuseableCellIdentifier];
+        LEBaseTableViewCell *cell=[self dequeueReusableCellWithIdentifier:LEReuseableCellIdentifier];
         if(!cell){
-          LESuppressPerformSelectorLeakWarning(
-                                               cell=[[self.tableViewCellClassName leGetInstanceFromClassName] performSelector:NSSelectorFromString(@"initWithSettings:") withObject:[[LETableViewCellSettings alloc] initWithSelectionDelegate:self.cellSelectionDelegate]];
-                                               );
+            LESuppressPerformSelectorLeakWarning(
+                                                 cell=[[self.leTableViewCellClassName leGetInstanceFromClassName] performSelector:NSSelectorFromString(@"initWithSettings:") withObject:[[LETableViewCellSettings alloc] initWithSelectionDelegate:self.leCellSelectionDelegate]];
+                                                 );
         }
-        if(cell&&indexPath.row<self.itemsArray.count){
-            [cell setData:[self.itemsArray objectAtIndex:indexPath.row] IndexPath:indexPath];
+        if(cell&&indexPath.row<self.leItemsArray.count){
+            [cell leSetData:[self.leItemsArray objectAtIndex:indexPath.row] IndexPath:indexPath];
         }
         return cell;
     }else{
         if(indexPath.section==0){
             if(indexPath.row==0&&curBannerData){
                 if(!bannerCell){
-                    bannerCell=[[LEBannerCell alloc] initWithSelectionDelegate:self.cellSelectionDelegate SubviewClassName:subViewClassName BannerImageViewClassName:bannerImageViewClassName];
+                    bannerCell=[[LEBannerCell alloc] initWithSelectionDelegate:self.leCellSelectionDelegate SubviewClassName:subViewClassName BannerImageViewClassName:bannerImageViewClassName];
                 }
                 if(curBannerData){
-                    [bannerCell setBannerData:curBannerData IndexPath:indexPath SubviewData:curSubViewData];
+                    [bannerCell leSetBannerData:curBannerData IndexPath:indexPath SubviewData:curSubViewData];
                 }
                 return bannerCell;
             }else{
-                LEBaseTableViewCell *cell=[self dequeueReusableCellWithIdentifier:CommonTableViewReuseableCellIdentifier];
+                LEBaseTableViewCell *cell=[self dequeueReusableCellWithIdentifier:LEReuseableCellIdentifier];
                 if(!cell){
-                  LESuppressPerformSelectorLeakWarning(
-                                                       cell=[[self.tableViewCellClassName leGetInstanceFromClassName] performSelector:NSSelectorFromString(@"initWithSettings:") withObject:[[LETableViewCellSettings alloc] initWithSelectionDelegate:self.cellSelectionDelegate]];
-                                                       );
+                    LESuppressPerformSelectorLeakWarning(
+                                                         cell=[[self.leTableViewCellClassName leGetInstanceFromClassName] performSelector:NSSelectorFromString(@"initWithSettings:") withObject:[[LETableViewCellSettings alloc] initWithSelectionDelegate:self.leCellSelectionDelegate]];
+                                                         );
                 }
                 int index=(int)indexPath.row-(curBannerData?1:0);
-                if(cell&&index<self.itemsArray.count){
-                    [cell setData:[self.itemsArray objectAtIndex:index] IndexPath:indexPath];
+                if(cell&&index<self.leItemsArray.count){
+                    [cell leSetData:[self.leItemsArray objectAtIndex:index] IndexPath:indexPath];
                 }
                 return cell;
             }
@@ -194,7 +190,7 @@
     }
     return nil;
 }
-- (id) initWithSettings:(LETableViewSettings *) settings BannerSubviewClassName:(NSString *) subView BannerStyle:(TableViewBannerStyle)style  BannerImageViewClassName:(NSString *) bannerImageView{
+- (id) initWithSettings:(LETableViewSettings *) settings BannerSubviewClassName:(NSString *) subView BannerStyle:(LEBannerStyle)style  BannerImageViewClassName:(NSString *) bannerImageView{
     subViewClassName=subView;
     bannerStyle=style;
     bannerImageViewClassName=bannerImageView;
@@ -209,7 +205,7 @@
     LEBannerContainer *bannerContainer;
     UIView *tableViewContainer;
     int curTabbarHeight;
-    TableViewBannerStyle curBannerStyle;
+    LEBannerStyle curBannerStyle;
     
     NSString *curCellClassName;
     NSString *curEmptyCellClassName;
@@ -220,23 +216,23 @@
 -(void) onSetParent:(LETableViewPageWithBanner *) parent{
     curParent=parent;
 }
--(void) setTopRefresh:(BOOL) top BottomRefresh:(BOOL) bottom{
-    [curTableView setTopRefresh:top];
-    [curTableView setBottomRefresh:bottom];
+-(void) leSetTopRefresh:(BOOL) top BottomRefresh:(BOOL) bottom{
+    [curTableView leSetTopRefresh:top];
+    [curTableView leSetBottomRefresh:bottom];
 }
 
--(void) setExtraViewInits{
+-(void) leExtraInits{
     if(curBannerStyle==BannerStayAtTheTop){
-        bannerContainer=[[LEBannerContainer alloc] initWithFrame:CGRectMake(0, 0, self.curFrameWidth, self.curFrameWidth*DefaultBannerHeightRate) Delegate:self SubviewClassName:curBannerSubviewClassName BannerImageViewClassName:curBannerImageViewClassName];
-        [self.viewContainer addSubview:bannerContainer];
-        tableViewContainer=[[UIView alloc] initWithFrame:CGRectMake(0, bannerContainer.bounds.size.height, self.curFrameWidth, self.viewContainer.bounds.size.height-bannerContainer.bounds.size.height-curTabbarHeight)];
-        [self.viewContainer addSubview:tableViewContainer];
-        curTableView=[[LEBannerTableView alloc] initWithSettings:[[LETableViewSettings alloc] initWithSuperViewContainer:self.superViewContainer ParentView:tableViewContainer TableViewCell:curCellClassName EmptyTableViewCell:curEmptyCellClassName GetDataDelegate:self TableViewCellSelectionDelegate:self] BannerSubviewClassName:curBannerSubviewClassName BannerStyle:curBannerStyle BannerImageViewClassName:curBannerImageViewClassName];
+        bannerContainer=[[LEBannerContainer alloc] initWithFrame:CGRectMake(0, 0, self.leCurrentFrameWidth, self.leCurrentFrameWidth*LEDefaultBannerHeightRate) Delegate:self SubviewClassName:curBannerSubviewClassName BannerImageViewClassName:curBannerImageViewClassName];
+        [self.leViewContainer addSubview:bannerContainer];
+        tableViewContainer=[[UIView alloc] initWithFrame:CGRectMake(0, bannerContainer.bounds.size.height, self.leCurrentFrameWidth, self.leViewContainer.bounds.size.height-bannerContainer.bounds.size.height-curTabbarHeight)];
+        [self.leViewContainer addSubview:tableViewContainer];
+        curTableView=[[LEBannerTableView alloc] initWithSettings:[[LETableViewSettings alloc] initWithSuperViewContainer:self.leSuperViewContainer ParentView:tableViewContainer TableViewCell:curCellClassName EmptyTableViewCell:curEmptyCellClassName GetDataDelegate:self TableViewCellSelectionDelegate:self] BannerSubviewClassName:curBannerSubviewClassName BannerStyle:curBannerStyle BannerImageViewClassName:curBannerImageViewClassName];
     }else{
         if(curTabbarHeight>0){
-            tableViewContainer=[[UIView alloc] initWithAutoLayoutSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:self.viewContainer Anchor:LEAnchorInsideTopCenter Offset:CGPointZero CGSize:CGSizeMake(self.viewContainer.bounds.size.width, self.viewContainer.bounds.size.height-curTabbarHeight)]];
+            tableViewContainer=[[UIView alloc] initWithAutoLayoutSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:self.leViewContainer Anchor:LEAnchorInsideTopCenter Offset:CGPointZero CGSize:CGSizeMake(self.leViewContainer.bounds.size.width, self.leViewContainer.bounds.size.height-curTabbarHeight)]];
         }
-        curTableView=[[LEBannerTableView alloc] initWithSettings:[[LETableViewSettings alloc] initWithSuperViewContainer:self.superViewContainer ParentView:tableViewContainer?:self.viewContainer TableViewCell:curCellClassName EmptyTableViewCell:curEmptyCellClassName GetDataDelegate:self TableViewCellSelectionDelegate:self] BannerSubviewClassName:curBannerSubviewClassName BannerStyle:curBannerStyle BannerImageViewClassName:curBannerImageViewClassName];
+        curTableView=[[LEBannerTableView alloc] initWithSettings:[[LETableViewSettings alloc] initWithSuperViewContainer:self.leSuperViewContainer ParentView:tableViewContainer?:self.leViewContainer TableViewCell:curCellClassName EmptyTableViewCell:curEmptyCellClassName GetDataDelegate:self TableViewCellSelectionDelegate:self] BannerSubviewClassName:curBannerSubviewClassName BannerStyle:curBannerStyle BannerImageViewClassName:curBannerImageViewClassName];
     }
     [curTableView setAlpha:0];
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveLinear animations:^(void){
@@ -246,53 +242,53 @@
     }];
 }
 //点击事件
--(void) onBannerSelectedWithIndex:(NSInteger)index{
-    [curParent onBannerSelectedWithIndex:index];
-    //    LELog(@"触发Banner点击事件，子类需要重写onBannerSelectedWithIndex方法。当前点击了第%@张Banner",[NSNumber numberWithInteger:index]);
+-(void) leOnBannerSelectedWithIndex:(NSInteger)index{
+    [curParent leOnBannerSelectedWithIndex:index];
+    //    LELog(@"触发Banner点击事件，子类需要重写leOnBannerSelectedWithIndex方法。当前点击了第%@张Banner",[NSNumber numberWithInteger:index]);
 }
--(void) onTableViewCellSelectedWithInfo:(NSDictionary *)info{
-    [curParent onTableViewCellSelectedWithInfo:info];
-    //    LELog(@"参数tableViewDelegate=nil, 调用父类onTableViewCellSelectedWithInfo。%@",info);
+-(void) leOnTableViewCellSelectedWithInfo:(NSDictionary *)info{
+    [curParent leOnTableViewCellSelectedWithInfo:info];
+    //    LELog(@"参数tableViewDelegate=nil, 调用父类leOnTableViewCellSelectedWithInfo。%@",info);
 }
 //数据请求
--(void) onRefreshData{
-    [curParent onRefreshData];
-    //    LELog(@"触发下拉刷新，子类需要重写onRefreshData方法，待获取到数据后需要执行onFreshDataLogic方法");
+-(void) leOnRefreshData{
+    [curParent leOnRefreshData];
+    //    LELog(@"触发下拉刷新，子类需要重写leOnRefreshData方法，待获取到数据后需要执行leOnRefreshedWithData方法");
 }
--(void) onLoadMore{
-    [curParent onLoadMore];
-    //    LELog(@"上拉获取更多，子类需要重写onLoadMore方法，待获取到数据后需要执行onLoadMoreLogic");
+-(void) leOnLoadMore{
+    [curParent leOnLoadMore];
+    //    LELog(@"上拉获取更多，子类需要重写leOnLoadMore方法，待获取到数据后需要执行leOnLoadMoreLogic");
 }
 //高度变动通知
--(void) onFrameResizedWithHeight:(int)height{
-    [bannerContainer setFrame:CGRectMake(0, 0, self.curFrameWidth, height)];
-    [tableViewContainer setFrame:CGRectMake(0, bannerContainer.bounds.size.height, self.curFrameWidth, self.curFrameHight-height-curTabbarHeight)];
+-(void) leOnFrameResizedWithHeight:(int)height{
+    [bannerContainer setFrame:CGRectMake(0, 0, self.leCurrentFrameWidth, height)];
+    [tableViewContainer setFrame:CGRectMake(0, bannerContainer.bounds.size.height, self.leCurrentFrameWidth, self.leCurrentFrameHight-height-curTabbarHeight)];
     [curTableView leSetFrame:tableViewContainer.bounds];
 }
 //Banner数据
--(void) onSetBannerData:(NSArray *) bannerData SubviewData:(NSDictionary *) subviewData{
+-(void) leOnSetBannerData:(NSArray *) bannerData SubviewData:(NSDictionary *) subviewData{
     if(curBannerStyle==BannerStayAtTheTop){
         if(bannerContainer){
-            [bannerContainer setBannerData:bannerData SubviewData:subviewData];
+            [bannerContainer leSetBannerData:bannerData SubviewData:subviewData];
         }
     }else{
         if(curTableView){
-            [curTableView setBannerData:bannerData SubviewData:subviewData];
+            [curTableView leSetBannerData:bannerData SubviewData:subviewData];
         }
     }
 }
 //数据
--(void) onFreshDataLogic:(NSMutableArray *) data{
+-(void) leOnRefreshedWithData:(NSMutableArray *) data{
     if(curTableView){
-        [curTableView onRefreshedWithData:data];
+        [curTableView leOnRefreshedWithData:data];
     }
 }
--(void) onLoadMoreLogic:(NSMutableArray *) data{
+-(void) leOnLoadMoreLogic:(NSMutableArray *) data{
     if(curTableView){
-        [curTableView onLoadedMoreWithData:data];
+        [curTableView leOnLoadedMoreWithData:data];
     }
 }
--(id) initWithViewController:(LEBaseViewController *)vc CellClassName:(NSString *) cellClassName EmptyCellClassName:(NSString *) emptyCellClassName BannerStyle:(TableViewBannerStyle) bannerStyle BannerImageViewClassName:(NSString *) bannerImageViewClassName BannerSubviewClassName:(NSString *) bannerSubviewClassName TabbarHeight:(int) tabbarHeight{
+-(id) initWithViewController:(LEBaseViewController *)vc CellClassName:(NSString *) cellClassName EmptyCellClassName:(NSString *) emptyCellClassName BannerStyle:(LEBannerStyle) bannerStyle BannerImageViewClassName:(NSString *) bannerImageViewClassName BannerSubviewClassName:(NSString *) bannerSubviewClassName TabbarHeight:(int) tabbarHeight{
     curTabbarHeight=tabbarHeight;
     curBannerStyle=bannerStyle;
     
@@ -323,34 +319,32 @@
 @implementation LETableViewPageWithBanner{
     LETableViewPageWithBannerPage *page;
 }
--(id) initWithCellClassName:(NSString *) cellClassName EmptyCellClassName:(NSString *) emptyCellClassName BannerStyle:(TableViewBannerStyle) bannerStyle BannerImageViewClassName:(NSString *) bannerImageViewClassName BannerSubviewClassName:(NSString *) bannerSubviewClassName TabbarHeight:(int) tabbarHeight{
+-(id) initWithCellClassName:(NSString *) cellClassName EmptyCellClassName:(NSString *) emptyCellClassName BannerStyle:(LEBannerStyle) bannerStyle BannerImageViewClassName:(NSString *) bannerImageViewClassName BannerSubviewClassName:(NSString *) bannerSubviewClassName TabbarHeight:(int) tabbarHeight{
     self=[super init];
     page=[[LETableViewPageWithBannerPage alloc] initWithViewController:self CellClassName:cellClassName EmptyCellClassName:emptyCellClassName BannerStyle:bannerStyle BannerImageViewClassName:bannerImageViewClassName BannerSubviewClassName:bannerSubviewClassName TabbarHeight:tabbarHeight];
     [page onSetParent:self];
-    [self onExtraInits];
+    [self leExtraInits];
     return self;
 }
--(void) onExtraInits{
-    
+-(void) leOnSetBannerData:(NSArray *) bannerData SubviewData:(NSDictionary *) subviewData{
+    [page leOnSetBannerData:bannerData SubviewData:subviewData];
 }
--(void) onSetBannerData:(NSArray *) bannerData SubviewData:(NSDictionary *) subviewData{
-    [page onSetBannerData:bannerData SubviewData:subviewData];
+-(void) leOnBannerSelectedWithIndex:(NSInteger)index{
+} 
+-(void) leOnRefreshData{
 }
--(void) onBannerSelectedWithIndex:(NSInteger)index{
+-(void) leOnLoadMore{
 }
--(void) onTableViewCellSelectedWithInfo:(NSDictionary *)info{
+-(void) leOnRefreshedWithData:(NSMutableArray *) data{
+    [page leOnRefreshedWithData:data];
 }
--(void) onRefreshData{
+-(void) leOnLoadMoreLogic:(NSMutableArray *) data{
+    [page leOnLoadMoreLogic:data];
 }
--(void) onLoadMore{
+-(void) leSetTopRefresh:(BOOL) top BottomRefresh:(BOOL) bottom{
+    [page leSetTopRefresh:top BottomRefresh:bottom];
 }
--(void) onFreshDataLogic:(NSMutableArray *) data{
-    [page onFreshDataLogic:data];
-}
--(void) onLoadMoreLogic:(NSMutableArray *) data{
-    [page onLoadMoreLogic:data];
-}
--(void) setTopRefresh:(BOOL) top BottomRefresh:(BOOL) bottom{
-    [page setTopRefresh:top BottomRefresh:bottom];
+-(void) leOnTableViewCellSelectedWithInfo:(NSDictionary *)info{
+    LELogObject(info);
 }
 @end

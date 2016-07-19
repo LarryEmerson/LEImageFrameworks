@@ -11,9 +11,9 @@
 
 
 @protocol LEImageCropperDelegate <NSObject>
-- (void)onDoneCroppedWithImage:(UIImage *)image;
+- (void)leOnDoneCroppedWithImage:(UIImage *)image;
 @optional
-- (void)onCancelImageCropper;
+- (void)leOnCancelImageCropper;
 @end
 
 @interface LEImageCropper : LEBaseViewController
@@ -23,5 +23,5 @@
 
 
 @interface LESingleImagePicker : NSObject
-+(void) onLESingleImagePickerWithSuperView:(UIView *) superView ViewController:(UIViewController *) viewController Title:(NSString *) title Aspect:(float) aspect Delegate:(id<LEImageCropperDelegate>) delegate;
++(void) leOnSingleImagePickerWithSuperView:(UIView *) superView ViewController:(UIViewController *) viewController Title:(NSString *) title Aspect:(float) aspect Delegate:(id<LEImageCropperDelegate>) delegate;
 @end

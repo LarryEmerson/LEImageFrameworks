@@ -27,11 +27,11 @@
     curURLPrefix=prefix;
     qiniuImageView2=qiniu;
     self=[super initWithFrame:frame];
-    [self initUI];
+    [self leExtraInits];
     return self;
 }
 
--(void) initUI{
+-(void) leExtraInits{
     [self setUserInteractionEnabled:YES];
     tapButton=[LEUIFramework leGetButtonWithSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:self EdgeInsects:UIEdgeInsetsZero] ButtonSettings:[[LEAutoLayoutUIButtonSettings alloc] initWithTitle:nil FontSize:0 Font:nil Image:nil BackgroundImage:nil Color:nil SelectedColor:nil MaxWidth:0 SEL:@selector(onClick) Target:self]];
     [tapButton setBackgroundImage:[LEColorMask2 leImageStrechedFromSizeOne] forState:UIControlStateHighlighted];
@@ -41,7 +41,7 @@
         [curDelegate onImagesGridCellClickedWithIndex:curIndex];
     }
 }
--(void) setImageDataSource:(NSArray *) data Index:(NSInteger) index{
+-(void) leSetImageDataSource:(NSArray *) data Index:(NSInteger) index{
     imageDataSource=data;
     curIndex=index;
     NSString *url=[curURLPrefix stringByAppendingString:[imageDataSource objectAtIndex:curIndex]];
@@ -87,7 +87,7 @@
     cellsCache=[[NSMutableArray alloc] init];
     return self;
 }
--(void) setImageDataSource:(NSArray *) data{
+-(void) leSetImageDataSource:(NSArray *) data{
     imageDataSource=data;
     int width=self.bounds.size.width;
     int cellWidth=(width-cellSpace*(cellCols-1))/cellCols;
@@ -111,7 +111,7 @@
             }
             [cell setFrame:CGRectMake((i%cellCols)*(cellWidth+cellSpace), i/cellCols*cellWidth+(i/cellCols)*cellSpace, cellWidth, cellWidth)];
             
-            [cell setImageDataSource:imageDataSource Index:i];
+            [cell leSetImageDataSource:imageDataSource Index:i];
         }else if(i<cacheCount){
             [[cellsCache objectAtIndex:i] setHidden:YES];
         }

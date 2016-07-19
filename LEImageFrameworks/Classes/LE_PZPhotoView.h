@@ -10,14 +10,16 @@
 #import "LEImageCache.h"
 @protocol LE_PZPhotoViewDelegate;
 @interface LE_PZPhotoView  : UIScrollView
-@property (assign, nonatomic) id<LE_PZPhotoViewDelegate> photoViewDelegate;
--(void) setImageURL:(NSString *) url AndAspect:(float) aspect;
--(void) setImageDownloadDelegate:(id<LEImageDownloadDelegate>) delegate;
-- (void)updateZoomScale:(CGFloat)newScale;
-- (void)updateZoomScale:(CGFloat)newScale withCenter:(CGPoint)center;
+//SET
+- (void) leSetDelegate:(id<LE_PZPhotoViewDelegate>) delegate;
+//
+- (void) leSetImageURL:(NSString *) url AndAspect:(float) aspect;
+- (void) leSetImageDownloadDelegate:(id<LEImageDownloadDelegate>) delegate;
+- (void) leUpdateZoomScale:(CGFloat)newScale;
+- (void) leUpdateZoomScale:(CGFloat)newScale withCenter:(CGPoint)center;
 @end
 @protocol LE_PZPhotoViewDelegate <NSObject>
 @optional
-- (void)photoViewDidSingleTap:(LE_PZPhotoView  *)photoView;
-- (void)photoViewDidDoubleTap:(LE_PZPhotoView  *)photoView;
+- (void) lePhotoViewDidSingleTap:(LE_PZPhotoView  *)photoView;
+- (void) lePhotoViewDidDoubleTap:(LE_PZPhotoView  *)photoView;
 @end

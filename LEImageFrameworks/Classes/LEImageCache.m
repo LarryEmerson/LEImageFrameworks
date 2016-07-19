@@ -12,7 +12,7 @@
 @property (nonatomic) UIImage *lePlaceholderImage;
 @property (nonatomic) id<LEImageDownloadDelegate> leImageDownloadDelegate;
 @end
-@implementation UIImageView (LEExtensionDownload)
+@implementation UIImageView (LEExtensileOnDownload)
 static void * UIImageViewPlaceHolderKey = (void *) @"UIImageViewPlaceHolder";
 - (UIImage *) lePlaceholderImage {
     return objc_getAssociatedObject(self, UIImageViewPlaceHolderKey);
@@ -37,7 +37,7 @@ static void * UIImageDownloadDelegateKey = (void *) @"UIImageDownloadDelegateKey
 }
 -(void) leSetImageWithUrlString:(NSString *) url {
     if(url){
-        UIImage *img=[[LEImageCache sharedInstance] getImageFromCacheWithKey:url];
+        UIImage *img=[[LEImageCache sharedInstance] leGetImageFromCacheWithKey:url];
         if(img){
             [self setImage:img];
         }else{
@@ -45,13 +45,13 @@ static void * UIImageDownloadDelegateKey = (void *) @"UIImageDownloadDelegateKey
             [self sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:self.lePlaceholderImage completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL){
                 if(error){
                     [self setImage:self.lePlaceholderImage];
-                    if(self.leImageDownloadDelegate&&[self.leImageDownloadDelegate respondsToSelector:@selector(onDownloadImageWithError:)]){
-                        [self.leImageDownloadDelegate onDownloadImageWithError:error];
+                    if(self.leImageDownloadDelegate&&[self.leImageDownloadDelegate respondsToSelector:@selector(leOnDownloadImageWithError:)]){
+                        [self.leImageDownloadDelegate leOnDownloadImageWithError:error];
                     }
                 }else if(image){
-                    [[LEImageCache sharedInstance] addImage:image toCacheWithKey:imageURL.absoluteString];
-                    if(self.leImageDownloadDelegate&&[self.leImageDownloadDelegate respondsToSelector:@selector(onDownloadedImageWith:)]){
-                        [self.leImageDownloadDelegate onDownloadedImageWith:image];
+                    [[LEImageCache sharedInstance] leAddImage:image toCacheWithKey:imageURL.absoluteString];
+                    if(self.leImageDownloadDelegate&&[self.leImageDownloadDelegate respondsToSelector:@selector(leOnDownloadedImageWith:)]){
+                        [self.leImageDownloadDelegate leOnDownloadedImageWith:image];
                     }
                 }
             }];
@@ -60,7 +60,7 @@ static void * UIImageDownloadDelegateKey = (void *) @"UIImageDownloadDelegateKey
 }
 -(void) leAddToImageCacheWithUrl:(NSString *) url{
     if(self.image){
-        [[LEImageCache sharedInstance] addImage:self.image toCacheWithKey:url];
+        [[LEImageCache sharedInstance] leAddImage:self.image toCacheWithKey:url];
     }
 }
 -(void) leSetPlaceholder:(UIImage *) image{
@@ -100,13 +100,13 @@ static LEImageCache *theSharedInstance = nil;
 + (id) copyWithZone:(NSZone *)zone { return self; }
 + (id) mutableCopyWithZone:(NSZone *)zone { return self; }
 //
--(void) addImage:(UIImage *) image toCacheWithKey:(NSString *) key{
+-(void) leAddImage:(UIImage *) image toCacheWithKey:(NSString *) key{
     [imageCache setObject:image forKey:key];
 }
--(UIImage *) getImageFromCacheWithKey:(NSString *) key{
+-(UIImage *) leGetImageFromCacheWithKey:(NSString *) key{
     return [imageCache objectForKey:key];
 }
--(NSMutableDictionary *) getImageCache{
+-(NSMutableDictionary *) leGetImageCache{
     return imageCache;
 }
 

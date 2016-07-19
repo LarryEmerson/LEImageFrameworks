@@ -29,11 +29,11 @@
     qiniuImageView2=qiniu;
     return [super initWithViewController:vc];
 }
--(void) setExtraViewInits{
+-(void) leExtraInits{
     arrayPhotos=[[NSMutableArray alloc] init];
-    width=self.curFrameWidth;
-    height=self.curFrameHight;
-    curScrollView=[[UIScrollView alloc] initWithAutoLayoutSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:self.viewContainer EdgeInsects:UIEdgeInsetsZero]];
+    width=self.leCurrentFrameWidth;
+    height=self.leCurrentFrameHight;
+    curScrollView=[[UIScrollView alloc] initWithAutoLayoutSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:self.leViewContainer EdgeInsects:UIEdgeInsetsZero]];
     [curScrollView setContentSize:CGSizeMake(width*imageDataSource.count, height)];
     [curScrollView setPagingEnabled:YES];
     [curScrollView setDelegate:self];
@@ -42,7 +42,7 @@
     [curScrollView setBackgroundColor:[LEUIFramework sharedInstance].leColorNavigationBar];
     //    [curScrollView setBounces:NO];
     curPageControl=[[UIPageControl alloc] init];
-    [self.viewContainer addSubview:curPageControl];
+    [self.leViewContainer addSubview:curPageControl];
     [curPageControl setFrame:CGRectMake(width/2-curPageControl.bounds.size.width/2, height-LELayoutSideSpace27, curPageControl.bounds.size.width, curPageControl.bounds.size.height)];
     [curPageControl setNumberOfPages:imageDataSource.count];
     [curPageControl setHidesForSinglePage:YES];
@@ -52,16 +52,16 @@
             url=[NSString stringWithFormat:@"%@?imageView2/1/w/%d/h/%d",url, width*(int)LESCREEN_SCALE, width*(int)LESCREEN_SCALE];
         }
         LE_PZPhotoView  *view=[[LE_PZPhotoView  alloc] initWithFrame:CGRectMake(width*i, 0, width, height)];
-        [view setImageURL:url AndAspect:1];
-        [view setPhotoViewDelegate:self];
+        [view leSetImageURL:url AndAspect:1];
+        [view leSetDelegate:self];
         [curScrollView addSubview:view];
         [arrayPhotos addObject:view];
     }
     [curScrollView scrollRectToVisible:CGRectMake(width*curIndex, 0, width, height) animated:YES];
     [curPageControl setCurrentPage:curIndex];
 }
--(void) photoViewDidSingleTap:(LE_PZPhotoView  *)photoView{
-    [self.curViewController.navigationController popViewControllerAnimated:YES];
+-(void) lePhotoViewDidSingleTap:(LE_PZPhotoView  *)photoView{
+    [self.leCurrentViewController.navigationController popViewControllerAnimated:YES];
 }
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     int current = scrollView.contentOffset.x/width;
@@ -69,10 +69,10 @@
     int left=current-1;
     int right=current+1;
     if(left>=0){
-        [[arrayPhotos objectAtIndex:left] updateZoomScale:1];
+        [[arrayPhotos objectAtIndex:left] leUpdateZoomScale:1];
     }
     if(right<arrayPhotos.count){
-        [[arrayPhotos objectAtIndex:right] updateZoomScale:1];
+        [[arrayPhotos objectAtIndex:right] leUpdateZoomScale:1];
     }
 }
 @end

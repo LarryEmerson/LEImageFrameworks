@@ -9,17 +9,15 @@
 #import "LE_HMBannerView.h"
 #define Banner_StartTag     1000
 @implementation LE_HMBannerViewImageView
--(id) init{
-    self.globalVar=[LEUIFramework sharedInstance];
+-(id) init{ 
     self=[super init];
-    [self initUI];
+    [self leExtraInits];
     return self;
 }
--(void) setData:(NSDictionary *) data{
+-(void) leSetData:(NSDictionary *) data{
     NSString *url=[data objectForKey:@"img_url"];
     [self leSetImageWithUrlString:url];
 }
--(void) initUI{}
 @end
 
 @interface LE_HMBannerView (){
@@ -27,6 +25,12 @@
 }
 @property (nonatomic, strong) UIPageControl *pageControl;
 @property (nonatomic, assign) BOOL enableRolling;
+//
+@property (nonatomic, assign) id <LE_HMBannerViewDelegate> delegate;
+@property (nonatomic, strong) NSArray *imagesArray;
+@property (nonatomic, assign) LEBannerViewScrollDirection scrollDirection;
+@property (nonatomic, assign) NSTimeInterval rollingDelayTime;
+//
 - (void)refreshScrollView;
 - (NSInteger)getPageIndex:(NSInteger)index;
 - (NSArray *)getDisplayImagesWithPageIndex:(NSInteger)pageIndex;
@@ -34,19 +38,24 @@
 
 @implementation LE_HMBannerView{
     NSString *curImageViewClassName;
-    BannerViewPageStyle curPageStyle;
+    LEBannerViewPageStyle curPageStyle;
     CGPoint curPageStyleOffset;
 }
-@synthesize delegate;
-@synthesize imagesArray;
-@synthesize scrollDirection;
-@synthesize pageControl;
+- (void) leSetDelegate:(id<LE_HMBannerViewDelegate>) dele{
+    self.delegate=dele;
+}
+- (void) leSetScrollDirection:(LEBannerViewScrollDirection) direction{
+    self.scrollDirection=direction;
+}
+- (void) leSetRollingDelayTime:(NSTimeInterval) time{
+    self.rollingDelayTime=time;
+}
 - (void)dealloc {
-    delegate = nil;
+    self.delegate = nil;
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(rollingScrollAction) object:nil];
 }
 
-- (id)initWithFrame:(CGRect)frame scrollDirection:(BannerViewScrollDirection)direction images:(NSArray *)images  ImageViewClassName:(NSString *) className{
+- (id)initWithFrame:(CGRect)frame scrollDirection:(LEBannerViewScrollDirection)direction images:(NSArray *)images  ImageViewClassName:(NSString *) className{
     curPageStyle=PageStyle_Left;
     curPageStyleOffset=CGPointZero;
     curImageViewClassName=className;
@@ -58,42 +67,42 @@
     if(self){
         self.imagesArray = [[NSArray alloc] initWithArray:images];
         self.scrollDirection = direction;
-        totalPage = imagesArray.count;
-        totalCount = totalPage;
+        leTotalPage = self.imagesArray.count;
+        totalCount = leTotalPage;
         // 显示的是图片数组里的第一张图片
         // 和数组是+1关系
-        curPage = 1;
-        scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
-        scrollView.backgroundColor = [UIColor clearColor];
-        scrollView.showsHorizontalScrollIndicator = NO;
-        scrollView.showsVerticalScrollIndicator = NO;
-        scrollView.pagingEnabled = YES;
-        scrollView.delegate = self;
-        [self addSubview:scrollView];
+        lePage = 1;
+        leScrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
+        leScrollView.backgroundColor = [UIColor clearColor];
+        leScrollView.showsHorizontalScrollIndicator = NO;
+        leScrollView.showsVerticalScrollIndicator = NO;
+        leScrollView.pagingEnabled = YES;
+        leScrollView.delegate = self;
+        [self addSubview:leScrollView];
         // 在水平方向滚动
-        if(scrollDirection == ScrollDirectionLandscape) {
-            scrollView.contentSize = CGSizeMake(scrollView.frame.size.width * 3, scrollView.frame.size.height);
-        }else if(scrollDirection == ScrollDirectionPortait) {
-            scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, scrollView.frame.size.height * 3);
+        if(self.scrollDirection == ScrollDirectionLandscape) {
+            leScrollView.contentSize = CGSizeMake(leScrollView.frame.size.width * 3, leScrollView.frame.size.height);
+        }else if(self.scrollDirection == ScrollDirectionPortait) {
+            leScrollView.contentSize = CGSizeMake(leScrollView.frame.size.width, leScrollView.frame.size.height * 3);
         }
         for (NSInteger i = 0; i < 3; i++) {
             LE_HMBannerViewImageView *imageView =nil;
-          LESuppressPerformSelectorLeakWarning(
-                                               imageView=[[curImageViewClassName leGetInstanceFromClassName] performSelector:NSSelectorFromString(@"init")];
-                                               );
-            [imageView setFrame:scrollView.bounds];
+            LESuppressPerformSelectorLeakWarning(
+                                                 imageView=[[curImageViewClassName leGetInstanceFromClassName] performSelector:NSSelectorFromString(@"init")];
+                                                 );
+            [imageView setFrame:leScrollView.bounds];
             imageView.userInteractionEnabled = YES;
             imageView.tag = Banner_StartTag+i;
             UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
             [imageView addGestureRecognizer:singleTap];
-            if(scrollDirection == ScrollDirectionLandscape) {
-                imageView.frame = CGRectOffset(imageView.frame, scrollView.frame.size.width * i, 0);
-            }else if(scrollDirection == ScrollDirectionPortait) {
-                imageView.frame = CGRectOffset(imageView.frame, 0, scrollView.frame.size.height * i);
+            if(self.scrollDirection == ScrollDirectionLandscape) {
+                imageView.frame = CGRectOffset(imageView.frame, leScrollView.frame.size.width * i, 0);
+            }else if(self.scrollDirection == ScrollDirectionPortait) {
+                imageView.frame = CGRectOffset(imageView.frame, 0, leScrollView.frame.size.height * i);
             }
-            [scrollView addSubview:imageView];
+            [leScrollView addSubview:imageView];
         }
-        self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(LELayoutSideSpace, frame.size.height-HMBannerOffset, HMBannerWidth, HMBannerOffset)];
+        self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(LELayoutSideSpace, frame.size.height-LEHMBannerOffset, LEHMBannerWidth, LEHMBannerOffset)];
         self.pageControl.numberOfPages = self.imagesArray.count;
         [self.pageControl setUserInteractionEnabled:NO];
         [self addSubview:self.pageControl];
@@ -103,79 +112,79 @@
     }
     return self;
 }
-- (void)reloadBannerWithData:(NSArray *)images{
+- (void)leReloadBannerWithData:(NSArray *)images{
     if (self.enableRolling) {
-        [self stopRolling];
+        [self leStopRolling];
     }
     self.imagesArray = [[NSArray alloc] initWithArray:images];
-    totalPage = imagesArray.count;
-    totalCount = totalPage;
+    leTotalPage = self.imagesArray.count;
+    totalCount = leTotalPage;
     if(images.count==0){
-        curPage = 1;
-    }else if(curPage-1>=images.count){
-        curPage=images.count;
+        lePage = 1;
+    }else if(lePage-1>=images.count){
+        lePage=images.count;
     }
-    self.pageControl.numberOfPages = totalPage;
-    self.pageControl.currentPage = curPage-1;
+    self.pageControl.numberOfPages = leTotalPage;
+    self.pageControl.currentPage = lePage-1;
     
-    [self setPageControlStyle:curPageStyle];
+    [self leSetPageControlStyle:curPageStyle];
     //    [self startDownloadImage];
 }
 
-- (void)setSquare:(NSInteger)asquare{
-    if (scrollView){
-        scrollView.layer.cornerRadius = asquare;
+- (void)leSetSquare:(NSInteger)asquare{
+    if (leScrollView){
+        leScrollView.layer.cornerRadius = asquare;
         if (asquare == 0){
-            scrollView.layer.masksToBounds = NO;
+            leScrollView.layer.masksToBounds = NO;
         }else{
-            scrollView.layer.masksToBounds = YES;
+            leScrollView.layer.masksToBounds = YES;
         }
     }
 }
--(void)setPageControlOffset:(CGPoint) offset{
+-(void)leSetPageControlOffset:(CGPoint) offset{
     curPageStyleOffset=offset;
-    [self setPageControlStyle:curPageStyle];
+    [self leSetPageControlStyle:curPageStyle];
 }
-- (void)setPageControlStyle:(BannerViewPageStyle)pageStyle{
+- (void)leSetPageControlStyle:(LEBannerViewPageStyle)pageStyle{
     curPageStyle=pageStyle;
-    int width=(int)self.imagesArray.count*HMBannerSize;
-    if(width<HMBannerSize){
-        width=HMBannerSize;
+    int width=(int)self.imagesArray.count*LEHMBannerSize;
+    if(width<LEHMBannerSize){
+        width=LEHMBannerSize;
     }
     if (pageStyle == PageStyle_Left){
-        [self.pageControl setFrame:CGRectMake(LELayoutSideSpace+curPageStyleOffset.x, self.bounds.size.height-HMBannerOffset+curPageStyleOffset.y, width, HMBannerOffset)];
+        [self.pageControl setFrame:CGRectMake(LELayoutSideSpace+curPageStyleOffset.x, self.bounds.size.height-LEHMBannerOffset+curPageStyleOffset.y, width, LEHMBannerOffset)];
     }else if (pageStyle == PageStyle_Right){
-        [self.pageControl setFrame:CGRectMake(self.bounds.size.width-LELayoutSideSpace-width+curPageStyleOffset.x, self.bounds.size.height-HMBannerOffset+curPageStyleOffset.y, width, HMBannerOffset)];
+        [self.pageControl setFrame:CGRectMake(self.bounds.size.width-LELayoutSideSpace-width+curPageStyleOffset.x, self.bounds.size.height-LEHMBannerOffset+curPageStyleOffset.y, width, LEHMBannerOffset)];
     }else if (pageStyle == PageStyle_Middle){
-        [self.pageControl setFrame:CGRectMake((self.bounds.size.width-width)/2+curPageStyleOffset.x, self.bounds.size.height-HMBannerOffset-self.pageControl.bounds.size.height+curPageStyleOffset.y, width, HMBannerOffset)];
+        [self.pageControl setFrame:CGRectMake((self.bounds.size.width-width)/2+curPageStyleOffset.x, self.bounds.size.height-LEHMBannerOffset-self.pageControl.bounds.size.height+curPageStyleOffset.y, width, LEHMBannerOffset)];
     }else if (pageStyle == PageStyle_None){
         [self.pageControl setHidden:YES];
     }
 }
 
-- (void)showClose:(BOOL)show{
+- (void)leShowClose:(BOOL)show{
     if (show){
-        if (!BannerCloseButton){
-            BannerCloseButton = [UIButton buttonWithType:UIButtonTypeCustom];
-            [BannerCloseButton setFrame:CGRectMake(self.bounds.size.width-40, 0, 40, 40)];
-            [BannerCloseButton setContentVerticalAlignment:UIControlContentVerticalAlignmentTop];
-            [BannerCloseButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
-            [BannerCloseButton addTarget:self action:@selector(closeBanner) forControlEvents:UIControlEventTouchUpInside];
-            [BannerCloseButton setImage:[[LEUIFramework sharedInstance] leGetImageFromLEFrameworksWithName:@"banner_close"] forState:UIControlStateNormal];
-            BannerCloseButton.exclusiveTouch = YES;
-            [self addSubview:BannerCloseButton];
+        if (!leBannerCloseButton){
+            leBannerCloseButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            [leBannerCloseButton setFrame:CGRectMake(self.bounds.size.width-40, 0, 40, 40)];
+            [leBannerCloseButton setContentVerticalAlignment:UIControlContentVerticalAlignmentTop];
+            [leBannerCloseButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
+            [leBannerCloseButton addTarget:self action:@selector(leCloseBanner) forControlEvents:UIControlEventTouchUpInside];
+            [leBannerCloseButton setImage:[[LEUIFramework sharedInstance] leGetImageFromLEFrameworksWithName:@"banner_close"] forState:UIControlStateNormal];
+            leBannerCloseButton.exclusiveTouch = YES;
+            [self addSubview:leBannerCloseButton];
         }
-        BannerCloseButton.hidden = NO;
+        leBannerCloseButton.hidden = NO;
     }else{
-        if (BannerCloseButton){
-            BannerCloseButton.hidden = YES;
+        if (leBannerCloseButton){
+            leBannerCloseButton.hidden = YES;
         }
     }
 }
-- (void)closeBanner{
-    [self stopRolling];
-    if ([self.delegate respondsToSelector:@selector(bannerViewdidClosed:)]){
-        [self.delegate bannerViewdidClosed:self];
+- (void)leCloseBanner{
+    [self leStopRolling];
+    if ([self.delegate respondsToSelector:@selector(leBannerViewdidClosed:)]){
+        [self.delegate leBannerViewdidClosed:self];
     }
 }
 //- (void)startDownloadImage{
@@ -191,35 +200,35 @@
 //    }
 //}
 - (void)refreshScrollView{
-    NSArray *curimageUrls = [self getDisplayImagesWithPageIndex:curPage];
+    NSArray *curimageUrls = [self getDisplayImagesWithPageIndex:lePage];
     for (NSInteger i = 0; i < 3&&i<curimageUrls.count; i++){
-        LE_HMBannerViewImageView *imageView = (LE_HMBannerViewImageView *)[scrollView viewWithTag:Banner_StartTag+i];
+        LE_HMBannerViewImageView *imageView = (LE_HMBannerViewImageView *)[leScrollView viewWithTag:Banner_StartTag+i];
         NSDictionary *dic = [curimageUrls objectAtIndex:i];
         //        NSString *url = [dic objectForKey:@"img_url"];
         if (imageView && [imageView isKindOfClass:[LE_HMBannerViewImageView class]] /*&& [url isNotEmpty]*/){
-            [imageView setData:dic];
+            [imageView leSetData:dic];
         }
     }
-    if (scrollDirection == ScrollDirectionLandscape){
-        scrollView.contentOffset = CGPointMake(scrollView.frame.size.width, 0);
-    }else if (scrollDirection == ScrollDirectionPortait){
-        scrollView.contentOffset = CGPointMake(0, scrollView.frame.size.height);
+    if (self.scrollDirection == ScrollDirectionLandscape){
+        leScrollView.contentOffset = CGPointMake(leScrollView.frame.size.width, 0);
+    }else if (self.scrollDirection == ScrollDirectionPortait){
+        leScrollView.contentOffset = CGPointMake(0, leScrollView.frame.size.height);
     }
-    self.pageControl.currentPage = curPage-1;
+    self.pageControl.currentPage = lePage-1;
 }
 
 - (NSArray *)getDisplayImagesWithPageIndex:(NSInteger)page{
-    NSInteger pre = [self getPageIndex:curPage-1];
-    NSInteger last = [self getPageIndex:curPage+1];
+    NSInteger pre = [self getPageIndex:lePage-1];
+    NSInteger last = [self getPageIndex:lePage+1];
     NSMutableArray *images = [NSMutableArray arrayWithCapacity:0];
-    if(imagesArray.count>pre-1){
-        [images addObject:[imagesArray objectAtIndex:pre-1]];
+    if(self.imagesArray.count>pre-1){
+        [images addObject:[self.imagesArray objectAtIndex:pre-1]];
     }
-    if(imagesArray.count>curPage-1){
-        [images addObject:[imagesArray objectAtIndex:curPage-1]];
+    if(self.imagesArray.count>lePage-1){
+        [images addObject:[self.imagesArray objectAtIndex:lePage-1]];
     }
-    if(imagesArray.count>last-1){
-        [images addObject:[imagesArray objectAtIndex:last-1]];
+    if(self.imagesArray.count>last-1){
+        [images addObject:[self.imagesArray objectAtIndex:last-1]];
     }
     return images;
 }
@@ -227,9 +236,9 @@
 - (NSInteger)getPageIndex:(NSInteger)index{
     // value＝1为第一张，value = 0为前面一张
     if (index == 0){
-        index = totalPage;
+        index = leTotalPage;
     }
-    if (index == totalPage + 1){
+    if (index == leTotalPage + 1){
         index = 1;
     }
     return index;
@@ -242,63 +251,63 @@
         [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(rollingScrollAction) object:nil];
     }
     // 水平滚动
-    if(scrollDirection == ScrollDirectionLandscape){
+    if(self.scrollDirection == ScrollDirectionLandscape){
         // 往下翻一张
-        if (x >= 2 * scrollView.frame.size.width){
-            curPage = [self getPageIndex:curPage+1];
+        if (x >= 2 * leScrollView.frame.size.width){
+            lePage = [self getPageIndex:lePage+1];
             [self refreshScrollView];
         }
         if (x <= 0){
-            curPage = [self getPageIndex:curPage-1];
+            lePage = [self getPageIndex:lePage-1];
             [self refreshScrollView];
         }
-    }else if(scrollDirection == ScrollDirectionPortait){
+    }else if(self.scrollDirection == ScrollDirectionPortait){
         // 往下翻一张
-        if (y >= 2 * scrollView.frame.size.height){
-            curPage = [self getPageIndex:curPage+1];
+        if (y >= 2 * leScrollView.frame.size.height){
+            lePage = [self getPageIndex:lePage+1];
             [self refreshScrollView];
         }
         if (y <= 0){
-            curPage = [self getPageIndex:curPage-1];
+            lePage = [self getPageIndex:lePage-1];
             [self refreshScrollView];
         }
     }
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)aScrollView{
-    if (scrollDirection == ScrollDirectionLandscape){
-        scrollView.contentOffset = CGPointMake(scrollView.frame.size.width, 0);
-    }else if (scrollDirection == ScrollDirectionPortait){
-        scrollView.contentOffset = CGPointMake(0, scrollView.frame.size.height);
+    if (self.scrollDirection == ScrollDirectionLandscape){
+        leScrollView.contentOffset = CGPointMake(leScrollView.frame.size.width, 0);
+    }else if (self.scrollDirection == ScrollDirectionPortait){
+        leScrollView.contentOffset = CGPointMake(0, leScrollView.frame.size.height);
     }
     if (self.enableRolling){
         [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(rollingScrollAction) object:nil];
         [self performSelector:@selector(rollingScrollAction) withObject:nil afterDelay:self.rollingDelayTime inModes:[NSArray arrayWithObject:NSRunLoopCommonModes]];
     }
 }
-- (void)startRolling{
+- (void)leStartRolling{
     if (!self.imagesArray||self.imagesArray.count==0){
         return;
     }
-    [self stopRolling];
+    [self leStopRolling];
     self.enableRolling = YES;
     [self refreshScrollView];
     [self performSelector:@selector(rollingScrollAction) withObject:nil afterDelay:self.rollingDelayTime];
 }
-- (void)stopRolling{
+- (void)leStopRolling{
     self.enableRolling = NO;
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(rollingScrollAction) object:nil];
 }
 - (void)rollingScrollAction{
     [UIView animateWithDuration:0.25 animations:^{
-        if(scrollDirection == ScrollDirectionLandscape){
-            scrollView.contentOffset = CGPointMake(1.99*scrollView.frame.size.width, 0);
-        }else if(scrollDirection == ScrollDirectionPortait){
-            scrollView.contentOffset = CGPointMake(0, 1.99*scrollView.frame.size.height);
+        if(self.scrollDirection == ScrollDirectionLandscape){
+            leScrollView.contentOffset = CGPointMake(1.99*leScrollView.frame.size.width, 0);
+        }else if(self.scrollDirection == ScrollDirectionPortait){
+            leScrollView.contentOffset = CGPointMake(0, 1.99*leScrollView.frame.size.height);
         }
     } completion:^(BOOL finished) {
         if (finished){
-            curPage = [self getPageIndex:curPage+1];
+            lePage = [self getPageIndex:lePage+1];
             [self refreshScrollView];
             if (self.enableRolling){
                 [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(rollingScrollAction) object:nil];
@@ -308,9 +317,9 @@
     }];
 }
 - (void)handleTap:(UITapGestureRecognizer *)tap{
-    if ([delegate respondsToSelector:@selector(bannerView:didSelectImageView:withData:)]){
-        if(imagesArray.count>curPage-1){
-            [delegate bannerView:self didSelectImageView:curPage-1 withData:[self.imagesArray objectAtIndex:curPage-1]];
+    if ([self.delegate respondsToSelector:@selector(leBannerView:didSelectImageView:withData:)]){
+        if(self.imagesArray.count>lePage-1){
+            [self.delegate leBannerView:self didSelectImageView:lePage-1 withData:[self.imagesArray objectAtIndex:lePage-1]];
         }
     }
 }

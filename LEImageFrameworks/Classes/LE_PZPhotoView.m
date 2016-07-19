@@ -11,10 +11,14 @@
 
 @interface LE_PZPhotoView  () <UIScrollViewDelegate>
 @property (nonatomic) UIImageView *imageView;
+@property (assign, nonatomic) id<LE_PZPhotoViewDelegate> photoViewDelegate;
 @end
 @implementation LE_PZPhotoView  {
     CGPoint  _pointToCenterAfterResize;
     CGFloat  _scaleToRestoreAfterResize; 
+}
+-(void) leSetDelegate:(id<LE_PZPhotoViewDelegate>)delegate{
+    self.photoViewDelegate=delegate;
 }
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
@@ -31,10 +35,10 @@
     }
     return self;
 }
--(void) setImageDownloadDelegate:(id<LEImageDownloadDelegate>) delegate{
+-(void) leSetImageDownloadDelegate:(id<LEImageDownloadDelegate>) delegate{
     [self.imageView leSetImageDownloadDelegate:delegate];
 }
--(void) setImageURL:(NSString *) url AndAspect:(float) aspect{
+-(void) leSetImageURL:(NSString *) url AndAspect:(float) aspect{
     [self.imageView setFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.width/aspect)];
     [self.imageView leSetImageWithUrlString:url];
     self.contentSize = self.imageView.frame.size;
@@ -103,29 +107,29 @@
 #pragma mark -
 
 - (void)handleSingleTap:(UIGestureRecognizer *)gestureRecognizer {
-    if (self.photoViewDelegate != nil&&[self.photoViewDelegate respondsToSelector:@selector(photoViewDidSingleTap:)]) {
-        [self.photoViewDelegate photoViewDidSingleTap:self];
+    if (self.photoViewDelegate != nil&&[self.photoViewDelegate respondsToSelector:@selector(lePhotoViewDidSingleTap:)]) {
+        [self.photoViewDelegate lePhotoViewDidSingleTap:self];
     }
 }
 
 - (void)handleDoubleTap:(UIGestureRecognizer *)gestureRecognizer {
     if (self.zoomScale == self.maximumZoomScale) {
         // jump back to minimum scale
-        [self updateZoomScaleWithGesture:gestureRecognizer newScale:self.minimumZoomScale];
+        [self leUpdateZoomScaleWithGesture:gestureRecognizer newScale:self.minimumZoomScale];
     }
     else {
         // double tap zooms in
         CGFloat newScale = MIN(self.zoomScale * kZoomStep, self.maximumZoomScale);
-        [self updateZoomScaleWithGesture:gestureRecognizer newScale:newScale];
+        [self leUpdateZoomScaleWithGesture:gestureRecognizer newScale:newScale];
     }
-    if (self.photoViewDelegate != nil&&[self.photoViewDelegate respondsToSelector:@selector(photoViewDidDoubleTap:)]) {
-        [self.photoViewDelegate photoViewDidDoubleTap:self];
+    if (self.photoViewDelegate != nil&&[self.photoViewDelegate respondsToSelector:@selector(lePhotoViewDidDoubleTap:)]) {
+        [self.photoViewDelegate lePhotoViewDidDoubleTap:self];
     }
 }
 
 - (void)handleScrollViewSingleTap:(UIGestureRecognizer *)gestureRecognizer {
-    if (self.photoViewDelegate != nil&&[self.photoViewDelegate respondsToSelector:@selector(photoViewDidSingleTap:)]) {
-        [self.photoViewDelegate photoViewDidSingleTap:self];
+    if (self.photoViewDelegate != nil&&[self.photoViewDelegate respondsToSelector:@selector(lePhotoViewDidSingleTap:)]) {
+        [self.photoViewDelegate lePhotoViewDidSingleTap:self];
     }
 }
 
@@ -134,7 +138,7 @@
     
     if (!CGPointEqualToPoint(center, CGPointZero)) {
         CGFloat newScale = MIN([self zoomScale] * kZoomStep, self.maximumZoomScale);
-        [self updateZoomScale:newScale withCenter:center];
+        [self leUpdateZoomScale:newScale withCenter:center];
     }
 }
 
@@ -157,17 +161,17 @@
 #pragma mark - Support Methods
 #pragma mark -
 
-- (void)updateZoomScale:(CGFloat)newScale {
+- (void)leUpdateZoomScale:(CGFloat)newScale {
     CGPoint center = CGPointMake(self.imageView.bounds.size.width/ 2.0, self.imageView.bounds.size.height / 2.0);
-    [self updateZoomScale:newScale withCenter:center];
+    [self leUpdateZoomScale:newScale withCenter:center];
 }
 
-- (void)updateZoomScaleWithGesture:(UIGestureRecognizer *)gestureRecognizer newScale:(CGFloat)newScale {
+- (void)leUpdateZoomScaleWithGesture:(UIGestureRecognizer *)gestureRecognizer newScale:(CGFloat)newScale {
     CGPoint center = [gestureRecognizer locationInView:gestureRecognizer.view];
-    [self updateZoomScale:newScale withCenter:center];
+    [self leUpdateZoomScale:newScale withCenter:center];
 }
 
-- (void)updateZoomScale:(CGFloat)newScale withCenter:(CGPoint)center {
+- (void)leUpdateZoomScale:(CGFloat)newScale withCenter:(CGPoint)center {
     assert(newScale >= self.minimumZoomScale);
     assert(newScale <= self.maximumZoomScale);
     

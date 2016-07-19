@@ -12,15 +12,15 @@
 #import "LEImageCache.h"
 #import "UIImage+GIF.h"
 
-#define HMBannerWidth 30
-#define HMBannerOffset 15
-#define HMBannerSize 16
-typedef NS_ENUM(NSInteger, BannerViewScrollDirection){
+#define LEHMBannerWidth 30
+#define LEHMBannerOffset 15
+#define LEHMBannerSize 16
+typedef NS_ENUM(NSInteger, LEBannerViewScrollDirection){
     ScrollDirectionLandscape,// 水平滚动
     ScrollDirectionPortait// 垂直滚动
 };
 
-typedef NS_ENUM(NSInteger, BannerViewPageStyle){
+typedef NS_ENUM(NSInteger, LEBannerViewPageStyle){
     PageStyle_None,
     PageStyle_Left,
     PageStyle_Right,
@@ -28,34 +28,33 @@ typedef NS_ENUM(NSInteger, BannerViewPageStyle){
 };
 @protocol LE_HMBannerViewDelegate;
 @interface LE_HMBannerViewImageView : UIImageView
-@property (nonatomic) LEUIFramework *globalVar;
--(void) initUI;
--(void) setData:(NSDictionary *) data;
+-(void) leSetData:(NSDictionary *) data;
 @end
 
 @interface LE_HMBannerView : UIView <UIScrollViewDelegate>{
-    UIScrollView *scrollView;
-    UIButton *BannerCloseButton;
-    NSInteger totalPage;
-    NSInteger curPage;
+    UIScrollView *leScrollView;
+    UIButton *leBannerCloseButton;
+    NSInteger leTotalPage;
+    NSInteger lePage;
 }
-
-@property (nonatomic, assign) id <LE_HMBannerViewDelegate> delegate;
-@property (nonatomic, strong) NSArray *imagesArray;
-@property (nonatomic, assign) BannerViewScrollDirection scrollDirection;
-@property (nonatomic, assign) NSTimeInterval rollingDelayTime;
-- (id)initWithFrame:(CGRect)frame scrollDirection:(BannerViewScrollDirection)direction images:(NSArray *)images ImageViewClassName:(NSString *) className;
-- (void)reloadBannerWithData:(NSArray *)images;
-- (void)setSquare:(NSInteger)asquare;
-- (void)setPageControlOffset:(CGPoint) offset;
-- (void)setPageControlStyle:(BannerViewPageStyle)pageStyle;
-- (void)showClose:(BOOL)show;
-- (void)startRolling;
-- (void)stopRolling;
+//
+- (id)   initWithFrame:(CGRect)frame scrollDirection:(LEBannerViewScrollDirection)direction images:(NSArray *)images ImageViewClassName:(NSString *) className;
+//SET
+- (void) leSetDelegate:(id<LE_HMBannerViewDelegate>) delegate;
+- (void) leSetScrollDirection:(LEBannerViewScrollDirection) direction;
+- (void) leSetRollingDelayTime:(NSTimeInterval) time;
+//
+- (void) leReloadBannerWithData:(NSArray *)images;
+- (void) leSetSquare:(NSInteger)asquare;
+- (void) leSetPageControlOffset:(CGPoint) offset;
+- (void) leSetPageControlStyle:(LEBannerViewPageStyle)pageStyle;
+- (void) leShowClose:(BOOL)show;
+- (void) leStartRolling;
+- (void) leStopRolling;
 @end
 
 @protocol LE_HMBannerViewDelegate <NSObject>
 @optional
-- (void)bannerView:(LE_HMBannerView *)bannerView didSelectImageView:(NSInteger)index withData:(NSDictionary *)bannerData;
-- (void)bannerViewdidClosed:(LE_HMBannerView *)bannerView;
+- (void) leBannerView:(LE_HMBannerView *)bannerView didSelectImageView:(NSInteger)index withData:(NSDictionary *)bannerData;
+- (void) leBannerViewdidClosed:(LE_HMBannerView *)bannerView;
 @end

@@ -20,7 +20,7 @@
     LE_PZPhotoView  *pzView;
     LELoadingAnimationView *loading;
 }
-+(void) showHDImageWithUrl:(NSString *) url Aspect:(float) aspect{
++(void) leShowHDImageWithUrl:(NSString *) url Aspect:(float) aspect{
     LEShowHDImage *view=[[LEShowHDImage alloc] initWithUrl:url AndAspect:aspect];
     [[UIApplication sharedApplication].keyWindow addSubview:view];
 }
@@ -34,14 +34,14 @@
         [self setBackgroundColor:[UIColor blackColor]];
         loading=[[LELoadingAnimationView alloc]init];
         
-        [loading startAnimation];
-        [loading setFrame:CGRectMake(LESCREEN_WIDTH/2-loading.viewWidth/2, LESCREEN_HEIGHT/2-loading.viewHeight/2, loading.viewWidth, loading.viewHeight)];
+        [loading leStartAnimation];
+        [loading setFrame:CGRectMake(LESCREEN_WIDTH/2-loading.leViewWidth/2, LESCREEN_HEIGHT/2-loading.leViewHeight/2, loading.leViewWidth, loading.leViewHeight)];
         //
         pzView=[[LE_PZPhotoView  alloc]initWithFrame:CGRectMake(0, 0, LESCREEN_WIDTH, LESCREEN_HEIGHT)];
-        [pzView setPhotoViewDelegate:self];
-        [loading startAnimation];
-        [pzView setImageURL:url AndAspect:aspect];
-        [pzView setImageDownloadDelegate:self];
+        [pzView leSetDelegate:self];
+        [loading leStartAnimation];
+        [pzView leSetImageURL:url AndAspect:aspect];
+        [pzView leSetImageDownloadDelegate:self];
         [self addSubview:pzView];
         [self addSubview:loading];
         //
@@ -52,15 +52,15 @@
     }
     return self;
 }
--(void) onDownloadImageWithError:(NSError *)error{
-    [loading stopAnimation];
+-(void) leOnDownloadImageWithError:(NSError *)error{
+    [loading leStopAnimation];
 }
-- (void)onDownloadedImageWith:(UIImage *)image{
-    //    LELog(@"photoViewDidDownloadedImage");
-    [loading stopAnimation];
+- (void)leOnDownloadedImageWith:(UIImage *)image{
+    //    LELog(@"lePhotoViewDidDownloadedImage");
+    [loading leStopAnimation];
 }
-- (void)photoViewDidSingleTap:(LE_PZPhotoView  *)photoView{
-    [loading stopAnimation];
+- (void)lePhotoViewDidSingleTap:(LE_PZPhotoView  *)photoView{
+    [loading leStopAnimation];
     [UIView animateWithDuration:0.25 animations:^(void) {
         [self setAlpha:0];
     } completion:^(BOOL isDone){

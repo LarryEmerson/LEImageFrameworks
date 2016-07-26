@@ -198,7 +198,7 @@
 }
 @end
 
-@interface LETableViewPageWithBannerPage:LEBaseView<LEGetDataDelegate,LETableViewCellSelectionDelegate,LEBannerSubviewFrameDelegate,LEBannerViewSelectionDelegate,LEGetDataDelegate,LETableViewCellSelectionDelegate>
+@interface LETableViewPageWithBannerPage:LEBaseView<LETableViewDataSourceDelegate,LETableViewCellSelectionDelegate,LEBannerSubviewFrameDelegate,LEBannerViewSelectionDelegate,LETableViewDataSourceDelegate,LETableViewCellSelectionDelegate>
 @end
 @implementation LETableViewPageWithBannerPage{
     LEBannerTableView *curTableView;

@@ -1,5 +1,5 @@
 PODS:
-  - LEFrameworks (0.4.3)
+  - LEFrameworks (0.4.5)
   - LEImageFrameworks (0.2.0):
     - LEFrameworks
     - SDWebImage
@@ -16,7 +16,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  LEFrameworks: 1e1da256820463aeb76c702b2fc3345ca9363acb
+  LEFrameworks: 664200d406f9289ce3e7e646bce3055a8a380510
   LEImageFrameworks: b0dff3e08be8a8af7de28d7931dc6ed41bb30da1
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
 

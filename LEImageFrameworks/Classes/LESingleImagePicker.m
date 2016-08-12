@@ -105,6 +105,7 @@
 -(void) onFinishCropping{
     [page finishCropping];
 }
+-(void) leExtraInits{}
 @end
 
 @interface LESingleImagePicker ()<UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,LEImageCropperDelegate>

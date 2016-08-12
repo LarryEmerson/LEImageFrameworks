@@ -347,4 +347,5 @@
 -(void) leOnTableViewCellSelectedWithInfo:(NSDictionary *)info{
     LELogObject(info);
 }
+-(void) leExtraInits{}
 @end

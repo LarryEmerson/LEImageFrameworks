@@ -117,6 +117,7 @@
     [page setPage:index];
     return self;
 }
+-(void) leExtraInits{}
 -(void) viewDidLoad{
     [super viewDidLoad];
     isBarHide=self.navigationController.navigationBarHidden;

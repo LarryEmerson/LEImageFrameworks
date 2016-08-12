@@ -10,6 +10,7 @@
 #import "LEImageCache.h"
 @protocol LE_PZPhotoViewDelegate;
 @interface LE_PZPhotoView  : UIScrollView
+@property (nonatomic, readonly) UIImageView *imageView;
 //SET
 - (void) leSetDelegate:(id<LE_PZPhotoViewDelegate>) delegate;
 //

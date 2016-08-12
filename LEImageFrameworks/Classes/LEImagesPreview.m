@@ -104,5 +104,5 @@
     [[UIApplication sharedApplication] setStatusBarStyle:lastStatusStyle animated:YES];
     [self.navigationController setNavigationBarHidden:isBarHide animated:YES];
 }
-
+-(void) leExtraInits{}
 @end

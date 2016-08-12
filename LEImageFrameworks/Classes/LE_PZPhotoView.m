@@ -10,7 +10,7 @@
 #define kZoomStep 2
 
 @interface LE_PZPhotoView  () <UIScrollViewDelegate>
-@property (nonatomic) UIImageView *imageView;
+@property (nonatomic, readwrite) UIImageView *imageView;
 @property (assign, nonatomic) id<LE_PZPhotoViewDelegate> photoViewDelegate;
 @end
 @implementation LE_PZPhotoView  {

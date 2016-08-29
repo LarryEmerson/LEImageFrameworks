@@ -9,13 +9,14 @@
 #import "LE_PZPhotoView.h"
 #define kZoomStep 2
 
-@interface LE_PZPhotoView  () <UIScrollViewDelegate>
+@interface LE_PZPhotoView  () <UIScrollViewDelegate,LEImageDownloadDelegate>
 @property (nonatomic, readwrite) UIImageView *imageView;
 @property (assign, nonatomic) id<LE_PZPhotoViewDelegate> photoViewDelegate;
 @end
 @implementation LE_PZPhotoView  {
     CGPoint  _pointToCenterAfterResize;
-    CGFloat  _scaleToRestoreAfterResize; 
+    CGFloat  _scaleToRestoreAfterResize;
+    float curAspect;
 }
 -(void) leSetDelegate:(id<LE_PZPhotoViewDelegate>)delegate{
     self.photoViewDelegate=delegate;
@@ -23,6 +24,7 @@
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
         self.imageView =[[UIImageView alloc]init];
+        [self.imageView leSetImageDownloadDelegate:self];
         [self addSubview:self.imageView];
         [self.imageView setUserInteractionEnabled:YES]; 
         UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
@@ -38,8 +40,23 @@
 -(void) leSetImageDownloadDelegate:(id<LEImageDownloadDelegate>) delegate{
     [self.imageView leSetImageDownloadDelegate:delegate];
 }
+-(void) leOnDownloadedImageWith:(UIImage *) image{
+    LELogInt(curAspect)
+    if(curAspect<=0){
+//        [self.imageView setFrame:CGRectMake(0, 0, self.bounds.size.width, image.size.height/image.size.width*self.bounds.size.width)];
+        [self.imageView setFrame:CGRectMake(0, 0, image.size.width, image.size.height)];
+        [self setMaxMinZoomScalesForCurrentBounds];
+        [self leUpdateZoomScale:self.minimumZoomScale];
+    }
+}
+-(void) leOnDownloadImageWithError:(NSError *)error{
+    
+}
 -(void) leSetImageURL:(NSString *) url AndAspect:(float) aspect{
-    [self.imageView setFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.width/aspect)];
+    curAspect=aspect;
+    if(aspect>0){
+        [self.imageView setFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.width/aspect)];
+    }
     [self.imageView leSetImageWithUrlString:url];
     self.contentSize = self.imageView.frame.size;
     [self setMaxMinZoomScalesForCurrentBounds];
@@ -161,6 +178,9 @@
 #pragma mark - Support Methods
 #pragma mark -
 
+- (void)leRecoverFromResizing {
+    [self recoverFromResizing];
+}
 - (void)leUpdateZoomScale:(CGFloat)newScale {
     CGPoint center = CGPointMake(self.imageView.bounds.size.width/ 2.0, self.imageView.bounds.size.height / 2.0);
     [self leUpdateZoomScale:newScale withCenter:center];
@@ -172,8 +192,8 @@
 }
 
 - (void)leUpdateZoomScale:(CGFloat)newScale withCenter:(CGPoint)center {
-    assert(newScale >= self.minimumZoomScale);
-    assert(newScale <= self.maximumZoomScale);
+//    assert(newScale >= self.minimumZoomScale);
+//    assert(newScale <= self.maximumZoomScale);
     
     if (self.zoomScale != newScale) {
         CGRect zoomRect = [self zoomRectForScale:newScale withCenter:center];
@@ -182,8 +202,8 @@
 }
 
 - (CGRect)zoomRectForScale:(float)scale withCenter:(CGPoint)center {
-    assert(scale >= self.minimumZoomScale);
-    assert(scale <= self.maximumZoomScale);
+//    assert(scale >= self.minimumZoomScale);
+//    assert(scale <= self.maximumZoomScale);
     CGRect zoomRect;
     // the zoom rect is in the content view's coordinates.
     zoomRect.size.width = self.frame.size.width / scale;

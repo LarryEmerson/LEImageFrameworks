@@ -37,19 +37,27 @@ static void * UIImageDownloadDelegateKey = (void *) @"UIImageDownloadDelegateKey
 }
 -(void) leSetImageWithUrlString:(NSString *) url {
     if(url){
-        UIImage *img=[[LEImageCache sharedInstance] leGetImageFromCacheWithKey:url];
+//        UIImage *img=[[LEImageCache sharedInstance] leGetImageFromCacheWithKey:url];
+        [self sd_cancelCurrentImageLoad];
+        UIImage *img=[[SDImageCache sharedImageCache] imageFromDiskCacheForKey:url];
+        if(!img){
+            img=[[SDImageCache sharedImageCache] imageFromMemoryCacheForKey:url];
+        }
         if(img){
             [self setImage:img];
+            if(self.leImageDownloadDelegate&&[self.leImageDownloadDelegate respondsToSelector:@selector(leOnDownloadedImageWith:)]){
+                [self.leImageDownloadDelegate leOnDownloadedImageWith:img];
+            }
         }else{
             //            LELogObject(url);
-            [self sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:self.lePlaceholderImage completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL){
+            [self sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:self.lePlaceholderImage options:SDWebImageRetryFailed completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL){
                 if(error){
                     [self setImage:self.lePlaceholderImage];
                     if(self.leImageDownloadDelegate&&[self.leImageDownloadDelegate respondsToSelector:@selector(leOnDownloadImageWithError:)]){
                         [self.leImageDownloadDelegate leOnDownloadImageWithError:error];
                     }
                 }else if(image){
-                    [[LEImageCache sharedInstance] leAddImage:image toCacheWithKey:imageURL.absoluteString];
+//                    [[LEImageCache sharedInstance] leAddImage:image toCacheWithKey:imageURL.absoluteString];
                     if(self.leImageDownloadDelegate&&[self.leImageDownloadDelegate respondsToSelector:@selector(leOnDownloadedImageWith:)]){
                         [self.leImageDownloadDelegate leOnDownloadedImageWith:image];
                     }
@@ -60,7 +68,8 @@ static void * UIImageDownloadDelegateKey = (void *) @"UIImageDownloadDelegateKey
 }
 -(void) leAddToImageCacheWithUrl:(NSString *) url{
     if(self.image){
-        [[LEImageCache sharedInstance] leAddImage:self.image toCacheWithKey:url];
+//        [[LEImageCache sharedInstance] leAddImage:self.image toCacheWithKey:url];
+        [[SDImageCache sharedImageCache] storeImage:self.image forKey:url];
     }
 }
 -(void) leSetPlaceholder:(UIImage *) image{

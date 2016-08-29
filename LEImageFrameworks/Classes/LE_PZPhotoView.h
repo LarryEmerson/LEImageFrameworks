@@ -18,6 +18,7 @@
 - (void) leSetImageDownloadDelegate:(id<LEImageDownloadDelegate>) delegate;
 - (void) leUpdateZoomScale:(CGFloat)newScale;
 - (void) leUpdateZoomScale:(CGFloat)newScale withCenter:(CGPoint)center;
+- (void) leRecoverFromResizing ;
 @end
 @protocol LE_PZPhotoViewDelegate <NSObject>
 @optional

@@ -40,8 +40,7 @@
 -(void) leSetImageDownloadDelegate:(id<LEImageDownloadDelegate>) delegate{
     [self.imageView leSetImageDownloadDelegate:delegate];
 }
--(void) leOnDownloadedImageWith:(UIImage *) image{
-    LELogInt(curAspect)
+-(void) leOnDownloadedImageWith:(UIImage *) image{ 
     if(curAspect<=0){
 //        [self.imageView setFrame:CGRectMake(0, 0, self.bounds.size.width, image.size.height/image.size.width*self.bounds.size.width)];
         [self.imageView setFrame:CGRectMake(0, 0, image.size.width, image.size.height)];

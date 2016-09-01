@@ -8,10 +8,6 @@
 
 #import "LEImageCache.h"
 
-@interface UIImageView ()
-@property (nonatomic) UIImage *lePlaceholderImage;
-@property (nonatomic) id<LEImageDownloadDelegate> leImageDownloadDelegate;
-@end
 @implementation UIImageView (LEExtensileOnDownload)
 static void * UIImageViewPlaceHolderKey = (void *) @"UIImageViewPlaceHolder";
 - (UIImage *) lePlaceholderImage {
@@ -50,16 +46,17 @@ static void * UIImageDownloadDelegateKey = (void *) @"UIImageDownloadDelegateKey
             }
         }else{
             //            LELogObject(url);
+            LEWeakSelf(self);
             [self sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:self.lePlaceholderImage options:SDWebImageRetryFailed completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL){
-                if(error){
-                    [self setImage:self.lePlaceholderImage];
-                    if(self.leImageDownloadDelegate&&[self.leImageDownloadDelegate respondsToSelector:@selector(leOnDownloadImageWithError:)]){
-                        [self.leImageDownloadDelegate leOnDownloadImageWithError:error];
+                if(error){ 
+//                    [weakself setImage:weakself.lePlaceholderImage];
+                    if(weakself.leImageDownloadDelegate&&[weakself.leImageDownloadDelegate respondsToSelector:@selector(leOnDownloadImageWithError:)]){
+                        [weakself.leImageDownloadDelegate leOnDownloadImageWithError:error];
                     }
                 }else if(image){
 //                    [[LEImageCache sharedInstance] leAddImage:image toCacheWithKey:imageURL.absoluteString];
-                    if(self.leImageDownloadDelegate&&[self.leImageDownloadDelegate respondsToSelector:@selector(leOnDownloadedImageWith:)]){
-                        [self.leImageDownloadDelegate leOnDownloadedImageWith:image];
+                    if(weakself.leImageDownloadDelegate&&[weakself.leImageDownloadDelegate respondsToSelector:@selector(leOnDownloadedImageWith:)]){
+                        [weakself.leImageDownloadDelegate leOnDownloadedImageWith:image];
                     }
                 }
             }];
@@ -68,8 +65,8 @@ static void * UIImageDownloadDelegateKey = (void *) @"UIImageDownloadDelegateKey
 }
 -(void) leAddToImageCacheWithUrl:(NSString *) url{
     if(self.image){
-//        [[LEImageCache sharedInstance] leAddImage:self.image toCacheWithKey:url];
-        [[SDImageCache sharedImageCache] storeImage:self.image forKey:url];
+        [[LEImageCache sharedInstance] leAddImage:self.image toCacheWithKey:url];
+//        [[SDImageCache sharedImageCache] storeImage:self.image forKey:url];
     }
 }
 -(void) leSetPlaceholder:(UIImage *) image{

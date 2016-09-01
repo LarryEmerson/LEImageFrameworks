@@ -19,6 +19,8 @@
 @end
 
 @interface UIImageView (LEExtensileOnDownload)
+@property (nonatomic) UIImage *lePlaceholderImage;
+@property (nonatomic) id<LEImageDownloadDelegate> leImageDownloadDelegate;
 -(void) leSetImageWithUrlString:(NSString *) url;
 -(void) leSetImageForQiniuWithUrlString:(NSString *) url Width:(int)w Height:(int) h;
 -(void) leSetImageForQiniuWithUrlString:(NSString *) url;

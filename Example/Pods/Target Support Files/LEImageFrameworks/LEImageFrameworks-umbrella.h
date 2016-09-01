@@ -1,5 +1,6 @@
 #import <UIKit/UIKit.h>
 
+#import "LEBaseSettingsCell.h"
 #import "LEImageCache.h"
 #import "LEImageCellGroupsWithPicker.h"
 #import "LEImageFrameworks.h"

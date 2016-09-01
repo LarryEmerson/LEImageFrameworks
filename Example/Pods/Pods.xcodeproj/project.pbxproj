@@ -7,50 +7,57 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00C001B32DFA744C93482374877F7BA4 /* LEImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B81C077CAFD81BF52D681B5EA91A67BB /* LEImageCache.m */; };
 		0122527D8511877804DB093688D9A470 /* LE_web_icon_close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3530A851540C3611FACE77E1618DC451 /* LE_web_icon_close@3x.png */; };
 		039801FAA1A77D64506FA3D7BD6F2DC5 /* LE_web_icon_share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BBAD08815CD2457E2C2613CF66DA795 /* LE_web_icon_share@2x.png */; };
 		040BD40B559702847BAF740B93040726 /* LE_MultiImagePickerCheck@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FC633F4C330E8948FD6D6DB59B32D79 /* LE_MultiImagePickerCheck@2x.png */; };
-		06DD6CA6BB829F85001AC7294EC0FA5A /* SDWebImageCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = 7691A3F0B0196647392F957A8F53C7AE /* SDWebImageCompat.m */; };
+		061276CCF639EA2C5DDF03D392E05229 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 343B099C9E798A29B7447266C2891D63 /* ImageIO.framework */; };
+		08071987F901B922E8890B5B6A1D4CC4 /* UIView+WebCacheOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 904738458AD467CF7CE3A3036327DA89 /* UIView+WebCacheOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		08632FBA35030A528F961EA318200090 /* LEBaseTableViewSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 729471300193C76F6265B981D65DEC6E /* LEBaseTableViewSection.m */; };
-		08CCBECA3363BB5950ED3E7A8A1FDF91 /* LE_PZPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 116975FC6363A6FEBDF9AB33DB51F35E /* LE_PZPhotoView.m */; };
 		09153549DFA4504ECAD5EC53688AC05A /* Pods-LEImageFrameworks_Test-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F840F32430CB44669C40F1885FB77152 /* Pods-LEImageFrameworks_Test-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0965089A2A24DEF1E5495954AE60E5B2 /* LESegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC10E9B3EED93D1B66FAFFEB6938FFC4 /* LESegmentView.m */; };
 		098E932D6C65E1D0CEA5DED22B0D432B /* LEBasePopupEmptyPage.h in Headers */ = {isa = PBXBuildFile; fileRef = 084CEC00E1160DAE4254EF4BC81EFB3F /* LEBasePopupEmptyPage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0A725BA27FFCD1BB23E925439A5A3538 /* SDWebImageDownloaderOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5553E542789034FF3E3992F0FF01E2AA /* SDWebImageDownloaderOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0AA46F2460BA874A470F378D64E2D308 /* LELocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A31983927ED9F31B3B217799B339BBC /* LELocalNotification.m */; };
 		0B1D8477042793599C8ABDE88F14A6BF /* LEBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA0AA4332DC7BF2820AA5BC72FF8219 /* LEBaseViewController.m */; };
+		0B59063AE21EB81340AFB57E20AB4247 /* LEImageFrameworks-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D93872A9D1D2D77BBE0166B3D908C12 /* LEImageFrameworks-dummy.m */; };
+		0CC3528F2BABA9480BEB0A827A6C27C6 /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = D1072B923550D4D65881A55BD0FF895A /* UIImage+MultiFormat.m */; };
+		0D33773EB090C39BAAEBFE7D10C5860B /* LE_PZPhotoView.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B1D9E1A938FB8CBB26E976AA75B986B /* LE_PZPhotoView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0E4B79BEE14536691A9E429D20BBE5F5 /* UIImageView+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = E7DE92ADFDFDDBAA667B7F0CD8742689 /* UIImageView+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0EA85FC0E4C85A1CD1370697D67FE18E /* LEBottomTabbar.h in Headers */ = {isa = PBXBuildFile; fileRef = 25999827FC50D0F2F366EC40131AE254 /* LEBottomTabbar.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0ECD1C72B8F644AB007FAFB97084DB7C /* LEImageFrameworks-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D93872A9D1D2D77BBE0166B3D908C12 /* LEImageFrameworks-dummy.m */; };
-		113894D6EAC51120CC4D5B2F09B09B21 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = B71D44DF59F4C1C872B5855C87D05EBC /* SDWebImageDownloader.m */; };
 		1460AB478AED452EBE9019D607CF5198 /* LEBasePopupEmptyPage.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6451F3E50471B3CAD9E088FC9BD9A9 /* LEBasePopupEmptyPage.m */; };
 		184235536FC64E07D2FE53BA583D0BE9 /* LE_web_icon_forward_on@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F887A304A6DBFBC833CC3234B6DDFF48 /* LE_web_icon_forward_on@3x.png */; };
-		1A55CDAA2BF427EF583B9976C65D9D3D /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 343B099C9E798A29B7447266C2891D63 /* ImageIO.framework */; };
-		1B2A1CAD1E2A963293E14B01BCBA0118 /* LEShowHDImage.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBF4AF32BE5DE80C20B53D46D9A6F65 /* LEShowHDImage.m */; };
+		1B1525E9B068A329DA066F1613B7C8FD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08DDEAEF2EAC11ACEE239911D1A3D50 /* Foundation.framework */; };
 		1B62F6450395662D8971F381ABC4A762 /* LE_common_navigation_btn_back@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C8B37A27A12203A8B0CDE5B37805A15 /* LE_common_navigation_btn_back@3x.png */; };
 		1C9E302AAD3E698CACCE0968EF042D6E /* LE_web_icon_forward_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA70A929783C70958D8DC32CA9748F74 /* LE_web_icon_forward_on@2x.png */; };
 		1EFFAA33B0C4E8C46E0663386AA84858 /* LELineChart.h in Headers */ = {isa = PBXBuildFile; fileRef = 5198A7CCC0DBB6DD42D6458DE55799CF /* LELineChart.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1FA52E4D42BB90C921895D2A9861D52D /* NSData+ImageContentType.h in Headers */ = {isa = PBXBuildFile; fileRef = D340239E21A1476867942DE5D5417276 /* NSData+ImageContentType.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		204D730FD70B74EF9E9C7152732FDE67 /* SDWebImagePrefetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C0F84AB632674C269AB86C0F4258281 /* SDWebImagePrefetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		20B3FEA8F1B52AD9D20D3B03ED57CA47 /* LE_web_icon_backward_on@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3739A9D6A286B9DEA6663DF23B1FC8CE /* LE_web_icon_backward_on@3x.png */; };
 		21686130739A55B739FA7E714AC9806C /* LE_MessageBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B45B5460E9E016AB2ABD7415ECC8370B /* LE_MessageBackground@2x.png */; };
 		243A0ED46E73CE40B0CA7525DBBF8E54 /* LE_common_btn_gray@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F67BDF07468B4D5DB1A8D37C3FBC6000 /* LE_common_btn_gray@3x.png */; };
+		25B6479120F3E3E2AAABE4E61CEC3038 /* LE_PZPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC843F20FEE163E6FE6E9F922000C79A /* LE_PZPhotoView.m */; };
 		26AD1279EB887E020EBB9870471FC627 /* LEBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 856DA0B470DC0A00392621CB8A94A897 /* LEBaseTableViewCell.m */; };
-		2772D60B82C2797604C08C5D084AA59A /* LEImageCellGroupsWithPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 17A52142556973425758254E12B9D83C /* LEImageCellGroupsWithPicker.m */; };
 		286A2C59AC0CBB15A9869EED36693D53 /* LE_web_icon_refresh@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15E268DE46026847BD1BF02CF58E79E1 /* LE_web_icon_refresh@3x.png */; };
 		290F4B130156FE39805C4CD45EFFDCE3 /* LERefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = D567AC02F9B05B158C058EEE20066131 /* LERefresh.m */; };
+		2A8B7D0E7049D1D061CD0F35556BA527 /* SDImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E343E3B1AC4ED6DF2F3A0B758FFCEED /* SDImageCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2AED2D9F0E6EB8C95E4936E7F45B0888 /* EmojiImagePageView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA127FE09D8A33B4F8EB718DCFEE6DF /* EmojiImagePageView.m */; };
-		2C92F7770560024F062190867490E92F /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = CC91736DB7CF3ABAC133564368E942DF /* SDWebImagePrefetcher.m */; };
+		2B3F0559601F90DC26685DA42B955D7E /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB9B7341D70EFC4A9DE0E18D33F9542 /* SDWebImageDecoder.m */; };
+		2DBF7288E8CFDC2A72646F249ACE35EF /* LEBaseSettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 433CDEAEFC0BB1A008398A99D73CC87C /* LEBaseSettingsCell.m */; };
 		2DC96142BE08360CEC7D93B94AC3FAD3 /* LE_qrcode_scan_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 324B60EE413E10BE9F3F449CB16ECAEB /* LE_qrcode_scan_bg@2x.png */; };
+		2DE4EA8E696F7CB0FE98846AEFD9F04F /* LEImageFrameworks.h in Headers */ = {isa = PBXBuildFile; fileRef = ACCF43456B591EC6491A5A3EE6CE59BA /* LEImageFrameworks.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2FE83128976120F2061B9D54E3D96785 /* LEBaseCollectionViewWithRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E23F3315FECEE328A03F25FD0203677 /* LEBaseCollectionViewWithRefresh.m */; };
 		3180108A653BB1C9E905C05E54369493 /* LEBarChart.h in Headers */ = {isa = PBXBuildFile; fileRef = 46F241523FD5AD90D5598C17E502B9D5 /* LEBarChart.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		318AF86E7C4D942BFE5298EA11912A57 /* LESingleImagePicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 16708740C2F4B12981526543C93295DA /* LESingleImagePicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34D90207BC767D06161BE624F8E3FCC6 /* LEPopup.h in Headers */ = {isa = PBXBuildFile; fileRef = FB3C8CB7F604B605BC33CA13FFCA449F /* LEPopup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3683AB8A5C840618C73846A8130EB54D /* LETableViewPageWithBanner.h in Headers */ = {isa = PBXBuildFile; fileRef = D4ADA3EC09C9EB4CE49CE8A805624F64 /* LETableViewPageWithBanner.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3833E9E5C3EF1D311225BBB993A5C75D /* LESingleImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 00379782318742CE47DCE49A2B09C5BC /* LESingleImagePicker.m */; };
+		384573FAB9C814AE43BCD32D737C43D6 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F626EAF0A19F7AF11BB1F7397E37A268 /* SDImageCache.m */; };
 		39A0D51D2DDB06C79462D99A8E895936 /* LEFrameworks-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AF69A4683948D553EA4E56A9B6EF8742 /* LEFrameworks-dummy.m */; };
 		3A3C2D700AE7B271B77AF220216924EC /* LE_web_icon_forward_off@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BA098814654B28506B840F7864168A2 /* LE_web_icon_forward_off@3x.png */; };
 		3AEE5D2CADE5B6A3A301B656C5192538 /* LEPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E761CD0C73924781CFD60498A91BAC /* LEPopup.m */; };
 		3C084B4B451E7752EFA23DEB0AC831A6 /* LEShowQrcode.h in Headers */ = {isa = PBXBuildFile; fileRef = E1A9CA8044C4230F058922E0C3D02B67 /* LEShowQrcode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3CEA8099C050658A2F715C426393E72C /* LELocalNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = 7318BD2BA543B47DDB84CCD34AAB88CA /* LELocalNotification.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3D02B6E2C58EE46D21E6360BC5FDC7F6 /* LEImagesGridWithPreview.h in Headers */ = {isa = PBXBuildFile; fileRef = C71D128AFE14418594BA6AA8024E4A0B /* LEImagesGridWithPreview.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3E48BDE9719E61D67758CDE233F398B9 /* LEBaseViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 32D35179227F207F1DBBC4512308C653 /* LEBaseViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3E5E70E1FBD29D86A23D36F88B5D198D /* NSData+ImageContentType.h in Headers */ = {isa = PBXBuildFile; fileRef = D340239E21A1476867942DE5D5417276 /* NSData+ImageContentType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3E703F77951F5CAFC4AB3EE8B38EC0A1 /* SDWebImageOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 089A3625AA152787CF043C680FE965F5 /* SDWebImageOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3ED7E0F37E4072E357C709BB23F260A2 /* LE_qrcode_scan_line@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 818303D64E1696487B60F65535D5890E /* LE_qrcode_scan_line@3x.png */; };
 		3F1AC8C3090695888670DC81DFDBD446 /* LEAppMessageDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6920D8B1121C2253D27D906BD470EBEC /* LEAppMessageDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		437F05EBB57914FA3E467DA9EF05B7AF /* LE_web_icon_backward_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA4AFF3AAEBA0E4ADEF07CC54D4431F7 /* LE_web_icon_backward_off@2x.png */; };
@@ -58,128 +65,123 @@
 		451BA8A05A823A4C871B7D18C6F56E41 /* LEFrameworks.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C33C4D23C7CE19E3756FC94535580414 /* LEFrameworks.bundle */; };
 		462E8E052D0B6FE0BA722C30B701CB60 /* LETabbarRelatedPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BEE59697F298EB2CD52D8DAF7AB40C /* LETabbarRelatedPageView.m */; };
 		46F1185CD0080D35B34750DC0064F690 /* LE_emoji_keyboardface@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8291839712F17CF8CAEFDEB84256F1D4 /* LE_emoji_keyboardface@2x.png */; };
+		47A46239C5FAE73B7AE78676E9FEECB4 /* LETableViewPageWithBanner.h in Headers */ = {isa = PBXBuildFile; fileRef = 99E720FED1028F12D24565C38A5FE4D1 /* LETableViewPageWithBanner.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		47F13E25492C5A35EAB50D712F2FD844 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08DDEAEF2EAC11ACEE239911D1A3D50 /* Foundation.framework */; };
-		48E9AEEE59F3A8678FC97EB0BFB24808 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E9769B51B400CF2BBFAB8A1A6EC2FF /* UIView+WebCacheOperation.m */; };
-		4921B17F80C2C4F23DE9C7E5144F138E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08DDEAEF2EAC11ACEE239911D1A3D50 /* Foundation.framework */; };
 		4AAC9BD1FB8280958953575AB9CC3F95 /* LE_web_icon_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C344829BBBAEACEBBC45E1BE43CEB0D /* LE_web_icon_close@2x.png */; };
 		4C0FBDAD9C9919088B1D7F56D6113E06 /* LEBarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F632F266BFD174BF5E8F8FB065A5F /* LEBarChart.m */; };
-		4CA6CD143AAC8E0082D5DC909958A7D6 /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 061ED2B83144E12DEDE7A50411AB6B81 /* UIImage+GIF.m */; };
-		4D20463287D33B947D5F726F3F23A0C2 /* LEFrameworks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5B05237D856FC4C7F860F16778AA44 /* LEFrameworks.framework */; };
-		516518007BB8B9C027DEA29FE8B70DF7 /* LEImageFrameworks-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EA2733AAA025122A908E99E3B1B7CE18 /* LEImageFrameworks-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		52CB0CB27AB714A08A1386CD3C364EB7 /* LESegmentView.h in Headers */ = {isa = PBXBuildFile; fileRef = AFADC02291D33D34307AF878A83A30A9 /* LESegmentView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		56E84B0229DC04182D67495AF2F4F4B2 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FC07E83046449C225628DED93FBD8AFF /* UIImageView+HighlightedWebCache.m */; };
 		576AE5DD3B80B26A3F869D9810F772D6 /* LE_qrcode_scan_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCD4487822DC0C3E0E3BC7EE0A85D1E2 /* LE_qrcode_scan_bg@3x.png */; };
-		59E9E592D356588B1E3DC9AAF89EEDCB /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F13331DC32D27D8EF823BC8F5E8C7FFC /* SDWebImage.framework */; };
+		5981E1E3B60D536499C981BB2586E1A2 /* LEImageFrameworks-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EA2733AAA025122A908E99E3B1B7CE18 /* LEImageFrameworks-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A0F090A4D0BAEAB27AAA00082899371 /* LE_emoji_smileface@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F3ADE2130D36930C1C7CA37B9AD304B /* LE_emoji_smileface@2x.png */; };
 		5A90E863ED1CA2EFA3A075240D68F51D /* LE_lewaverotation.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F390DC0EB9CEF58CD1D1B634FC2206A /* LE_lewaverotation.png */; };
+		5A94674F64224801C5DEDD49431DAA43 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4DB50F3344C8A66A9249571CDB2663 /* NSData+ImageContentType.m */; };
 		5B603405CB6552F52E1B4FAA65B653BA /* LELoadingAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3C3A1E5E0C540B47184207B8A7371F /* LELoadingAnimationView.m */; };
 		5BE35DC246307D23D83586CAD843871D /* LEBaseCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89708AB651809CE16774C005106D6353 /* LEBaseCollectionView.m */; };
+		5C7999CBCBE20A76C82D9D281526316A /* SDWebImageDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 32574D4C989BD073AFBE3C4CD851C552 /* SDWebImageDecoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D37E7521AC3C3653E3B6E1E1BEB6F2D /* LEExcelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E7911C1F2DDDA028C1D67854B2AB6D /* LEExcelView.m */; };
 		5E220546FA4CE4E2D4928C7521DB3E47 /* EmojiInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 988302F9838346B0BDC69C4E329D85A1 /* EmojiInputView.m */; };
-		604913A97833EE1A10BF1E7A03A2B493 /* SDWebImageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B23DC869702DEB8DE490E8923B7CB7 /* SDWebImageManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6028B239A4D8CBCF98882CBB447800A5 /* SDWebImage-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DFCA55F381DD6971DA5B89A32403C457 /* SDWebImage-dummy.m */; };
 		61B2E2AB40FF0EB8FBD1858125841C00 /* LEShowQrcode.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6489278BA1CDB2A76679851810328F /* LEShowQrcode.m */; };
-		62318A84FABE084DFC5D75C6072497FA /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = D1072B923550D4D65881A55BD0FF895A /* UIImage+MultiFormat.m */; };
-		6480A0175B60DA067316259DA67AAFAB /* UIImageView+HighlightedWebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = AABECBA266DF04D199CAE17E168EA38D /* UIImageView+HighlightedWebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		662E2CA3B1306EEE9A3D54AAF5CEC7F2 /* SDWebImageCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = 7691A3F0B0196647392F957A8F53C7AE /* SDWebImageCompat.m */; };
+		6671AD195300392EDB3CD6D386192A9F /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 061ED2B83144E12DEDE7A50411AB6B81 /* UIImage+GIF.m */; };
+		66B3522F96CCB0C27C82630CDB206E5D /* UIButton+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 0ADE84F582115F4CC5517193A699E993 /* UIButton+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		68AC69683203EA209DD03FE1B04026E8 /* LEUIFrameworkExtra.m in Sources */ = {isa = PBXBuildFile; fileRef = AE4ADDF4BB63790F2C62830660CBD51F /* LEUIFrameworkExtra.m */; };
 		6AD13BA9049452BEAAB562F3A5DB8640 /* LE_NSDate+Category.h in Headers */ = {isa = PBXBuildFile; fileRef = A5D31178CFE301C98ED54593E1535F23 /* LE_NSDate+Category.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6B779723B66CD4C184F83545713BE37D /* SDImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E343E3B1AC4ED6DF2F3A0B758FFCEED /* SDImageCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6D0D15F915440582B52EBB65E61233D5 /* UIImage+GIF.h in Headers */ = {isa = PBXBuildFile; fileRef = 30D8697D655B05BC185C6AB3DD861331 /* UIImage+GIF.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6EA0F00F1970715E22C4062876A89BA7 /* LEImageCellGroupsWithPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDD0139CD42E6597D281C40EE8EF9AC /* LEImageCellGroupsWithPicker.m */; };
 		6EB8001BEB952B97A2CA3266BC4D6176 /* LEExcelView.h in Headers */ = {isa = PBXBuildFile; fileRef = 369A562D56C8B27916C1B38A23DC5671 /* LEExcelView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6F262432761548C4348EF91956D403FE /* LE_emoji_keyboardface@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B08705826B01F6A95FA3B63925F41E31 /* LE_emoji_keyboardface@3x.png */; };
 		6F66009D9EDF67201FECC9D347844B4C /* LEWaveProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F4F5AD53FA632F267C4ED2F50A6F76 /* LEWaveProgressView.m */; };
 		6F841AAC765819F760DB289DA5938860 /* LEMultiImagePicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F92D0668B8CCE9441C6ACF99F47730F /* LEMultiImagePicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7055BCD209853C7D7336F01B6E476B6C /* LEBaseTableViewWithRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = 90083D108A534E3A756D41464C3735DF /* LEBaseTableViewWithRefresh.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		708DD8A23BA7CFDDCD7953A4EC5C23CF /* SDWebImage-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C38DDD7F66EF8DF9C1142748AC08462 /* SDWebImage-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		718709DA92CCB7044E11803E9227375F /* SDWebImageDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 32574D4C989BD073AFBE3C4CD851C552 /* SDWebImageDecoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		738D0A9B54BAB2774F238449FB62D600 /* LERefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = D334BA5BC61CA2D016FC2521011ADECF /* LERefresh.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		773165400BCD106ED1B5AC65A3D35995 /* LEImageCellGroupsWithPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = EE1C0CBDBE2F18EB71ECCED96BF65E90 /* LEImageCellGroupsWithPicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		742F10F17AC4D16A08958257E19C20CC /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 232D1A590A59D24021B6A0B572E8AAB9 /* UIImageView+WebCache.m */; };
+		771B02413A2E2D147F4F838E1778626F /* LE_HMBannerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B41309D0F2383B9AF4D3F6FF1AE9EC6 /* LE_HMBannerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77E14D981D91261083EA3DDF71EF9A74 /* LE_EmojiToolBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 28DA1A24FB113D985377D9518C67724E /* LE_EmojiToolBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77EEB6ECFE685B04453A32A1EF868EBC /* LEShowHDImage.h in Headers */ = {isa = PBXBuildFile; fileRef = C7618C2728962B3001F0F2244B5025D2 /* LEShowHDImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7893E8C3AC3E1969BDA9544CE23D4C3D /* LEBaseEmptyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8E34AF3B870BEE430CF2887A8CCC48 /* LEBaseEmptyTableViewCell.m */; };
 		79B4DEEE4CE539366C04DC58C7622E50 /* LECurveProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56CFB369576FCBDB2BED75CF4FF377E5 /* LECurveProgressView.m */; };
 		7B0329D564B83F0278BEE27B22576965 /* LEWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72210E2A1476E7CB75A72A6B9835D501 /* LEWebView.m */; };
-		7B86F524A4B14D434BEC8ED15837A30F /* SDWebImageDownloaderOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5553E542789034FF3E3992F0FF01E2AA /* SDWebImageDownloaderOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7BBE5DA2E1F772D33BA2EE505C37D755 /* EmojiImagePageView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB933750C332BD97DC4CBCBD97C38373 /* EmojiImagePageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7C627DD72080AC238CAECAB1B404BFF5 /* LE_qrcode_scan_line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E486DF885426E1DCC9FBE902A359A286 /* LE_qrcode_scan_line@2x.png */; };
 		7F7375B6A343D51382472F088BD8ADC1 /* LELoadingAnimationView.h in Headers */ = {isa = PBXBuildFile; fileRef = 778637247241D0E644C5C3D9B05A1D3D /* LELoadingAnimationView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		80248610AC140E602903C0538DB52A3C /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = B71D44DF59F4C1C872B5855C87D05EBC /* SDWebImageDownloader.m */; };
 		80E9A452BD01B56A3DC47FA263C0FC31 /* LEBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = C363BDD2705179BC89D56BAF9CE79A62 /* LEBadge.m */; };
 		82ED011091874B6511EBF35563B6EAF3 /* LEBaseTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 612FC1B09673E6F756CE48B762036548 /* LEBaseTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		83E28904C2AEFA4C363D92FA59C37480 /* LEImageCellGroupsWithPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E7CED5B42333993949697DA0BB2FF2D /* LEImageCellGroupsWithPicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8414878B25925516C35558A4450A25BE /* LEBadge.h in Headers */ = {isa = PBXBuildFile; fileRef = DD31BC109805B624E2A82CCEC7DA379A /* LEBadge.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		850A51844E5EDD4B662C436D66CC92C0 /* LEImageFrameworks.h in Headers */ = {isa = PBXBuildFile; fileRef = F34D4AAC62A9D43D8BD7663A61B0E7CE /* LEImageFrameworks.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		857AF09086FBEE91FEEBA9E735EAA25E /* UIImage+MultiFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = FF094D864A66CECFD66F1D8E18D434EA /* UIImage+MultiFormat.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8958C6DD8A284EAC2FB15A3D273F4C37 /* LE_popup_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CDEB155AEF9AF6FAC0A84A260323B3E /* LE_popup_bg@2x.png */; };
-		8A6224768F32BE68360DFAFFC592BDDC /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 15176AFA637A3AD71808EFD0C3DA519F /* UIButton+WebCache.m */; };
-		8B4B3A505EB82C7FFD7CFCF03E513F77 /* LEImagesGridWithPreview.h in Headers */ = {isa = PBXBuildFile; fileRef = 78A01BAFE10C3E878E2769BD35BA566D /* LEImagesGridWithPreview.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8ACE551CCEE221636B8DBFCE5C5EE447 /* SDWebImage-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C38DDD7F66EF8DF9C1142748AC08462 /* SDWebImage-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8E550F5C235C17B55E90A4DB4443DD89 /* LE_emoji_smileface@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 088B1BB944B1746B150480351F7F529D /* LE_emoji_smileface@3x.png */; };
 		8EA9ABF10E63F03B1EBCA60236EDBCD4 /* LEBaseTableViewSection.h in Headers */ = {isa = PBXBuildFile; fileRef = 614D578DF814276C71AC98DFA6B075EC /* LEBaseTableViewSection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8FECEF7F21A30E5B39AC72FFCC69EF0B /* LE_common_btn_gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1E3A133F9D16B786D084F2519291ACC /* LE_common_btn_gray@2x.png */; };
 		90381EBDFAFB28B33368DDD8FC2B4E10 /* LE_common_navigation_btn_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6965163807D070255FFFE81AE24B863 /* LE_common_navigation_btn_back@2x.png */; };
-		9240921B82C44BA2C5C3984F3D527959 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB9B7341D70EFC4A9DE0E18D33F9542 /* SDWebImageDecoder.m */; };
-		943CC83C51EE2480812F059426C97521 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9676F2C3A09A8B2B1193A3E3E525D9E6 /* SDWebImageManager.m */; };
-		980431F68642EDE12FE8B8040EADBF0D /* SDWebImageDownloaderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A68E55703D07A6579E7529083531D2DA /* SDWebImageDownloaderOperation.m */; };
-		98B5243EFE2A05119E15CC7E52282393 /* SDWebImageDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A8518623B3A15FE637AA91926AC98C8 /* SDWebImageDownloader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9912FCAD03E570B5C08D2EB52CAD6EAC /* LEBaseCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 73FA5CECFB8F691A89F930BC9F5A4D3F /* LEBaseCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9993CAAD19EF72B78ECFDD421190D869 /* LEBaseTableViewSectionWithIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EE52CF82A9C91DB4318845F79E31E8C /* LEBaseTableViewSectionWithIcon.m */; };
 		9A0E9CCF5117F1E28CE03E6530205901 /* LEBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E68660E00AF3AE8BEBB1931F55AED6 /* LEBaseTableView.m */; };
+		9AB9CBFACC730167454A732DD1F91AEF /* LEShowHDImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F78F45C1C8911CD2D8D5C195A6CA30 /* LEShowHDImage.m */; };
 		9AC6DDEE3C241546C176A1367A729C32 /* LEUIFrameworkExtra.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AD17BEAB0CD83B3BD596847F6C5BBEC /* LEUIFrameworkExtra.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9CD96355A49EBA742D0E61E33E578188 /* LE_HMBannerView.h in Headers */ = {isa = PBXBuildFile; fileRef = D7B38083AEFFFA854E86059FD37CE616 /* LE_HMBannerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9B26C979DE8B73A45F95EFBA2CFB2C39 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FC07E83046449C225628DED93FBD8AFF /* UIImageView+HighlightedWebCache.m */; };
 		9D0AA2808AAF9BC2018396FAD0F734ED /* LE_tableview_icon_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD03F7741213348EE708FCF19D39A33C /* LE_tableview_icon_arrow@2x.png */; };
+		9E37E2823111C9D112C111FFFE35994A /* SDWebImageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B23DC869702DEB8DE490E8923B7CB7 /* SDWebImageManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9EFCB279E08EA46E588ADDB8FB0FA331 /* LE_HMBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3564293DCEC9E06DA7062D4A00C2370D /* LE_HMBannerView.m */; };
 		9F0361E62810620831F778344D061706 /* LE_common_btn_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 706D3E068B1164B3E8797E1B81BDAE26 /* LE_common_btn_blue@2x.png */; };
-		A2B91A4FA7B622AE9608B43885442324 /* LETableViewPageWithBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B9901F3DE33C0D73EE25ACAD7FC3DD /* LETableViewPageWithBanner.m */; };
+		A3E74A178DD59842EDA502442AAFBF9A /* LEFrameworks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5B05237D856FC4C7F860F16778AA44 /* LEFrameworks.framework */; };
 		A5D0D33DF4A4647AEFEB5124C2768DCB /* Pods-LEImageFrameworks_Test-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B20D1652383A531682B31F389188D4E9 /* Pods-LEImageFrameworks_Test-dummy.m */; };
-		A5F1FEDE7891CE452AD9F26BA8C9C98B /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F626EAF0A19F7AF11BB1F7397E37A268 /* SDImageCache.m */; };
 		A7DE7EEA72BC684C9E38FB94C1270D70 /* LEBaseTableViewWithRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FF356DA28353806CA981DCE83D3056C /* LEBaseTableViewWithRefresh.m */; };
 		A8B4F1FC2F5125A84DBB60A1E9DE5EFB /* EmojiInputView.h in Headers */ = {isa = PBXBuildFile; fileRef = C8B21E09CB26BE06F5A9044EC009C804 /* EmojiInputView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA9D8C09530E9C205AE9964AC7D220C7 /* LEImagesPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B3C17795F3A3692035A28EB5D5E380 /* LEImagesPreview.m */; };
 		AAC3CC1C5922E7A0B9B95F207506351B /* LE_web_icon_backward_off@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68DDDADB7CE82DE5C1250057B84E6881 /* LE_web_icon_backward_off@3x.png */; };
 		AACAAE1FEDC0923C33DC007704741D64 /* LEBaseCollectionViewWithRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = 258E92DFFEEE65B1E8B2BC4C8BFAE376 /* LEBaseCollectionViewWithRefresh.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AB52E44EBEF20F478BBC6A77DC0218F8 /* UIImage+MultiFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = FF094D864A66CECFD66F1D8E18D434EA /* UIImage+MultiFormat.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABC105A79A7109E0D8D5D593B82C0939 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 232D1A590A59D24021B6A0B572E8AAB9 /* UIImageView+WebCache.m */; };
+		AB549F0AD1495C5DC0C37881C541B952 /* UIImage+GIF.h in Headers */ = {isa = PBXBuildFile; fileRef = 30D8697D655B05BC185C6AB3DD861331 /* UIImage+GIF.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABB0A24823943F429BE227AA7EA4D0A3 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9676F2C3A09A8B2B1193A3E3E525D9E6 /* SDWebImageManager.m */; };
 		ABD803A5C4D648B5F44382DCDE73E02D /* LE_lewave.png in Resources */ = {isa = PBXBuildFile; fileRef = 09826DE10AFFD3F5CA8D1A8748F74D0B /* LE_lewave.png */; };
 		AFAA120449F4266D298F355BB6BA3D52 /* LEScanQRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = A8AEBB8B7F3742144A9B6FB2981AC888 /* LEScanQRCode.m */; };
 		AFC0B511D7DA42ABEDA024025A0B5DBF /* LE_MessageBackground@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF45AA027D571176D7CC2217FDDD2512 /* LE_MessageBackground@3x.png */; };
-		B0094D3489330E0E88F7F2873D66DD8A /* UIButton+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 0ADE84F582115F4CC5517193A699E993 /* UIButton+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B07FF4D123C8BA3DD121700C0FC359AC /* LE_tableview_icon_arrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26821BA56E196D19D1D6A228B7D271CB /* LE_tableview_icon_arrow@3x.png */; };
-		B20E79DAE2F73BC338A2B90C2D374293 /* LE_PZPhotoView.h in Headers */ = {isa = PBXBuildFile; fileRef = FBC42782FDD30F3ABCCA82E7DDE130A0 /* LE_PZPhotoView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B1C3892AF34CF6EA7ED3EB1F42A35CCC /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = CC91736DB7CF3ABAC133564368E942DF /* SDWebImagePrefetcher.m */; };
+		B3E3A98546DAF9297B5AA6EE0F00FD0B /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F13331DC32D27D8EF823BC8F5E8C7FFC /* SDWebImage.framework */; };
 		B5B9C5EE524C97DA966FFE6CE4300B09 /* LE_web_icon_share@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6894FAA1F0277F0C8E6BE952FD027406 /* LE_web_icon_share@3x.png */; };
 		B633E238AC0F5B76C9233CBBBFA6D0FA /* LEPieChart.h in Headers */ = {isa = PBXBuildFile; fileRef = 95287D57424BA6324A76DDA73CC9D2C8 /* LEPieChart.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BB92D0ECC818D8DE5CB16D209D3448F2 /* LELineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = EA98FCE6AE8AAD8096271FF402C58769 /* LELineChart.m */; };
 		BD911C1DC87B8252ACF706977C4EB764 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08DDEAEF2EAC11ACEE239911D1A3D50 /* Foundation.framework */; };
 		C0144120A4C84AB8C4803E8A9FB8C496 /* LE_EmojiToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D13933F0306DD697680C4E33CA049A32 /* LE_EmojiToolBar.m */; };
 		C0A822BD6C27DFEB89557CE56F42D751 /* LEUIFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 280C95A6CBB1EA594D6F2B2478036DF4 /* LEUIFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C37459D0D119F5BD5D6FC792681D9772 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08DDEAEF2EAC11ACEE239911D1A3D50 /* Foundation.framework */; };
-		C564D9C755B5F3D905EB24ACB62949A4 /* UIImageView+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = E7DE92ADFDFDDBAA667B7F0CD8742689 /* UIImageView+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C60E7879AB374F4C7E19B5D44A73C780 /* SDWebImageCompat.h in Headers */ = {isa = PBXBuildFile; fileRef = 1653850FFAD9F048C9EE918203DD44A8 /* SDWebImageCompat.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C6FDF97ED3868FD2229B4AC125F8B5B4 /* LEPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = F79CD951BC75625DE4C292FE521DA5BE /* LEPieChart.m */; };
 		C72EC0356274351800F17CF5B12DF3D1 /* HMPageControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 257D5CCDEC4A43D37E53D0BCEF623A7A /* HMPageControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CA6C0E9D6FA8FA16F33EE7F84DD46927 /* LEImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 7702A98F283362655676920B11DB4AF0 /* LEImageCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C88D142DB7AFDA6A2F4E0D5615E25272 /* SDWebImageDownloaderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A68E55703D07A6579E7529083531D2DA /* SDWebImageDownloaderOperation.m */; };
+		CB2ACD080546F5296A17D849DE47A182 /* UIImageView+HighlightedWebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = AABECBA266DF04D199CAE17E168EA38D /* UIImageView+HighlightedWebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CC8B480F26DC4A36B518EFB09ECEA64A /* LETabbarRelatedPageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 935F5EA3BD4D8177CE84FE9A3A0983B6 /* LETabbarRelatedPageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CCC8D46E4C376E5464BCB95C9788103F /* UIView+WebCacheOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 904738458AD467CF7CE3A3036327DA89 /* UIView+WebCacheOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CD6540ACE2FDECB0DE69109789BF286B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08DDEAEF2EAC11ACEE239911D1A3D50 /* Foundation.framework */; };
 		D01E514ADE171FA1456D3C245D883D6B /* LEWaveProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = 663E62BC6C6E25A86E5BB33DBC743556 /* LEWaveProgressView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D27AF61B79A4C69C610AC6EF6499CD18 /* LEFrameworks-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 337B2DBC8B583822FFC4A520B237E85D /* LEFrameworks-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D338764D55F1CD3C5158464FF70C7C3D /* LE_NSDate+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F012D4F13F489F01BA3A89DA3B18E /* LE_NSDate+Category.m */; };
 		D41EE330B2BDEBA1D1741658F053E9E7 /* LE_web_icon_refresh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58D0F8F0A9BD482B0B0BD6C049C7E691 /* LE_web_icon_refresh@2x.png */; };
 		D526D82EDBE291F69CC7C4E4414EE580 /* LEBaseTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F58283D2C5EB3539F0C3E3915571AAF /* LEBaseTableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D60A594C3A4C3CC5E0B9DB95F55F71B4 /* LEImagesPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 195C32E339C8B8792EF35561291794FA /* LEImagesPreview.m */; };
+		D5AD6B7545787BE73253B75F1F1D337E /* LEImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = B334F500B6AC3FEC20D8D51F2EF74CF0 /* LEImageCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D665CB1A42D6DA67F5C5B022CD0AD935 /* LEShowHDImage.h in Headers */ = {isa = PBXBuildFile; fileRef = AD9AE0A7BBE1C64840EA1F1066E8489F /* LEShowHDImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D7ED2AD3066AEF164DABE3D8C522BE8B /* LECurveProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = C86EA065E732FBB60B2543154C68DE99 /* LECurveProgressView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DAF981AA9C253260895FE1EFCBBE01E8 /* LEImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 704C781A85E0799A6323DF36829E8752 /* LEImageCache.m */; };
+		DA57D0A6154C6398FDC3B5EB66979D86 /* SDWebImagePrefetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C0F84AB632674C269AB86C0F4258281 /* SDWebImagePrefetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DE05FC5C8135F516E87A516177C3E0F2 /* LEWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AA3EADBE8A1D8043865FBDB30D4C3E4 /* LEWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E1139534F16C0D88E64B34031B3AC4F4 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4DB50F3344C8A66A9249571CDB2663 /* NSData+ImageContentType.m */; };
 		E16BA95C7095A6F5D231224F8B5670D3 /* LE_web_icon_backward_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DA621FF75B871C5AB6239543C410498 /* LE_web_icon_backward_on@2x.png */; };
 		E22081E7A50847A3AE458CD588828D36 /* LEMultiImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D94351373CB189661BDA3E5F092B34 /* LEMultiImagePicker.m */; };
-		E2D1B234249DA1F7805B4A5ECE20A8E9 /* LEImagesPreview.h in Headers */ = {isa = PBXBuildFile; fileRef = 021DEA3B4ED2F13C6619BD4D0E45E855 /* LEImagesPreview.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E540B51A025ED54A4B6689A4CD2ABD80 /* LE_MultiImagePickerCheck@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1DCF5974FED0A68E55F29D0F9DAB4A2 /* LE_MultiImagePickerCheck@3x.png */; };
+		E5E8455EBD9FC5B437A303E0A3B35EE3 /* LEBaseSettingsCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A50EA14936ED05EC07F2820C953E34C /* LEBaseSettingsCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5FCAC77ECF64133F5EA0E06D4AF3921 /* LEScanQRCode.h in Headers */ = {isa = PBXBuildFile; fileRef = A2662A3B9E6673CB3EDA8B6382F77C21 /* LEScanQRCode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E674BA81201BF96C41B05D00D22FAF9B /* LEBaseEmptyTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 685E41B1E88F418FA676B23ECF035712 /* LEBaseEmptyTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E6C6DA094E26368B665229EFA7A9930D /* LE_common_btn_blue@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FA4E00CD969699F0A11C77F69290A34 /* LE_common_btn_blue@3x.png */; };
+		E77703B5E1A3ACE806451257137F7DCD /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 15176AFA637A3AD71808EFD0C3DA519F /* UIButton+WebCache.m */; };
 		E82F6B15E3BA86EAEC6D96A8A02ED203 /* HMPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E32DA58063E77BA53B47D20E4683AC6 /* HMPageControl.m */; };
-		E9AF71FAE464DECB7A535DB6AF05D462 /* SDWebImageOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 089A3625AA152787CF043C680FE965F5 /* SDWebImageOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EB16CEBBA00FB9E0BF727D051AD92E29 /* LEUIFramework.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CD2E4ED1970A5EDDA34C0AF3D545D9 /* LEUIFramework.m */; };
 		EB2C04DDBD59CC9C94E4D6AB87EAEF8D /* LE_web_icon_forward_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65315D4566BAFAC5D5C01BA58FADA6D7 /* LE_web_icon_forward_off@2x.png */; };
-		EEAF76EBDB6E3B346FBEF67226D2B4AF /* LE_HMBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C01EB4BD4BF8B1F14DDB476CFCA6EF /* LE_HMBannerView.m */; };
-		F433494732332D3028FA1B5403A689B7 /* LESingleImagePicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 006D11CCE00E7FA3F04AD337540492AF /* LESingleImagePicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC58AEDB711D26A3DE52197A344D4AF4 /* LEImagesPreview.h in Headers */ = {isa = PBXBuildFile; fileRef = F38E26A64712D9AEF3A04478788F92D5 /* LEImagesPreview.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED69B4F5C2B15453408C384906C8D677 /* LESingleImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = B68F948F04ED9AD6C4B11E1AAD025CDE /* LESingleImagePicker.m */; };
+		F4A6AD4026D49B393E3B9E062B218D42 /* LEImagesGridWithPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EA803F0AA9280D0929853EC27D43DD2 /* LEImagesGridWithPreview.m */; };
+		F60999596609FE4B88ACF3FBFC9EE196 /* SDWebImageCompat.h in Headers */ = {isa = PBXBuildFile; fileRef = 1653850FFAD9F048C9EE918203DD44A8 /* SDWebImageCompat.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F69EA941C4A3E0BB6615E0F2D24BB7B3 /* LEBaseTableViewSectionWithIcon.h in Headers */ = {isa = PBXBuildFile; fileRef = 501FF78BBAD4AEDD6363FFF236205483 /* LEBaseTableViewSectionWithIcon.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F6B608C93E17F963D68B4D8865727315 /* SDWebImage-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DFCA55F381DD6971DA5B89A32403C457 /* SDWebImage-dummy.m */; };
+		F7A4011375FDA1F77C2DA07A7BFB689B /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E9769B51B400CF2BBFAB8A1A6EC2FF /* UIView+WebCacheOperation.m */; };
+		F8B447ED247D3E6B416958040FA4B10B /* SDWebImageDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A8518623B3A15FE637AA91926AC98C8 /* SDWebImageDownloader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F98D33875CB7562BC8D29210CC5DC1BC /* LEFrameworks.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C84CB7CC69964C9F47FC65AB6D60BBA /* LEFrameworks.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FF832BF61C59A69E3AC4D868983520FE /* LEImagesGridWithPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE0AF01272E7C979219B93B26DF86EE /* LEImagesGridWithPreview.m */; };
+		FBA76922723B9C852CAE01494A521030 /* LETableViewPageWithBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F73C2B530C570ACA8A3B1AE5D6EF75 /* LETableViewPageWithBanner.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -187,22 +189,22 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8C15FEFB469F761DA6C9E1DD6633483A;
+			remoteGlobalIDString = D7666825F3ECC87F97F53B5A4115F120;
+			remoteInfo = SDWebImage;
+		};
+		43F74D87E8B7A527D3D786EB7EA5BE7C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D7666825F3ECC87F97F53B5A4115F120;
 			remoteInfo = SDWebImage;
 		};
 		50EE1E262F86E66ED61DB265D1E2EAB0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 7E5CBC533F0C4E610AB96464D25D8DCB;
+			remoteGlobalIDString = 0D5FDC6D9BBB92043D845F4C87398B05;
 			remoteInfo = LEImageFrameworks;
-		};
-		5CDCCA1BE4207D6B5E66C573EE094CA4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8C15FEFB469F761DA6C9E1DD6633483A;
-			remoteInfo = SDWebImage;
 		};
 		660A7E165C18042876BAEA547A8C6C92 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -211,7 +213,7 @@
 			remoteGlobalIDString = 3C8ECD4BA1AA08EA72D625E0ADCE7479;
 			remoteInfo = LEFrameworks;
 		};
-		8DF1AF7294B3FE308DE54570E0A2F4DB /* PBXContainerItemProxy */ = {
+		8CE0ED26F803A548FEAC931D8B7436D9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
@@ -228,9 +230,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00379782318742CE47DCE49A2B09C5BC /* LESingleImagePicker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LESingleImagePicker.m; sourceTree = "<group>"; };
-		006D11CCE00E7FA3F04AD337540492AF /* LESingleImagePicker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LESingleImagePicker.h; sourceTree = "<group>"; };
-		021DEA3B4ED2F13C6619BD4D0E45E855 /* LEImagesPreview.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LEImagesPreview.h; sourceTree = "<group>"; };
 		05900A855191F88EAA2567D0939B2097 /* Pods-LEImageFrameworks_Test-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LEImageFrameworks_Test-acknowledgements.plist"; sourceTree = "<group>"; };
 		061ED2B83144E12DEDE7A50411AB6B81 /* UIImage+GIF.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+GIF.m"; path = "SDWebImage/UIImage+GIF.m"; sourceTree = "<group>"; };
 		084CEC00E1160DAE4254EF4BC81EFB3F /* LEBasePopupEmptyPage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LEBasePopupEmptyPage.h; path = LEFrameworks/Classes/LEPopup/LEBasePopupEmptyPage.h; sourceTree = "<group>"; };
@@ -244,16 +243,14 @@
 		0D4DB50F3344C8A66A9249571CDB2663 /* NSData+ImageContentType.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+ImageContentType.m"; path = "SDWebImage/NSData+ImageContentType.m"; sourceTree = "<group>"; };
 		0EE52CF82A9C91DB4318845F79E31E8C /* LEBaseTableViewSectionWithIcon.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LEBaseTableViewSectionWithIcon.m; path = LEFrameworks/Classes/LEBase/LEBaseTableViewSectionWithIcon.m; sourceTree = "<group>"; };
 		10FAF7687A1586EC3421390CAB292940 /* Pods-LEImageFrameworks_Test.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-LEImageFrameworks_Test.modulemap"; sourceTree = "<group>"; };
-		116975FC6363A6FEBDF9AB33DB51F35E /* LE_PZPhotoView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LE_PZPhotoView.m; sourceTree = "<group>"; };
 		12062CFCF236FC58A8698E1D5EE92F26 /* LEFrameworks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LEFrameworks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		15176AFA637A3AD71808EFD0C3DA519F /* UIButton+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+WebCache.m"; path = "SDWebImage/UIButton+WebCache.m"; sourceTree = "<group>"; };
 		15E268DE46026847BD1BF02CF58E79E1 /* LE_web_icon_refresh@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "LE_web_icon_refresh@3x.png"; path = "LEFrameworks/LEFrameworksRes/LEFrameworks.bundle/LE_web_icon_refresh@3x.png"; sourceTree = "<group>"; };
 		15E9769B51B400CF2BBFAB8A1A6EC2FF /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+WebCacheOperation.m"; path = "SDWebImage/UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		1653850FFAD9F048C9EE918203DD44A8 /* SDWebImageCompat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageCompat.h; path = SDWebImage/SDWebImageCompat.h; sourceTree = "<group>"; };
-		17A52142556973425758254E12B9D83C /* LEImageCellGroupsWithPicker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LEImageCellGroupsWithPicker.m; sourceTree = "<group>"; };
+		16708740C2F4B12981526543C93295DA /* LESingleImagePicker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LESingleImagePicker.h; sourceTree = "<group>"; };
 		184F012D4F13F489F01BA3A89DA3B18E /* LE_NSDate+Category.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "LE_NSDate+Category.m"; path = "LEFrameworks/Classes/LEDateCategory/LE_NSDate+Category.m"; sourceTree = "<group>"; };
 		1914F59585A589B0A3677D28282A1438 /* LEFrameworks.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LEFrameworks.xcconfig; sourceTree = "<group>"; };
-		195C32E339C8B8792EF35561291794FA /* LEImagesPreview.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LEImagesPreview.m; sourceTree = "<group>"; };
 		1A8E34AF3B870BEE430CF2887A8CCC48 /* LEBaseEmptyTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LEBaseEmptyTableViewCell.m; path = LEFrameworks/Classes/LEBase/LEBaseEmptyTableViewCell.m; sourceTree = "<group>"; };
 		1AA3EADBE8A1D8043865FBDB30D4C3E4 /* LEWebView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LEWebView.h; path = LEFrameworks/Classes/LEWebview/LEWebView.h; sourceTree = "<group>"; };
 		1BB688A51959E217CA1F62A3800884BE /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -270,6 +267,7 @@
 		280C95A6CBB1EA594D6F2B2478036DF4 /* LEUIFramework.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LEUIFramework.h; path = LEFrameworks/Classes/LEAutoLayout/LEUIFramework.h; sourceTree = "<group>"; };
 		28DA1A24FB113D985377D9518C67724E /* LE_EmojiToolBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LE_EmojiToolBar.h; path = LEFrameworks/Classes/LEEmojiInputView/LE_EmojiToolBar.h; sourceTree = "<group>"; };
 		2C344829BBBAEACEBBC45E1BE43CEB0D /* LE_web_icon_close@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "LE_web_icon_close@2x.png"; path = "LEFrameworks/LEFrameworksRes/LEFrameworks.bundle/LE_web_icon_close@2x.png"; sourceTree = "<group>"; };
+		2E7CED5B42333993949697DA0BB2FF2D /* LEImageCellGroupsWithPicker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LEImageCellGroupsWithPicker.h; sourceTree = "<group>"; };
 		2F3ADE2130D36930C1C7CA37B9AD304B /* LE_emoji_smileface@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "LE_emoji_smileface@2x.png"; path = "LEFrameworks/LEFrameworksRes/LEFrameworks.bundle/LE_emoji_smileface@2x.png"; sourceTree = "<group>"; };
 		30D8697D655B05BC185C6AB3DD861331 /* UIImage+GIF.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+GIF.h"; path = "SDWebImage/UIImage+GIF.h"; sourceTree = "<group>"; };
 		324B60EE413E10BE9F3F449CB16ECAEB /* LE_qrcode_scan_bg@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "LE_qrcode_scan_bg@2x.png"; path = "LEFrameworks/LEFrameworksRes/LEFrameworks.bundle/LE_qrcode_scan_bg@2x.png"; sourceTree = "<group>"; };
@@ -279,14 +277,16 @@
 		337B2DBC8B583822FFC4A520B237E85D /* LEFrameworks-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LEFrameworks-umbrella.h"; sourceTree = "<group>"; };
 		343B099C9E798A29B7447266C2891D63 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/ImageIO.framework; sourceTree = DEVELOPER_DIR; };
 		3530A851540C3611FACE77E1618DC451 /* LE_web_icon_close@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "LE_web_icon_close@3x.png"; path = "LEFrameworks/LEFrameworksRes/LEFrameworks.bundle/LE_web_icon_close@3x.png"; sourceTree = "<group>"; };
+		3564293DCEC9E06DA7062D4A00C2370D /* LE_HMBannerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LE_HMBannerView.m; sourceTree = "<group>"; };
 		369A562D56C8B27916C1B38A23DC5671 /* LEExcelView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LEExcelView.h; path = LEFrameworks/Classes/LEExcelView/LEExcelView.h; sourceTree = "<group>"; };
 		3739A9D6A286B9DEA6663DF23B1FC8CE /* LE_web_icon_backward_on@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "LE_web_icon_backward_on@3x.png"; path = "LEFrameworks/LEFrameworksRes/LEFrameworks.bundle/LE_web_icon_backward_on@3x.png"; sourceTree = "<group>"; };
 		3BBAD08815CD2457E2C2613CF66DA795 /* LE_web_icon_share@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "LE_web_icon_share@2x.png"; path = "LEFrameworks/LEFrameworksRes/LEFrameworks.bundle/LE_web_icon_share@2x.png"; sourceTree = "<group>"; };
+		3EA803F0AA9280D0929853EC27D43DD2 /* LEImagesGridWithPreview.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LEImagesGridWithPreview.m; sourceTree = "<group>"; };
 		3F58283D2C5EB3539F0C3E3915571AAF /* LEBaseTableView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LEBaseTableView.h; path = LEFrameworks/Classes/LEBase/LEBaseTableView.h; sourceTree = "<group>"; };
+		433CDEAEFC0BB1A008398A99D73CC87C /* LEBaseSettingsCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LEBaseSettingsCell.m; sourceTree = "<group>"; };
 		46F241523FD5AD90D5598C17E502B9D5 /* LEBarChart.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LEBarChart.h; path = LEFrameworks/Classes/LEChart/LEBarChart.h; sourceTree = "<group>"; };
 		48E761CD0C73924781CFD60498A91BAC /* LEPopup.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LEPopup.m; path = LEFrameworks/Classes/LEPopup/LEPopup.m; sourceTree = "<group>"; };
 		4945BC8924AF9AFE6D8A220376E38F84 /* SDWebImage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SDWebImage.xcconfig; sourceTree = "<group>"; };
-		49B9901F3DE33C0D73EE25ACAD7FC3DD /* LETableViewPageWithBanner.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LETableViewPageWithBanner.m; sourceTree = "<group>"; };
 		4A2F632F266BFD174BF5E8F8FB065A5F /* LEBarChart.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LEBarChart.m; path = LEFrameworks/Classes/LEChart/LEBarChart.m; sourceTree = "<group>"; };
 		4A31983927ED9F31B3B217799B339BBC /* LELocalNotification.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LELocalNotification.m; path = LEFrameworks/Classes/LELocalNotification/LELocalNotification.m; sourceTree = "<group>"; };
 		4A8518623B3A15FE637AA91926AC98C8 /* SDWebImageDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDownloader.h; path = SDWebImage/SDWebImageDownloader.h; sourceTree = "<group>"; };
@@ -302,6 +302,7 @@
 		56CFB369576FCBDB2BED75CF4FF377E5 /* LECurveProgressView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LECurveProgressView.m; path = LEFrameworks/Classes/LEProgress/LECurveProgressView.m; sourceTree = "<group>"; };
 		56DEEC35F4AF6992800747D2F0EDF7BE /* Pods-LEImageFrameworks_Test-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LEImageFrameworks_Test-frameworks.sh"; sourceTree = "<group>"; };
 		58D0F8F0A9BD482B0B0BD6C049C7E691 /* LE_web_icon_refresh@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "LE_web_icon_refresh@2x.png"; path = "LEFrameworks/LEFrameworksRes/LEFrameworks.bundle/LE_web_icon_refresh@2x.png"; sourceTree = "<group>"; };
+		5B1D9E1A938FB8CBB26E976AA75B986B /* LE_PZPhotoView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LE_PZPhotoView.h; sourceTree = "<group>"; };
 		5C8B37A27A12203A8B0CDE5B37805A15 /* LE_common_navigation_btn_back@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "LE_common_navigation_btn_back@3x.png"; path = "LEFrameworks/LEFrameworksRes/LEFrameworks.bundle/LE_common_navigation_btn_back@3x.png"; sourceTree = "<group>"; };
 		5E23F3315FECEE328A03F25FD0203677 /* LEBaseCollectionViewWithRefresh.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LEBaseCollectionViewWithRefresh.m; path = LEFrameworks/Classes/LEBase/LEBaseCollectionViewWithRefresh.m; sourceTree = "<group>"; };
 		612FC1B09673E6F756CE48B762036548 /* LEBaseTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LEBaseTableViewCell.h; path = LEFrameworks/Classes/LEBase/LEBaseTableViewCell.h; sourceTree = "<group>"; };
@@ -314,6 +315,7 @@
 		6894FAA1F0277F0C8E6BE952FD027406 /* LE_web_icon_share@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "LE_web_icon_share@3x.png"; path = "LEFrameworks/LEFrameworksRes/LEFrameworks.bundle/LE_web_icon_share@3x.png"; sourceTree = "<group>"; };
 		68DDDADB7CE82DE5C1250057B84E6881 /* LE_web_icon_backward_off@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "LE_web_icon_backward_off@3x.png"; path = "LEFrameworks/LEFrameworksRes/LEFrameworks.bundle/LE_web_icon_backward_off@3x.png"; sourceTree = "<group>"; };
 		6920D8B1121C2253D27D906BD470EBEC /* LEAppMessageDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LEAppMessageDelegate.h; path = LEFrameworks/Classes/LEAppMessageDelegate/LEAppMessageDelegate.h; sourceTree = "<group>"; };
+		6B41309D0F2383B9AF4D3F6FF1AE9EC6 /* LE_HMBannerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LE_HMBannerView.h; sourceTree = "<group>"; };
 		6BA0AA4332DC7BF2820AA5BC72FF8219 /* LEBaseViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LEBaseViewController.m; path = LEFrameworks/Classes/LEBase/LEBaseViewController.m; sourceTree = "<group>"; };
 		6C38DDD7F66EF8DF9C1142748AC08462 /* SDWebImage-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SDWebImage-umbrella.h"; sourceTree = "<group>"; };
 		6D93872A9D1D2D77BBE0166B3D908C12 /* LEImageFrameworks-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LEImageFrameworks-dummy.m"; sourceTree = "<group>"; };
@@ -321,7 +323,6 @@
 		6E32DA58063E77BA53B47D20E4683AC6 /* HMPageControl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HMPageControl.m; path = LEFrameworks/Classes/LEEmojiInputView/HMPageControl/HMPageControl.m; sourceTree = "<group>"; };
 		6E343E3B1AC4ED6DF2F3A0B758FFCEED /* SDImageCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCache.h; path = SDWebImage/SDImageCache.h; sourceTree = "<group>"; };
 		6E777B8BAA593A34CA855FA46CFFC5D1 /* Pods-LEImageFrameworks_Test-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-LEImageFrameworks_Test-acknowledgements.markdown"; sourceTree = "<group>"; };
-		704C781A85E0799A6323DF36829E8752 /* LEImageCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LEImageCache.m; sourceTree = "<group>"; };
 		706D3E068B1164B3E8797E1B81BDAE26 /* LE_common_btn_blue@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "LE_common_btn_blue@2x.png"; path = "LEFrameworks/LEFrameworksRes/LEFrameworks.bundle/LE_common_btn_blue@2x.png"; sourceTree = "<group>"; };
 		72210E2A1476E7CB75A72A6B9835D501 /* LEWebView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LEWebView.m; path = LEFrameworks/Classes/LEWebview/LEWebView.m; sourceTree = "<group>"; };
 		729471300193C76F6265B981D65DEC6E /* LEBaseTableViewSection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LEBaseTableViewSection.m; path = LEFrameworks/Classes/LEBase/LEBaseTableViewSection.m; sourceTree = "<group>"; };
@@ -330,14 +331,12 @@
 		75639821301577E5ABEF3A532DCE3B49 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7691A3F0B0196647392F957A8F53C7AE /* SDWebImageCompat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageCompat.m; path = SDWebImage/SDWebImageCompat.m; sourceTree = "<group>"; };
 		76E7911C1F2DDDA028C1D67854B2AB6D /* LEExcelView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LEExcelView.m; path = LEFrameworks/Classes/LEExcelView/LEExcelView.m; sourceTree = "<group>"; };
-		7702A98F283362655676920B11DB4AF0 /* LEImageCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LEImageCache.h; sourceTree = "<group>"; };
 		778637247241D0E644C5C3D9B05A1D3D /* LELoadingAnimationView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LELoadingAnimationView.h; path = LEFrameworks/Classes/LELoadingIndicator/LELoadingAnimationView.h; sourceTree = "<group>"; };
-		78A01BAFE10C3E878E2769BD35BA566D /* LEImagesGridWithPreview.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LEImagesGridWithPreview.h; sourceTree = "<group>"; };
-		7CE0AF01272E7C979219B93B26DF86EE /* LEImagesGridWithPreview.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LEImagesGridWithPreview.m; sourceTree = "<group>"; };
 		818303D64E1696487B60F65535D5890E /* LE_qrcode_scan_line@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "LE_qrcode_scan_line@3x.png"; path = "LEFrameworks/LEFrameworksRes/LEFrameworks.bundle/LE_qrcode_scan_line@3x.png"; sourceTree = "<group>"; };
 		8291839712F17CF8CAEFDEB84256F1D4 /* LE_emoji_keyboardface@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "LE_emoji_keyboardface@2x.png"; path = "LEFrameworks/LEFrameworksRes/LEFrameworks.bundle/LE_emoji_keyboardface@2x.png"; sourceTree = "<group>"; };
 		856DA0B470DC0A00392621CB8A94A897 /* LEBaseTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LEBaseTableViewCell.m; path = LEFrameworks/Classes/LEBase/LEBaseTableViewCell.m; sourceTree = "<group>"; };
 		89708AB651809CE16774C005106D6353 /* LEBaseCollectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LEBaseCollectionView.m; path = LEFrameworks/Classes/LEBase/LEBaseCollectionView.m; sourceTree = "<group>"; };
+		8A50EA14936ED05EC07F2820C953E34C /* LEBaseSettingsCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LEBaseSettingsCell.h; sourceTree = "<group>"; };
 		8BC821B420CC0B749BCE216CBD255A5E /* LEBottomTabbar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LEBottomTabbar.m; path = LEFrameworks/Classes/LEBottomTabbar/LEBottomTabbar.m; sourceTree = "<group>"; };
 		8D44A8E76EA760C62B97AB764BAE5653 /* LEFrameworks-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LEFrameworks-prefix.pch"; sourceTree = "<group>"; };
 		8FBE3E09FBC97D54689FAF9258479698 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -350,6 +349,8 @@
 		9676F2C3A09A8B2B1193A3E3E525D9E6 /* SDWebImageManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageManager.m; path = SDWebImage/SDWebImageManager.m; sourceTree = "<group>"; };
 		988302F9838346B0BDC69C4E329D85A1 /* EmojiInputView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EmojiInputView.m; path = LEFrameworks/Classes/LEEmojiInputView/EmojiInputView.m; sourceTree = "<group>"; };
 		99702F5E34AF4F6CB2DECA1F89B0604A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		99B3C17795F3A3692035A28EB5D5E380 /* LEImagesPreview.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LEImagesPreview.m; sourceTree = "<group>"; };
+		99E720FED1028F12D24565C38A5FE4D1 /* LETableViewPageWithBanner.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LETableViewPageWithBanner.h; sourceTree = "<group>"; };
 		9BA098814654B28506B840F7864168A2 /* LE_web_icon_forward_off@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "LE_web_icon_forward_off@3x.png"; path = "LEFrameworks/LEFrameworksRes/LEFrameworks.bundle/LE_web_icon_forward_off@3x.png"; sourceTree = "<group>"; };
 		9F390DC0EB9CEF58CD1D1B634FC2206A /* LE_lewaverotation.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = LE_lewaverotation.png; path = LEFrameworks/LEFrameworksRes/LEFrameworks.bundle/LE_lewaverotation.png; sourceTree = "<group>"; };
 		9FC633F4C330E8948FD6D6DB59B32D79 /* LE_MultiImagePickerCheck@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "LE_MultiImagePickerCheck@2x.png"; path = "LEFrameworks/LEFrameworksRes/LEFrameworks.bundle/LE_MultiImagePickerCheck@2x.png"; sourceTree = "<group>"; };
@@ -363,36 +364,39 @@
 		AABECBA266DF04D199CAE17E168EA38D /* UIImageView+HighlightedWebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+HighlightedWebCache.h"; path = "SDWebImage/UIImageView+HighlightedWebCache.h"; sourceTree = "<group>"; };
 		ABB9B7341D70EFC4A9DE0E18D33F9542 /* SDWebImageDecoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDecoder.m; path = SDWebImage/SDWebImageDecoder.m; sourceTree = "<group>"; };
 		AC5B05237D856FC4C7F860F16778AA44 /* LEFrameworks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LEFrameworks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACCF43456B591EC6491A5A3EE6CE59BA /* LEImageFrameworks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LEImageFrameworks.h; sourceTree = "<group>"; };
 		AD6451F3E50471B3CAD9E088FC9BD9A9 /* LEBasePopupEmptyPage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LEBasePopupEmptyPage.m; path = LEFrameworks/Classes/LEPopup/LEBasePopupEmptyPage.m; sourceTree = "<group>"; };
+		AD9AE0A7BBE1C64840EA1F1066E8489F /* LEShowHDImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LEShowHDImage.h; sourceTree = "<group>"; };
 		AE4ADDF4BB63790F2C62830660CBD51F /* LEUIFrameworkExtra.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LEUIFrameworkExtra.m; path = LEFrameworks/Classes/LEAutoLayout/LEUIFrameworkExtra.m; sourceTree = "<group>"; };
 		AF69A4683948D553EA4E56A9B6EF8742 /* LEFrameworks-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LEFrameworks-dummy.m"; sourceTree = "<group>"; };
 		AFADC02291D33D34307AF878A83A30A9 /* LESegmentView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LESegmentView.h; path = LEFrameworks/Classes/LESegmentView/LESegmentView.h; sourceTree = "<group>"; };
 		B08705826B01F6A95FA3B63925F41E31 /* LE_emoji_keyboardface@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "LE_emoji_keyboardface@3x.png"; path = "LEFrameworks/LEFrameworksRes/LEFrameworks.bundle/LE_emoji_keyboardface@3x.png"; sourceTree = "<group>"; };
 		B20D1652383A531682B31F389188D4E9 /* Pods-LEImageFrameworks_Test-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LEImageFrameworks_Test-dummy.m"; sourceTree = "<group>"; };
+		B334F500B6AC3FEC20D8D51F2EF74CF0 /* LEImageCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LEImageCache.h; sourceTree = "<group>"; };
 		B45B5460E9E016AB2ABD7415ECC8370B /* LE_MessageBackground@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "LE_MessageBackground@2x.png"; path = "LEFrameworks/LEFrameworksRes/LEFrameworks.bundle/LE_MessageBackground@2x.png"; sourceTree = "<group>"; };
+		B5F78F45C1C8911CD2D8D5C195A6CA30 /* LEShowHDImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LEShowHDImage.m; sourceTree = "<group>"; };
+		B68F948F04ED9AD6C4B11E1AAD025CDE /* LESingleImagePicker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LESingleImagePicker.m; sourceTree = "<group>"; };
 		B71D44DF59F4C1C872B5855C87D05EBC /* SDWebImageDownloader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDownloader.m; path = SDWebImage/SDWebImageDownloader.m; sourceTree = "<group>"; };
+		B81C077CAFD81BF52D681B5EA91A67BB /* LEImageCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LEImageCache.m; sourceTree = "<group>"; };
+		B9F73C2B530C570ACA8A3B1AE5D6EF75 /* LETableViewPageWithBanner.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LETableViewPageWithBanner.m; sourceTree = "<group>"; };
 		BC10E9B3EED93D1B66FAFFEB6938FFC4 /* LESegmentView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LESegmentView.m; path = LEFrameworks/Classes/LESegmentView/LESegmentView.m; sourceTree = "<group>"; };
 		BCD4487822DC0C3E0E3BC7EE0A85D1E2 /* LE_qrcode_scan_bg@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "LE_qrcode_scan_bg@3x.png"; path = "LEFrameworks/LEFrameworksRes/LEFrameworks.bundle/LE_qrcode_scan_bg@3x.png"; sourceTree = "<group>"; };
 		BEA127FE09D8A33B4F8EB718DCFEE6DF /* EmojiImagePageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EmojiImagePageView.m; path = LEFrameworks/Classes/LEEmojiInputView/EmojiImagePageView.m; sourceTree = "<group>"; };
 		C33C4D23C7CE19E3756FC94535580414 /* LEFrameworks.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LEFrameworks.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		C363BDD2705179BC89D56BAF9CE79A62 /* LEBadge.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LEBadge.m; path = LEFrameworks/Classes/LEBadge/LEBadge.m; sourceTree = "<group>"; };
-		C7618C2728962B3001F0F2244B5025D2 /* LEShowHDImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LEShowHDImage.h; sourceTree = "<group>"; };
-		C7C01EB4BD4BF8B1F14DDB476CFCA6EF /* LE_HMBannerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LE_HMBannerView.m; sourceTree = "<group>"; };
+		C71D128AFE14418594BA6AA8024E4A0B /* LEImagesGridWithPreview.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LEImagesGridWithPreview.h; sourceTree = "<group>"; };
 		C86EA065E732FBB60B2543154C68DE99 /* LECurveProgressView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LECurveProgressView.h; path = LEFrameworks/Classes/LEProgress/LECurveProgressView.h; sourceTree = "<group>"; };
 		C8B21E09CB26BE06F5A9044EC009C804 /* EmojiInputView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EmojiInputView.h; path = LEFrameworks/Classes/LEEmojiInputView/EmojiInputView.h; sourceTree = "<group>"; };
 		C998FC354A730721C7E74BB26E933A30 /* Pods-LEImageFrameworks_Test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LEImageFrameworks_Test.release.xcconfig"; sourceTree = "<group>"; };
 		CA70A929783C70958D8DC32CA9748F74 /* LE_web_icon_forward_on@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "LE_web_icon_forward_on@2x.png"; path = "LEFrameworks/LEFrameworksRes/LEFrameworks.bundle/LE_web_icon_forward_on@2x.png"; sourceTree = "<group>"; };
 		CB933750C332BD97DC4CBCBD97C38373 /* EmojiImagePageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EmojiImagePageView.h; path = LEFrameworks/Classes/LEEmojiInputView/EmojiImagePageView.h; sourceTree = "<group>"; };
 		CC91736DB7CF3ABAC133564368E942DF /* SDWebImagePrefetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImagePrefetcher.m; path = SDWebImage/SDWebImagePrefetcher.m; sourceTree = "<group>"; };
-		CCBF4AF32BE5DE80C20B53D46D9A6F65 /* LEShowHDImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LEShowHDImage.m; sourceTree = "<group>"; };
 		D08DDEAEF2EAC11ACEE239911D1A3D50 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		D1072B923550D4D65881A55BD0FF895A /* UIImage+MultiFormat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+MultiFormat.m"; path = "SDWebImage/UIImage+MultiFormat.m"; sourceTree = "<group>"; };
 		D13933F0306DD697680C4E33CA049A32 /* LE_EmojiToolBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LE_EmojiToolBar.m; path = LEFrameworks/Classes/LEEmojiInputView/LE_EmojiToolBar.m; sourceTree = "<group>"; };
 		D334BA5BC61CA2D016FC2521011ADECF /* LERefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LERefresh.h; path = LEFrameworks/Classes/LEBase/LERefresh.h; sourceTree = "<group>"; };
 		D340239E21A1476867942DE5D5417276 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+ImageContentType.h"; path = "SDWebImage/NSData+ImageContentType.h"; sourceTree = "<group>"; };
-		D4ADA3EC09C9EB4CE49CE8A805624F64 /* LETableViewPageWithBanner.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LETableViewPageWithBanner.h; sourceTree = "<group>"; };
 		D567AC02F9B05B158C058EEE20066131 /* LERefresh.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LERefresh.m; path = LEFrameworks/Classes/LEBase/LERefresh.m; sourceTree = "<group>"; };
-		D7B38083AEFFFA854E86059FD37CE616 /* LE_HMBannerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LE_HMBannerView.h; sourceTree = "<group>"; };
 		DD31BC109805B624E2A82CCEC7DA379A /* LEBadge.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LEBadge.h; path = LEFrameworks/Classes/LEBadge/LEBadge.h; sourceTree = "<group>"; };
 		DE6489278BA1CDB2A76679851810328F /* LEShowQrcode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LEShowQrcode.m; path = LEFrameworks/Classes/LEQRCode/LEShowQrcode.m; sourceTree = "<group>"; };
 		DE9B6CF9A5946430BBE0A00D9A89F845 /* Pods_LEImageFrameworks_Test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LEImageFrameworks_Test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -407,10 +411,9 @@
 		EA98FCE6AE8AAD8096271FF402C58769 /* LELineChart.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LELineChart.m; path = LEFrameworks/Classes/LEChart/LELineChart.m; sourceTree = "<group>"; };
 		ECB40B5FD239213635545DC6D9FDA020 /* LEImageFrameworks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LEImageFrameworks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED3C3A1E5E0C540B47184207B8A7371F /* LELoadingAnimationView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LELoadingAnimationView.m; path = LEFrameworks/Classes/LELoadingIndicator/LELoadingAnimationView.m; sourceTree = "<group>"; };
-		EE1C0CBDBE2F18EB71ECCED96BF65E90 /* LEImageCellGroupsWithPicker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LEImageCellGroupsWithPicker.h; sourceTree = "<group>"; };
 		F13331DC32D27D8EF823BC8F5E8C7FFC /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1DCF5974FED0A68E55F29D0F9DAB4A2 /* LE_MultiImagePickerCheck@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "LE_MultiImagePickerCheck@3x.png"; path = "LEFrameworks/LEFrameworksRes/LEFrameworks.bundle/LE_MultiImagePickerCheck@3x.png"; sourceTree = "<group>"; };
-		F34D4AAC62A9D43D8BD7663A61B0E7CE /* LEImageFrameworks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LEImageFrameworks.h; sourceTree = "<group>"; };
+		F38E26A64712D9AEF3A04478788F92D5 /* LEImagesPreview.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LEImagesPreview.h; sourceTree = "<group>"; };
 		F3CD2E4ED1970A5EDDA34C0AF3D545D9 /* LEUIFramework.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LEUIFramework.m; path = LEFrameworks/Classes/LEAutoLayout/LEUIFramework.m; sourceTree = "<group>"; };
 		F47962B8EE84BD02D36241C8D5B3AE12 /* LEImageFrameworks.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LEImageFrameworks.xcconfig; sourceTree = "<group>"; };
 		F626EAF0A19F7AF11BB1F7397E37A268 /* SDImageCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageCache.m; path = SDWebImage/SDImageCache.m; sourceTree = "<group>"; };
@@ -420,9 +423,10 @@
 		F887A304A6DBFBC833CC3234B6DDFF48 /* LE_web_icon_forward_on@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "LE_web_icon_forward_on@3x.png"; path = "LEFrameworks/LEFrameworksRes/LEFrameworks.bundle/LE_web_icon_forward_on@3x.png"; sourceTree = "<group>"; };
 		FA4AFF3AAEBA0E4ADEF07CC54D4431F7 /* LE_web_icon_backward_off@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "LE_web_icon_backward_off@2x.png"; path = "LEFrameworks/LEFrameworksRes/LEFrameworks.bundle/LE_web_icon_backward_off@2x.png"; sourceTree = "<group>"; };
 		FB3C8CB7F604B605BC33CA13FFCA449F /* LEPopup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LEPopup.h; path = LEFrameworks/Classes/LEPopup/LEPopup.h; sourceTree = "<group>"; };
-		FBC42782FDD30F3ABCCA82E7DDE130A0 /* LE_PZPhotoView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = LE_PZPhotoView.h; sourceTree = "<group>"; };
 		FC07E83046449C225628DED93FBD8AFF /* UIImageView+HighlightedWebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+HighlightedWebCache.m"; path = "SDWebImage/UIImageView+HighlightedWebCache.m"; sourceTree = "<group>"; };
+		FC843F20FEE163E6FE6E9F922000C79A /* LE_PZPhotoView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LE_PZPhotoView.m; sourceTree = "<group>"; };
 		FD03F7741213348EE708FCF19D39A33C /* LE_tableview_icon_arrow@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "LE_tableview_icon_arrow@2x.png"; path = "LEFrameworks/LEFrameworksRes/LEFrameworks.bundle/LE_tableview_icon_arrow@2x.png"; sourceTree = "<group>"; };
+		FEDD0139CD42E6597D281C40EE8EF9AC /* LEImageCellGroupsWithPicker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = LEImageCellGroupsWithPicker.m; sourceTree = "<group>"; };
 		FF094D864A66CECFD66F1D8E18D434EA /* UIImage+MultiFormat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+MultiFormat.h"; path = "SDWebImage/UIImage+MultiFormat.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -442,22 +446,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4F4EA2AEBE7BAD6F3A7B254C6C4CEB1B /* Frameworks */ = {
+		EE444C2AF33912D09BE9464C75DE9E8A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4921B17F80C2C4F23DE9C7E5144F138E /* Foundation.framework in Frameworks */,
-				4D20463287D33B947D5F726F3F23A0C2 /* LEFrameworks.framework in Frameworks */,
-				59E9E592D356588B1E3DC9AAF89EEDCB /* SDWebImage.framework in Frameworks */,
+				CD6540ACE2FDECB0DE69109789BF286B /* Foundation.framework in Frameworks */,
+				A3E74A178DD59842EDA502442AAFBF9A /* LEFrameworks.framework in Frameworks */,
+				B3E3A98546DAF9297B5AA6EE0F00FD0B /* SDWebImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		72E45D510FD136EC278E5AE0F48913BA /* Frameworks */ = {
+		FAE5BE6167E12B382C750E5A1FD0B69C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C37459D0D119F5BD5D6FC792681D9772 /* Foundation.framework in Frameworks */,
-				1A55CDAA2BF427EF583B9976C65D9D3D /* ImageIO.framework in Frameworks */,
+				1B1525E9B068A329DA066F1613B7C8FD /* Foundation.framework in Frameworks */,
+				061276CCF639EA2C5DDF03D392E05229 /* ImageIO.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,6 +544,34 @@
 			path = "../Target Support Files/LEFrameworks";
 			sourceTree = "<group>";
 		};
+		54B7EF40235C5E83883B42E82ED809CB /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				6B41309D0F2383B9AF4D3F6FF1AE9EC6 /* LE_HMBannerView.h */,
+				3564293DCEC9E06DA7062D4A00C2370D /* LE_HMBannerView.m */,
+				5B1D9E1A938FB8CBB26E976AA75B986B /* LE_PZPhotoView.h */,
+				FC843F20FEE163E6FE6E9F922000C79A /* LE_PZPhotoView.m */,
+				8A50EA14936ED05EC07F2820C953E34C /* LEBaseSettingsCell.h */,
+				433CDEAEFC0BB1A008398A99D73CC87C /* LEBaseSettingsCell.m */,
+				B334F500B6AC3FEC20D8D51F2EF74CF0 /* LEImageCache.h */,
+				B81C077CAFD81BF52D681B5EA91A67BB /* LEImageCache.m */,
+				2E7CED5B42333993949697DA0BB2FF2D /* LEImageCellGroupsWithPicker.h */,
+				FEDD0139CD42E6597D281C40EE8EF9AC /* LEImageCellGroupsWithPicker.m */,
+				ACCF43456B591EC6491A5A3EE6CE59BA /* LEImageFrameworks.h */,
+				C71D128AFE14418594BA6AA8024E4A0B /* LEImagesGridWithPreview.h */,
+				3EA803F0AA9280D0929853EC27D43DD2 /* LEImagesGridWithPreview.m */,
+				F38E26A64712D9AEF3A04478788F92D5 /* LEImagesPreview.h */,
+				99B3C17795F3A3692035A28EB5D5E380 /* LEImagesPreview.m */,
+				AD9AE0A7BBE1C64840EA1F1066E8489F /* LEShowHDImage.h */,
+				B5F78F45C1C8911CD2D8D5C195A6CA30 /* LEShowHDImage.m */,
+				16708740C2F4B12981526543C93295DA /* LESingleImagePicker.h */,
+				B68F948F04ED9AD6C4B11E1AAD025CDE /* LESingleImagePicker.m */,
+				99E720FED1028F12D24565C38A5FE4D1 /* LETableViewPageWithBanner.h */,
+				B9F73C2B530C570ACA8A3B1AE5D6EF75 /* LETableViewPageWithBanner.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		5DF9C05CBA1E21E575572EBC10A9705C /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -555,14 +587,6 @@
 				1373BD250824D7B2BFB2A36A2BFF822E /* Support Files */,
 			);
 			path = SDWebImage;
-			sourceTree = "<group>";
-		};
-		6EC149773D43D357C2323D65A2EC500E /* LEImageFrameworks */ = {
-			isa = PBXGroup;
-			children = (
-				89209C21D91412AF399F1EF1B37CB6B4 /* Classes */,
-			);
-			path = LEImageFrameworks;
 			sourceTree = "<group>";
 		};
 		76ED32AFB8A9AC4428349876AB6587AC /* Support Files */ = {
@@ -591,30 +615,12 @@
 			);
 			sourceTree = "<group>";
 		};
-		89209C21D91412AF399F1EF1B37CB6B4 /* Classes */ = {
+		A5EF592C4DD510AD6F8FE0D9B29B4143 /* LEImageFrameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D7B38083AEFFFA854E86059FD37CE616 /* LE_HMBannerView.h */,
-				C7C01EB4BD4BF8B1F14DDB476CFCA6EF /* LE_HMBannerView.m */,
-				FBC42782FDD30F3ABCCA82E7DDE130A0 /* LE_PZPhotoView.h */,
-				116975FC6363A6FEBDF9AB33DB51F35E /* LE_PZPhotoView.m */,
-				7702A98F283362655676920B11DB4AF0 /* LEImageCache.h */,
-				704C781A85E0799A6323DF36829E8752 /* LEImageCache.m */,
-				EE1C0CBDBE2F18EB71ECCED96BF65E90 /* LEImageCellGroupsWithPicker.h */,
-				17A52142556973425758254E12B9D83C /* LEImageCellGroupsWithPicker.m */,
-				F34D4AAC62A9D43D8BD7663A61B0E7CE /* LEImageFrameworks.h */,
-				78A01BAFE10C3E878E2769BD35BA566D /* LEImagesGridWithPreview.h */,
-				7CE0AF01272E7C979219B93B26DF86EE /* LEImagesGridWithPreview.m */,
-				021DEA3B4ED2F13C6619BD4D0E45E855 /* LEImagesPreview.h */,
-				195C32E339C8B8792EF35561291794FA /* LEImagesPreview.m */,
-				C7618C2728962B3001F0F2244B5025D2 /* LEShowHDImage.h */,
-				CCBF4AF32BE5DE80C20B53D46D9A6F65 /* LEShowHDImage.m */,
-				006D11CCE00E7FA3F04AD337540492AF /* LESingleImagePicker.h */,
-				00379782318742CE47DCE49A2B09C5BC /* LESingleImagePicker.m */,
-				D4ADA3EC09C9EB4CE49CE8A805624F64 /* LETableViewPageWithBanner.h */,
-				49B9901F3DE33C0D73EE25ACAD7FC3DD /* LETableViewPageWithBanner.m */,
+				54B7EF40235C5E83883B42E82ED809CB /* Classes */,
 			);
-			path = Classes;
+			path = LEImageFrameworks;
 			sourceTree = "<group>";
 		};
 		BFF317EDC563F366BCC72C9AD1A93647 /* LEFrameworks */ = {
@@ -746,7 +752,7 @@
 		F2D8F80C9BF579C663A2E4AD5E9F49FB /* LEImageFrameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6EC149773D43D357C2323D65A2EC500E /* LEImageFrameworks */,
+				A5EF592C4DD510AD6F8FE0D9B29B4143 /* LEImageFrameworks */,
 				76ED32AFB8A9AC4428349876AB6587AC /* Support Files */,
 			);
 			name = LEImageFrameworks;
@@ -818,29 +824,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		291D33C5E39DD95C152EEDE7A55F64B9 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1FA52E4D42BB90C921895D2A9861D52D /* NSData+ImageContentType.h in Headers */,
-				6B779723B66CD4C184F83545713BE37D /* SDImageCache.h in Headers */,
-				708DD8A23BA7CFDDCD7953A4EC5C23CF /* SDWebImage-umbrella.h in Headers */,
-				C60E7879AB374F4C7E19B5D44A73C780 /* SDWebImageCompat.h in Headers */,
-				718709DA92CCB7044E11803E9227375F /* SDWebImageDecoder.h in Headers */,
-				98B5243EFE2A05119E15CC7E52282393 /* SDWebImageDownloader.h in Headers */,
-				7B86F524A4B14D434BEC8ED15837A30F /* SDWebImageDownloaderOperation.h in Headers */,
-				604913A97833EE1A10BF1E7A03A2B493 /* SDWebImageManager.h in Headers */,
-				E9AF71FAE464DECB7A535DB6AF05D462 /* SDWebImageOperation.h in Headers */,
-				204D730FD70B74EF9E9C7152732FDE67 /* SDWebImagePrefetcher.h in Headers */,
-				B0094D3489330E0E88F7F2873D66DD8A /* UIButton+WebCache.h in Headers */,
-				6D0D15F915440582B52EBB65E61233D5 /* UIImage+GIF.h in Headers */,
-				AB52E44EBEF20F478BBC6A77DC0218F8 /* UIImage+MultiFormat.h in Headers */,
-				6480A0175B60DA067316259DA67AAFAB /* UIImageView+HighlightedWebCache.h in Headers */,
-				C564D9C755B5F3D905EB24ACB62949A4 /* UIImageView+WebCache.h in Headers */,
-				CCC8D46E4C376E5464BCB95C9788103F /* UIView+WebCacheOperation.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		31295D166D3F867CF7E5AC8359543C2D /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -894,27 +877,70 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6A25AE8B3E6E210A2FFECD771C7757B5 /* Headers */ = {
+		7786B275776B23F5BAE4863386B0032B /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CD96355A49EBA742D0E61E33E578188 /* LE_HMBannerView.h in Headers */,
-				B20E79DAE2F73BC338A2B90C2D374293 /* LE_PZPhotoView.h in Headers */,
-				CA6C0E9D6FA8FA16F33EE7F84DD46927 /* LEImageCache.h in Headers */,
-				773165400BCD106ED1B5AC65A3D35995 /* LEImageCellGroupsWithPicker.h in Headers */,
-				516518007BB8B9C027DEA29FE8B70DF7 /* LEImageFrameworks-umbrella.h in Headers */,
-				850A51844E5EDD4B662C436D66CC92C0 /* LEImageFrameworks.h in Headers */,
-				8B4B3A505EB82C7FFD7CFCF03E513F77 /* LEImagesGridWithPreview.h in Headers */,
-				E2D1B234249DA1F7805B4A5ECE20A8E9 /* LEImagesPreview.h in Headers */,
-				77EEB6ECFE685B04453A32A1EF868EBC /* LEShowHDImage.h in Headers */,
-				F433494732332D3028FA1B5403A689B7 /* LESingleImagePicker.h in Headers */,
-				3683AB8A5C840618C73846A8130EB54D /* LETableViewPageWithBanner.h in Headers */,
+				771B02413A2E2D147F4F838E1778626F /* LE_HMBannerView.h in Headers */,
+				0D33773EB090C39BAAEBFE7D10C5860B /* LE_PZPhotoView.h in Headers */,
+				E5E8455EBD9FC5B437A303E0A3B35EE3 /* LEBaseSettingsCell.h in Headers */,
+				D5AD6B7545787BE73253B75F1F1D337E /* LEImageCache.h in Headers */,
+				83E28904C2AEFA4C363D92FA59C37480 /* LEImageCellGroupsWithPicker.h in Headers */,
+				5981E1E3B60D536499C981BB2586E1A2 /* LEImageFrameworks-umbrella.h in Headers */,
+				2DE4EA8E696F7CB0FE98846AEFD9F04F /* LEImageFrameworks.h in Headers */,
+				3D02B6E2C58EE46D21E6360BC5FDC7F6 /* LEImagesGridWithPreview.h in Headers */,
+				EC58AEDB711D26A3DE52197A344D4AF4 /* LEImagesPreview.h in Headers */,
+				D665CB1A42D6DA67F5C5B022CD0AD935 /* LEShowHDImage.h in Headers */,
+				318AF86E7C4D942BFE5298EA11912A57 /* LESingleImagePicker.h in Headers */,
+				47A46239C5FAE73B7AE78676E9FEECB4 /* LETableViewPageWithBanner.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F450E4F0A28EC76C52FA8D2DA370F535 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E5E70E1FBD29D86A23D36F88B5D198D /* NSData+ImageContentType.h in Headers */,
+				2A8B7D0E7049D1D061CD0F35556BA527 /* SDImageCache.h in Headers */,
+				8ACE551CCEE221636B8DBFCE5C5EE447 /* SDWebImage-umbrella.h in Headers */,
+				F60999596609FE4B88ACF3FBFC9EE196 /* SDWebImageCompat.h in Headers */,
+				5C7999CBCBE20A76C82D9D281526316A /* SDWebImageDecoder.h in Headers */,
+				F8B447ED247D3E6B416958040FA4B10B /* SDWebImageDownloader.h in Headers */,
+				0A725BA27FFCD1BB23E925439A5A3538 /* SDWebImageDownloaderOperation.h in Headers */,
+				9E37E2823111C9D112C111FFFE35994A /* SDWebImageManager.h in Headers */,
+				3E703F77951F5CAFC4AB3EE8B38EC0A1 /* SDWebImageOperation.h in Headers */,
+				DA57D0A6154C6398FDC3B5EB66979D86 /* SDWebImagePrefetcher.h in Headers */,
+				66B3522F96CCB0C27C82630CDB206E5D /* UIButton+WebCache.h in Headers */,
+				AB549F0AD1495C5DC0C37881C541B952 /* UIImage+GIF.h in Headers */,
+				857AF09086FBEE91FEEBA9E735EAA25E /* UIImage+MultiFormat.h in Headers */,
+				CB2ACD080546F5296A17D849DE47A182 /* UIImageView+HighlightedWebCache.h in Headers */,
+				0E4B79BEE14536691A9E429D20BBE5F5 /* UIImageView+WebCache.h in Headers */,
+				08071987F901B922E8890B5B6A1D4CC4 /* UIView+WebCacheOperation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		0D5FDC6D9BBB92043D845F4C87398B05 /* LEImageFrameworks */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE47B237934B9BDB5413FDBBBA6D738C /* Build configuration list for PBXNativeTarget "LEImageFrameworks" */;
+			buildPhases = (
+				0AB25AB6FB93DF48B71149FEFDC1B6C7 /* Sources */,
+				EE444C2AF33912D09BE9464C75DE9E8A /* Frameworks */,
+				7786B275776B23F5BAE4863386B0032B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				933B8F9B0B7B6C5B4CF8558574C1C0B7 /* PBXTargetDependency */,
+				A16701E41B40EF94E39CF62DE3BE6136 /* PBXTargetDependency */,
+			);
+			name = LEImageFrameworks;
+			productName = LEImageFrameworks;
+			productReference = ECB40B5FD239213635545DC6D9FDA020 /* LEImageFrameworks.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		2F091F85070E4EFFE4F2F9DB8F99D60E /* LEFrameworks-LEFrameworks */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3BE451E1DB2A0CB0D9EAA3373FE206B3 /* Build configuration list for PBXNativeTarget "LEFrameworks-LEFrameworks" */;
@@ -951,42 +977,6 @@
 			productReference = 12062CFCF236FC58A8698E1D5EE92F26 /* LEFrameworks.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		7E5CBC533F0C4E610AB96464D25D8DCB /* LEImageFrameworks */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4C9160D06435B22076F43097F7BAF68F /* Build configuration list for PBXNativeTarget "LEImageFrameworks" */;
-			buildPhases = (
-				836D797D2511694445B457E515720F22 /* Sources */,
-				4F4EA2AEBE7BAD6F3A7B254C6C4CEB1B /* Frameworks */,
-				6A25AE8B3E6E210A2FFECD771C7757B5 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5EAB4F4D36BF314FA2C2C47A4F5185B8 /* PBXTargetDependency */,
-				A171B570916488029D3A7B42C09BE5DD /* PBXTargetDependency */,
-			);
-			name = LEImageFrameworks;
-			productName = LEImageFrameworks;
-			productReference = ECB40B5FD239213635545DC6D9FDA020 /* LEImageFrameworks.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		8C15FEFB469F761DA6C9E1DD6633483A /* SDWebImage */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 036E22D89D0814475F205D4245105306 /* Build configuration list for PBXNativeTarget "SDWebImage" */;
-			buildPhases = (
-				6B2EEBBE88BFA35E52505CA29C97CB82 /* Sources */,
-				72E45D510FD136EC278E5AE0F48913BA /* Frameworks */,
-				291D33C5E39DD95C152EEDE7A55F64B9 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SDWebImage;
-			productName = SDWebImage;
-			productReference = 1BB688A51959E217CA1F62A3800884BE /* SDWebImage.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		B6774E8396345055B06AD716B8CC90AA /* Pods-LEImageFrameworks_Test */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F33931D1F48164399552AB7D05596891 /* Build configuration list for PBXNativeTarget "Pods-LEImageFrameworks_Test" */;
@@ -1005,6 +995,23 @@
 			name = "Pods-LEImageFrameworks_Test";
 			productName = "Pods-LEImageFrameworks_Test";
 			productReference = DE9B6CF9A5946430BBE0A00D9A89F845 /* Pods_LEImageFrameworks_Test.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D7666825F3ECC87F97F53B5A4115F120 /* SDWebImage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 77E3F15B1EE3B624E074D7BA9790077C /* Build configuration list for PBXNativeTarget "SDWebImage" */;
+			buildPhases = (
+				FD9A1E546552C184F372986231FFB359 /* Sources */,
+				FAE5BE6167E12B382C750E5A1FD0B69C /* Frameworks */,
+				F450E4F0A28EC76C52FA8D2DA370F535 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SDWebImage;
+			productName = SDWebImage;
+			productReference = 1BB688A51959E217CA1F62A3800884BE /* SDWebImage.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -1030,9 +1037,9 @@
 			targets = (
 				3C8ECD4BA1AA08EA72D625E0ADCE7479 /* LEFrameworks */,
 				2F091F85070E4EFFE4F2F9DB8F99D60E /* LEFrameworks-LEFrameworks */,
-				7E5CBC533F0C4E610AB96464D25D8DCB /* LEImageFrameworks */,
+				0D5FDC6D9BBB92043D845F4C87398B05 /* LEImageFrameworks */,
 				B6774E8396345055B06AD716B8CC90AA /* Pods-LEImageFrameworks_Test */,
-				8C15FEFB469F761DA6C9E1DD6633483A /* SDWebImage */,
+				D7666825F3ECC87F97F53B5A4115F120 /* SDWebImage */,
 			);
 		};
 /* End PBXProject section */
@@ -1093,42 +1100,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		6B2EEBBE88BFA35E52505CA29C97CB82 /* Sources */ = {
+		0AB25AB6FB93DF48B71149FEFDC1B6C7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1139534F16C0D88E64B34031B3AC4F4 /* NSData+ImageContentType.m in Sources */,
-				A5F1FEDE7891CE452AD9F26BA8C9C98B /* SDImageCache.m in Sources */,
-				F6B608C93E17F963D68B4D8865727315 /* SDWebImage-dummy.m in Sources */,
-				06DD6CA6BB829F85001AC7294EC0FA5A /* SDWebImageCompat.m in Sources */,
-				9240921B82C44BA2C5C3984F3D527959 /* SDWebImageDecoder.m in Sources */,
-				113894D6EAC51120CC4D5B2F09B09B21 /* SDWebImageDownloader.m in Sources */,
-				980431F68642EDE12FE8B8040EADBF0D /* SDWebImageDownloaderOperation.m in Sources */,
-				943CC83C51EE2480812F059426C97521 /* SDWebImageManager.m in Sources */,
-				2C92F7770560024F062190867490E92F /* SDWebImagePrefetcher.m in Sources */,
-				8A6224768F32BE68360DFAFFC592BDDC /* UIButton+WebCache.m in Sources */,
-				4CA6CD143AAC8E0082D5DC909958A7D6 /* UIImage+GIF.m in Sources */,
-				62318A84FABE084DFC5D75C6072497FA /* UIImage+MultiFormat.m in Sources */,
-				56E84B0229DC04182D67495AF2F4F4B2 /* UIImageView+HighlightedWebCache.m in Sources */,
-				ABC105A79A7109E0D8D5D593B82C0939 /* UIImageView+WebCache.m in Sources */,
-				48E9AEEE59F3A8678FC97EB0BFB24808 /* UIView+WebCacheOperation.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		836D797D2511694445B457E515720F22 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EEAF76EBDB6E3B346FBEF67226D2B4AF /* LE_HMBannerView.m in Sources */,
-				08CCBECA3363BB5950ED3E7A8A1FDF91 /* LE_PZPhotoView.m in Sources */,
-				DAF981AA9C253260895FE1EFCBBE01E8 /* LEImageCache.m in Sources */,
-				2772D60B82C2797604C08C5D084AA59A /* LEImageCellGroupsWithPicker.m in Sources */,
-				0ECD1C72B8F644AB007FAFB97084DB7C /* LEImageFrameworks-dummy.m in Sources */,
-				FF832BF61C59A69E3AC4D868983520FE /* LEImagesGridWithPreview.m in Sources */,
-				D60A594C3A4C3CC5E0B9DB95F55F71B4 /* LEImagesPreview.m in Sources */,
-				1B2A1CAD1E2A963293E14B01BCBA0118 /* LEShowHDImage.m in Sources */,
-				3833E9E5C3EF1D311225BBB993A5C75D /* LESingleImagePicker.m in Sources */,
-				A2B91A4FA7B622AE9608B43885442324 /* LETableViewPageWithBanner.m in Sources */,
+				9EFCB279E08EA46E588ADDB8FB0FA331 /* LE_HMBannerView.m in Sources */,
+				25B6479120F3E3E2AAABE4E61CEC3038 /* LE_PZPhotoView.m in Sources */,
+				2DBF7288E8CFDC2A72646F249ACE35EF /* LEBaseSettingsCell.m in Sources */,
+				00C001B32DFA744C93482374877F7BA4 /* LEImageCache.m in Sources */,
+				6EA0F00F1970715E22C4062876A89BA7 /* LEImageCellGroupsWithPicker.m in Sources */,
+				0B59063AE21EB81340AFB57E20AB4247 /* LEImageFrameworks-dummy.m in Sources */,
+				F4A6AD4026D49B393E3B9E062B218D42 /* LEImagesGridWithPreview.m in Sources */,
+				AA9D8C09530E9C205AE9964AC7D220C7 /* LEImagesPreview.m in Sources */,
+				9AB9CBFACC730167454A732DD1F91AEF /* LEShowHDImage.m in Sources */,
+				ED69B4F5C2B15453408C384906C8D677 /* LESingleImagePicker.m in Sources */,
+				FBA76922723B9C852CAE01494A521030 /* LETableViewPageWithBanner.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1190,25 +1176,41 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FD9A1E546552C184F372986231FFB359 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A94674F64224801C5DEDD49431DAA43 /* NSData+ImageContentType.m in Sources */,
+				384573FAB9C814AE43BCD32D737C43D6 /* SDImageCache.m in Sources */,
+				6028B239A4D8CBCF98882CBB447800A5 /* SDWebImage-dummy.m in Sources */,
+				662E2CA3B1306EEE9A3D54AAF5CEC7F2 /* SDWebImageCompat.m in Sources */,
+				2B3F0559601F90DC26685DA42B955D7E /* SDWebImageDecoder.m in Sources */,
+				80248610AC140E602903C0538DB52A3C /* SDWebImageDownloader.m in Sources */,
+				C88D142DB7AFDA6A2F4E0D5615E25272 /* SDWebImageDownloaderOperation.m in Sources */,
+				ABB0A24823943F429BE227AA7EA4D0A3 /* SDWebImageManager.m in Sources */,
+				B1C3892AF34CF6EA7ED3EB1F42A35CCC /* SDWebImagePrefetcher.m in Sources */,
+				E77703B5E1A3ACE806451257137F7DCD /* UIButton+WebCache.m in Sources */,
+				6671AD195300392EDB3CD6D386192A9F /* UIImage+GIF.m in Sources */,
+				0CC3528F2BABA9480BEB0A827A6C27C6 /* UIImage+MultiFormat.m in Sources */,
+				9B26C979DE8B73A45F95EFBA2CFB2C39 /* UIImageView+HighlightedWebCache.m in Sources */,
+				742F10F17AC4D16A08958257E19C20CC /* UIImageView+WebCache.m in Sources */,
+				F7A4011375FDA1F77C2DA07A7BFB689B /* UIView+WebCacheOperation.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		28DEA29C2252E07E35EDA7DEC30C7DF6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = LEImageFrameworks;
-			target = 7E5CBC533F0C4E610AB96464D25D8DCB /* LEImageFrameworks */;
+			target = 0D5FDC6D9BBB92043D845F4C87398B05 /* LEImageFrameworks */;
 			targetProxy = 50EE1E262F86E66ED61DB265D1E2EAB0 /* PBXContainerItemProxy */;
-		};
-		5EAB4F4D36BF314FA2C2C47A4F5185B8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = LEFrameworks;
-			target = 3C8ECD4BA1AA08EA72D625E0ADCE7479 /* LEFrameworks */;
-			targetProxy = 8DF1AF7294B3FE308DE54570E0A2F4DB /* PBXContainerItemProxy */;
 		};
 		6F782A4A6F750B2BE7B9E577B099D908 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SDWebImage;
-			target = 8C15FEFB469F761DA6C9E1DD6633483A /* SDWebImage */;
+			target = D7666825F3ECC87F97F53B5A4115F120 /* SDWebImage */;
 			targetProxy = 2FB6E2714E554270D04157D0D18453E8 /* PBXContainerItemProxy */;
 		};
 		7CE01F14A02B054F2C17E5C5641A1E60 /* PBXTargetDependency */ = {
@@ -1223,22 +1225,28 @@
 			target = 2F091F85070E4EFFE4F2F9DB8F99D60E /* LEFrameworks-LEFrameworks */;
 			targetProxy = D49EDD8563D64C1C1D9ADEC4B6EE61DD /* PBXContainerItemProxy */;
 		};
-		A171B570916488029D3A7B42C09BE5DD /* PBXTargetDependency */ = {
+		933B8F9B0B7B6C5B4CF8558574C1C0B7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = LEFrameworks;
+			target = 3C8ECD4BA1AA08EA72D625E0ADCE7479 /* LEFrameworks */;
+			targetProxy = 8CE0ED26F803A548FEAC931D8B7436D9 /* PBXContainerItemProxy */;
+		};
+		A16701E41B40EF94E39CF62DE3BE6136 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SDWebImage;
-			target = 8C15FEFB469F761DA6C9E1DD6633483A /* SDWebImage */;
-			targetProxy = 5CDCCA1BE4207D6B5E66C573EE094CA4 /* PBXContainerItemProxy */;
+			target = D7666825F3ECC87F97F53B5A4115F120 /* SDWebImage */;
+			targetProxy = 43F74D87E8B7A527D3D786EB7EA5BE7C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		2D974B9295CA9445FFD040BDA4465F81 /* Release */ = {
+		04ADFEC84BF6BBE0B58185F2E771A4F9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F47962B8EE84BD02D36241C8D5B3AE12 /* LEImageFrameworks.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1251,7 +1259,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/LEImageFrameworks/LEImageFrameworks.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = LEImageFrameworks;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1259,7 +1267,7 @@
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		3068E7732F6F9CC1F93DDE8F99093A16 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1286,6 +1294,35 @@
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Pods_LEImageFrameworks_Test;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		37F58E75D33B758CBA547E7EBA0E5330 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F47962B8EE84BD02D36241C8D5B3AE12 /* LEImageFrameworks.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/LEImageFrameworks/LEImageFrameworks-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/LEImageFrameworks/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/LEImageFrameworks/LEImageFrameworks.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = LEImageFrameworks;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1398,35 +1435,6 @@
 			};
 			name = Release;
 		};
-		75B253803D19E3A7F9D51AEF62562670 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F47962B8EE84BD02D36241C8D5B3AE12 /* LEImageFrameworks.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/LEImageFrameworks/LEImageFrameworks-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/LEImageFrameworks/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/LEImageFrameworks/LEImageFrameworks.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = LEImageFrameworks;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		84A1D077E0CE1E07A51AF13F5F5862F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1914F59585A589B0A3677D28282A1438 /* LEFrameworks.xcconfig */;
@@ -1444,7 +1452,7 @@
 			};
 			name = Debug;
 		};
-		A526B577B8FBD2E681E89CF934BF22D2 /* Debug */ = {
+		A9BFA37F8EB0A8C6E75A416AF0EA355D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4945BC8924AF9AFE6D8A220376E38F84 /* SDWebImage.xcconfig */;
 			buildSettings = {
@@ -1511,6 +1519,35 @@
 			};
 			name = Release;
 		};
+		CF4B8E60DD4E8D98836774C9F97C9423 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4945BC8924AF9AFE6D8A220376E38F84 /* SDWebImage.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SDWebImage/SDWebImage-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SDWebImage/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SDWebImage/SDWebImage.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SDWebImage;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		DAD9800018360CBB7552D84E36E083D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1914F59585A589B0A3677D28282A1438 /* LEFrameworks.xcconfig */;
@@ -1540,35 +1577,6 @@
 			};
 			name = Debug;
 		};
-		E45A9C39DEE27B16975E05DBFE2E3BB0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4945BC8924AF9AFE6D8A220376E38F84 /* SDWebImage.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SDWebImage/SDWebImage-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SDWebImage/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SDWebImage/SDWebImage.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = SDWebImage;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		FF0873FBE0B30EAE9805115EB9A9815B /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1914F59585A589B0A3677D28282A1438 /* LEFrameworks.xcconfig */;
@@ -1589,15 +1597,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		036E22D89D0814475F205D4245105306 /* Build configuration list for PBXNativeTarget "SDWebImage" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A526B577B8FBD2E681E89CF934BF22D2 /* Debug */,
-				E45A9C39DEE27B16975E05DBFE2E3BB0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		0D12F9364626E744D5C15C613726B4B7 /* Build configuration list for PBXNativeTarget "LEFrameworks" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1625,11 +1624,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4C9160D06435B22076F43097F7BAF68F /* Build configuration list for PBXNativeTarget "LEImageFrameworks" */ = {
+		77E3F15B1EE3B624E074D7BA9790077C /* Build configuration list for PBXNativeTarget "SDWebImage" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				75B253803D19E3A7F9D51AEF62562670 /* Debug */,
-				2D974B9295CA9445FFD040BDA4465F81 /* Release */,
+				A9BFA37F8EB0A8C6E75A416AF0EA355D /* Debug */,
+				CF4B8E60DD4E8D98836774C9F97C9423 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE47B237934B9BDB5413FDBBBA6D738C /* Build configuration list for PBXNativeTarget "LEImageFrameworks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04ADFEC84BF6BBE0B58185F2E771A4F9 /* Debug */,
+				37F58E75D33B758CBA547E7EBA0E5330 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

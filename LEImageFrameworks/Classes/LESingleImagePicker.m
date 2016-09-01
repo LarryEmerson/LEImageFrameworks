@@ -8,7 +8,7 @@
 
 #import "LESingleImagePicker.h"
 
-@interface LEImageCropperPage : LEBaseView<UIScrollViewDelegate>
+@interface LEImageCropperPage : LEBaseView<UIScrollViewDelegate,LENavigationDelegate>
 @end
 @implementation LEImageCropperPage{
     UIImage *curImage;
@@ -23,7 +23,18 @@
     curAspect=aspect;
     return [super initWithViewController:vc];
 }
+-(void) leNavigationLeftButtonTapped{
+    [self cancelCropping];
+    [super leViewBelowCustomizedNavigation];
+}
+-(void) leNavigationRightButtonTapped{
+    [self finishCropping];
+    [self.leCurrentViewController lePopSelfAnimated];
+}
 -(void) leExtraInits{
+    LEBaseNavigation *navi=[[LEBaseNavigation alloc] initWithSuperViewAsDelegate:self Title:nil];
+    [navi leSetRightNavigationItemWith:@"完成" Image:nil];
+    [navi leSetLeftNavigationItemWith:@"取消" Image:nil Color:nil];
     [self.leViewBelowCustomizedNavigation setBackgroundColor:[UIColor colorWithRed:0.412 green:0.396 blue:0.409 alpha:1.000]];
     scrollView=[[UIScrollView alloc] initWithAutoLayoutSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:self.leViewBelowCustomizedNavigation Anchor:LEAnchorInsideCenter Offset:CGPointZero CGSize:CGSizeMake(LESCREEN_WIDTH, self.leViewBelowCustomizedNavigation.bounds.size.height/curAspect)]];
     [scrollView setBackgroundColor:LEColorClear];
@@ -94,21 +105,10 @@
 - (id)initWithImage:(UIImage *)image Aspect:(float) aspect  Delegate:(id<LEImageCropperDelegate>) delegate{
     self = [super init];
     if (self) {
-        [self.navigationController setNavigationBarHidden:NO animated:YES];
+        [self.navigationController setNavigationBarHidden:YES animated:YES];
         page=[[LEImageCropperPage alloc] initWithViewController:self Image:image Aspect:aspect Delegate:delegate];
-        [self.view addSubview:page];
-        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
-        
-        [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(onCancleCropping)] animated:YES];
-        [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(onFinishCropping)] animated:YES];
     }
     return self;
-}
--(void) onCancleCropping{
-    [page cancelCropping];
-}
--(void) onFinishCropping{
-    [page finishCropping];
 }
 -(void) leExtraInits{}
 @end
@@ -123,12 +123,10 @@
     UIImagePickerController *imagePickerController;
     UIImagePickerControllerSourceType imagePickerSourceType;
     LEImageCropper *cropper;
-    BOOL isBarHidden;
     
 }
 static LESingleImagePicker *curLESingleImagePicker;
 -(id) initWithSuperView:(UIView *) superView ViewController:(UIViewController *) viewController Title:(NSString *) title Aspect:(float) aspect Delegate:(id<LEImageCropperDelegate>) delegate{
-    isBarHidden=viewController.navigationController.navigationBarHidden;
     curDelegate=delegate;
     curViewController=viewController;
     curAspect=aspect;
@@ -210,21 +208,19 @@ static LESingleImagePicker *curLESingleImagePicker;
                 [curDelegate leOnDoneCroppedWithImage:compressedImage];
             }
             curDelegate=nil;
-            [curViewController.navigationController setNavigationBarHidden:isBarHidden animated:YES];
         }];
     }else{
         [picker dismissViewControllerAnimated:YES completion:^{
             cropper = [[LEImageCropper alloc] initWithImage:oriImage Aspect:curAspect Delegate:self];
             [curViewController.navigationController pushViewController:cropper animated:YES];
             curLESingleImagePicker=nil;
-            [curViewController.navigationController setNavigationBarHidden:NO animated:YES];
+            [curViewController.navigationController setNavigationBarHidden:YES animated:YES];
         }];
     }
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     [picker dismissViewControllerAnimated:YES completion:^{
         curLESingleImagePicker=nil;
-        [curViewController.navigationController setNavigationBarHidden:isBarHidden animated:YES];
     }];
 }
 -(void) leOnCancelImageCropper{

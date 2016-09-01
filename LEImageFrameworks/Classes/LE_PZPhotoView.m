@@ -28,12 +28,13 @@
         [self addSubview:self.imageView];
         [self.imageView setUserInteractionEnabled:YES]; 
         UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
-        UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleDoubleTap:)];
-        [doubleTap setNumberOfTapsRequired:2];
-        [singleTap requireGestureRecognizerToFail:doubleTap];
         [self.imageView addGestureRecognizer:singleTap];
-        [self.imageView addGestureRecognizer:doubleTap];
-        [self setupView];
+    
+        self.delegate = self;
+        self.showsVerticalScrollIndicator = NO;
+        self.showsHorizontalScrollIndicator = NO;
+        self.bouncesZoom = TRUE;
+        self.decelerationRate = UIScrollViewDecelerationRateFast;
     }
     return self;
 }
@@ -42,7 +43,6 @@
 }
 -(void) leOnDownloadedImageWith:(UIImage *) image{ 
     if(curAspect<=0){
-//        [self.imageView setFrame:CGRectMake(0, 0, self.bounds.size.width, image.size.height/image.size.width*self.bounds.size.width)];
         [self.imageView setFrame:CGRectMake(0, 0, image.size.width, image.size.height)];
         [self setMaxMinZoomScalesForCurrentBounds];
         [self leUpdateZoomScale:self.minimumZoomScale];
@@ -60,21 +60,6 @@
     self.contentSize = self.imageView.frame.size;
     [self setMaxMinZoomScalesForCurrentBounds];
     [self setZoomScale:self.minimumZoomScale animated:FALSE];
-}
-
-- (void)setupView {
-    self.delegate = self;
-    self.showsVerticalScrollIndicator = NO;
-    self.showsHorizontalScrollIndicator = NO;
-    self.bouncesZoom = TRUE;
-    self.decelerationRate = UIScrollViewDecelerationRateFast;
-    
-    UITapGestureRecognizer *scrollViewDoubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleScrollViewDoubleTap:)];
-    [scrollViewDoubleTap setNumberOfTapsRequired:2];
-    [self addGestureRecognizer:scrollViewDoubleTap];
-    UITapGestureRecognizer *scrollViewSingleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleScrollViewSingleTap:)];
-    [scrollViewSingleTap requireGestureRecognizerToFail:scrollViewDoubleTap];
-    [self addGestureRecognizer:scrollViewSingleTap];
 }
 
 - (void)layoutSubviews {
@@ -115,49 +100,11 @@
         [self recoverFromResizing];
     }
 }
-
-#pragma mark - Public Implementation
-#pragma mark -
-
-#pragma mark - Gestures
-#pragma mark -
-
 - (void)handleSingleTap:(UIGestureRecognizer *)gestureRecognizer {
     if (self.photoViewDelegate != nil&&[self.photoViewDelegate respondsToSelector:@selector(lePhotoViewDidSingleTap:)]) {
         [self.photoViewDelegate lePhotoViewDidSingleTap:self];
     }
 }
-
-- (void)handleDoubleTap:(UIGestureRecognizer *)gestureRecognizer {
-    if (self.zoomScale == self.maximumZoomScale) {
-        // jump back to minimum scale
-        [self leUpdateZoomScaleWithGesture:gestureRecognizer newScale:self.minimumZoomScale];
-    }
-    else {
-        // double tap zooms in
-        CGFloat newScale = MIN(self.zoomScale * kZoomStep, self.maximumZoomScale);
-        [self leUpdateZoomScaleWithGesture:gestureRecognizer newScale:newScale];
-    }
-    if (self.photoViewDelegate != nil&&[self.photoViewDelegate respondsToSelector:@selector(lePhotoViewDidDoubleTap:)]) {
-        [self.photoViewDelegate lePhotoViewDidDoubleTap:self];
-    }
-}
-
-- (void)handleScrollViewSingleTap:(UIGestureRecognizer *)gestureRecognizer {
-    if (self.photoViewDelegate != nil&&[self.photoViewDelegate respondsToSelector:@selector(lePhotoViewDidSingleTap:)]) {
-        [self.photoViewDelegate lePhotoViewDidSingleTap:self];
-    }
-}
-
-- (void)handleScrollViewDoubleTap:(UIGestureRecognizer *)gestureRecognizer {
-    CGPoint center =[self adjustPointIntoImageView:[gestureRecognizer locationInView:gestureRecognizer.view]];
-    
-    if (!CGPointEqualToPoint(center, CGPointZero)) {
-        CGFloat newScale = MIN([self zoomScale] * kZoomStep, self.maximumZoomScale);
-        [self leUpdateZoomScale:newScale withCenter:center];
-    }
-}
-
 - (CGPoint)adjustPointIntoImageView:(CGPoint)center {
     BOOL contains = CGRectContainsPoint(self.imageView.frame, center);
     if (!contains) {
@@ -175,8 +122,6 @@
 }
 
 #pragma mark - Support Methods
-#pragma mark -
-
 - (void)leRecoverFromResizing {
     [self recoverFromResizing];
 }
@@ -212,8 +157,6 @@
     zoomRect.origin.y = center.y - (zoomRect.size.height / 2.0);
     return zoomRect;
 }
-
-
 
 - (void)setMaxMinZoomScalesForCurrentBounds {
     // calculate minimum scale to perfectly fit image width, and begin at that scale
@@ -268,34 +211,10 @@
     CGSize boundsSize = self.bounds.size;
     return CGPointMake(contentSize.width - boundsSize.width, contentSize.height - boundsSize.height);
 }
-
 - (CGPoint)minimumContentOffset {
     return CGPointZero;
 }
-
-#pragma mark - UIScrollViewDelegate Methods
-#pragma mark -
-
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
     return self.imageView;
 }
-
-#pragma mark - Layout Debugging Support
-#pragma mark -
-
-//- (void)logRect:(CGRect)rect withName:(NSString *)name {
-//    DebugLog(@"%@: %f, %f / %f, %f", name, rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);
-//}
-//
-//- (void)logLayout {
-//    DebugLog(@"#### LE_PZPhotoView  ###");
-//    
-//    [self logRect:self.bounds withName:@"self.bounds"];
-//    [self logRect:self.frame withName:@"self.frame"];
-//    
-//    DebugLog(@"contentSize: %f, %f", self.contentSize.width, self.contentSize.height);
-//    DebugLog(@"contentOffset: %f, %f", self.contentOffset.x, self.contentOffset.y);
-//    DebugLog(@"contentInset: %f, %f, %f, %f", self.contentInset.top, self.contentInset.right, self.contentInset.bottom, self.contentInset.left);
-//}
-
-@end
+ @end

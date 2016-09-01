@@ -323,7 +323,6 @@
     self=[super init];
     page=[[LETableViewPageWithBannerPage alloc] initWithViewController:self CellClassName:cellClassName EmptyCellClassName:emptyCellClassName BannerStyle:bannerStyle BannerImageViewClassName:bannerImageViewClassName BannerSubviewClassName:bannerSubviewClassName TabbarHeight:tabbarHeight];
     [page onSetParent:self];
-    [self leExtraInits];
     return self;
 }
 -(void) leOnSetBannerData:(NSArray *) bannerData SubviewData:(NSDictionary *) subviewData{

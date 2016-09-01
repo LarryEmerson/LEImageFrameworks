@@ -8,36 +8,32 @@
 
 #import "LEImageCellGroupsWithPicker.h" 
 
-
-@interface LEImagePickerPreviewPage : LEBaseView<UIScrollViewDelegate>
+@protocol LEImagePickerPreviewDelegate <NSObject>
+-(void) leOnDonePickingImagesWith:(NSMutableArray *) array;
+@end
+@interface LEImagePickerPreviewPage : LEBaseView<UIScrollViewDelegate,LENavigationDelegate>
 @property (nonatomic) NSMutableArray *curCells;
 -(void) setPage:(NSInteger) index;
 @end
 @implementation LEImagePickerPreviewPage{
     UIScrollView *curScrollview;
-    UIPageControl *curPageControl;
     int width;
     int height;
     NSMutableArray *arrayPhotos;
     NSInteger curIndex;
+    id<LEImagePickerPreviewDelegate> curDelegate;
+    LEBaseNavigation *navi;
 }
 -(void) leExtraInits{
     arrayPhotos=[[NSMutableArray alloc] init];
     width=self.leCurrentFrameWidth;
     height=self.leCurrentFrameHight;
     curScrollview=[[UIScrollView alloc] initWithAutoLayoutSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:self.leViewContainer EdgeInsects:UIEdgeInsetsZero]];
-    
+    [curScrollview setBackgroundColor:LEColorBlack];
     [curScrollview setPagingEnabled:YES];
     [curScrollview setDelegate:self];
     [curScrollview setShowsHorizontalScrollIndicator:NO];
     [curScrollview setShowsVerticalScrollIndicator:NO];
-    [curScrollview setBackgroundColor:[LEUIFramework sharedInstance].leColorNavigationBar];
-    
-    curPageControl=[[UIPageControl alloc] init];
-    [self.leViewContainer addSubview:curPageControl];
-    [curPageControl setFrame:CGRectMake(width/2-curPageControl.bounds.size.width/2, height-LELayoutSideSpace27, curPageControl.bounds.size.width, curPageControl.bounds.size.height)];
-    [curPageControl setHidesForSinglePage:YES];
-    
 }
 
 -(void) setCurCells:(NSMutableArray *)curCells{
@@ -47,7 +43,6 @@
 -(void) refreshPage{
     NSInteger count=self.curCells.count-1;
     [curScrollview setContentSize:CGSizeMake(width*count, height)];
-    [curPageControl setNumberOfPages:count];
     for (NSInteger i=0; i<count; i++) {
         UIImageView *view=[[UIImageView alloc] initWithFrame:CGRectMake(width*i, 0, width, height)];
         LEImagePickerCell *cell=[self.curCells objectAtIndex:i];
@@ -56,16 +51,16 @@
         [curScrollview addSubview:view];
         [arrayPhotos addObject:view];
     }
+    [navi leSetNavigationTitle:[NSString stringWithFormat:@"%zd/%zd",curIndex+1,arrayPhotos.count]];
 }
 -(void) setPage:(NSInteger) index{
     curIndex=index;
     [curScrollview scrollRectToVisible:CGRectMake(width*index, 0, width, height) animated:YES];
-    [curPageControl setCurrentPage:index];
-    
+    [navi leSetNavigationTitle:[NSString stringWithFormat:@"%zd/%zd",curIndex+1,arrayPhotos.count]];
 }
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     curIndex = scrollView.contentOffset.x/width;
-    curPageControl.currentPage = curIndex;
+    [navi leSetNavigationTitle:[NSString stringWithFormat:@"%zd/%zd",curIndex+1,arrayPhotos.count]];
 }
 
 -(void) onDelete{
@@ -78,7 +73,7 @@
     [self.curCells removeObjectAtIndex:curIndex];
     //
     [curScrollview setContentSize:CGSizeMake(width*arrayPhotos.count, height)];
-    [curPageControl setNumberOfPages:arrayPhotos.count];
+    [navi leSetNavigationTitle:[NSString stringWithFormat:@"%zd/%zd",curIndex+1,arrayPhotos.count]];
     for (int i=0; i<arrayPhotos.count; i++) {
         UIImageView *view=[arrayPhotos objectAtIndex:i];
         [view setFrame:CGRectMake(width*i, 0, width, height)];
@@ -91,57 +86,41 @@
     }else if(curIndex-1>=0){
         [self setPage:curIndex-1];
     }else{
-        [self.leCurrentViewController.navigationController popViewControllerAnimated:YES];
+        if(curDelegate){
+            [curDelegate leOnDonePickingImagesWith:self.curCells];
+        }
+        [self.leCurrentViewController lePopSelfAnimated];
     }
 }
-@end
-
-@protocol LEImagePickerPreviewDelegate <NSObject>
-
--(void) leOnDonePickingImagesWith:(NSMutableArray *) array;
-
+-(id) initWithViewController:(LEBaseViewController *)vc Delegate:(id<LEImagePickerPreviewDelegate>) delegate Cells:(NSMutableArray *) cells Index:(NSInteger) index DeleteIcon:(UIImage *) delete {
+    self=[super initWithViewController:vc];
+    navi=[[LEBaseNavigation alloc] initWithSuperViewAsDelegate:self Title:[NSString stringWithFormat:@"%zd/%zd",index,cells.count]];
+    [navi leSetRightNavigationItemWith:nil Image:delete];
+    curDelegate=delegate;
+    [self setCurCells:cells];
+    [self setPage:index];
+    return self;
+}
+-(void) leNavigationLeftButtonTapped{
+    if(curDelegate){
+        [curDelegate leOnDonePickingImagesWith:self.curCells];
+    }
+    [self.leCurrentViewController lePopSelfAnimated];
+}
+-(void) leNavigationRightButtonTapped{
+    [self onDelete];
+}
 @end
 @interface LEImagePickerPreview : LEBaseViewController
-@property (nonatomic) id<LEImagePickerPreviewDelegate> delegate;
 @end
-@implementation LEImagePickerPreview{
-    LEImagePickerPreviewPage *page;
-    BOOL isBarHide;
-    UIImage *curDeleteIcon;
-}
--(id) initWithImagePickerCells:(NSMutableArray *) cells Index:(NSInteger) index DeleteIcon:(UIImage *) delete{
-    curDeleteIcon=delete;
+@implementation LEImagePickerPreview
+-(id) initWithImagePickerCells:(NSMutableArray *) cells Index:(NSInteger) index DeleteIcon:(UIImage *) delete Delegate:(id<LEImagePickerPreviewDelegate>) delegate {
     self=[super init];
-    page=[[LEImagePickerPreviewPage alloc] initWithViewController:self];
-    [page setCurCells:cells];
-    [page setPage:index];
+    [[[LEImagePickerPreviewPage alloc] initWithViewController:self Delegate:delegate Cells:cells Index:index DeleteIcon:delete] setUserInteractionEnabled:YES];
     return self;
 }
 -(void) leExtraInits{}
--(void) viewDidLoad{
-    [super viewDidLoad];
-    isBarHide=self.navigationController.navigationBarHidden;
-    [self.navigationController setNavigationBarHidden:NO];
-    [self.view addSubview:page];
-    [self leSetLeftBarButtonAsBackWith:LEIMG_ArrowLeft];
-    [self.navigationItem setTitle:@"图片编辑"];
-    if(curDeleteIcon){
-        [self leSetRightBarButtonWithImage:curDeleteIcon SEL:@selector(onRight)];
-    }
-}
-
--(void) onRight{
-    [page onDelete];
-}
--(void) viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:isBarHide animated:YES];
-    if(self.delegate){
-        [self.delegate leOnDonePickingImagesWith:page.curCells];
-    }
-} 
 @end
-
 @protocol LEImagePickerCellDelegate <NSObject>
 -(void) onImagePickerCellClickedWith:(LEImagePickerCell *) cell;
 @end
@@ -172,8 +151,6 @@
     }
 }
 @end
-
-
 @interface LEImageCellGroupsWithPicker () <UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIActionSheetDelegate,LEImagePickerPreviewDelegate,LEMultiImagePickerDelegate,LEImagePickerCellDelegate>
 
 @end
@@ -271,8 +248,7 @@
             [sheet showInView:self];
         }
     }else{
-        LEImagePickerPreview *preview=[[LEImagePickerPreview alloc] initWithImagePickerCells:self.curCellCache Index:index DeleteIcon:curDeleteImage];
-        [preview setDelegate:self];
+        LEImagePickerPreview *preview=[[LEImagePickerPreview alloc] initWithImagePickerCells:self.curCellCache Index:index DeleteIcon:curDeleteImage Delegate:self];
         [curViewController.navigationController pushViewController:preview animated:YES];
     }
 }

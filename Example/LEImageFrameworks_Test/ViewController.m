@@ -123,11 +123,10 @@
 @end
 @implementation TestCellGroupsWithPicker
 
--(void) viewDidLoad{
-    [super viewDidLoad];
-    [self leSetNavigationTitle:@"LEImageCellGroupsWithPicker"];
+-(void) leExtraInits{
     LEBaseView *view=[[LEBaseView alloc] initWithViewController:self];
-    LEImageCellGroupsWithPicker *picker=[[LEImageCellGroupsWithPicker alloc] initWithAutoLayoutSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:view.leViewContainer Anchor:LEAnchorInsideCenter Offset:CGPointZero CGSize:CGSizeMake(view.leCurrentFrameWidth,view.leCurrentFrameWidth)] Space:2 Cols:4 Max:9 AddImage:[LEColorBlue leImageStrechedFromSizeOne] DeleteImage:[LEColorTest leImageWithSize:CGSizeMake(20, 40)] ViewController:self];
+    [[LEBaseNavigation alloc] initWithDelegate:nil SuperView:view Title:@"LEImageCellGroupsWithPicker"];
+    LEImageCellGroupsWithPicker *picker=[[LEImageCellGroupsWithPicker alloc] initWithAutoLayoutSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:view.leViewBelowCustomizedNavigation Anchor:LEAnchorInsideCenter Offset:CGPointZero CGSize:CGSizeMake(view.leCurrentFrameWidth,view.leCurrentFrameWidth)] Space:2 Cols:4 Max:9 AddImage:[LEColorBlue leImageStrechedFromSizeOne] DeleteImage:[LEColorTest leImageWithSize:CGSizeMake(20, 40)] ViewController:self];
     [picker setBackgroundColor:LEColorGrayLight];
 }
 @end
@@ -136,32 +135,26 @@
 @end
 @implementation TestGridWithPreview
 
--(void) viewDidLoad{
-    [super viewDidLoad];
-    [self leSetNavigationTitle:@"LEImagesGridWithPreview"];
-    [self leSetLeftBarButtonAsBackWith:LEIMG_ArrowLeft];
+-(void) leExtraInits{
     LEBaseView *view=[[LEBaseView alloc] initWithViewController:self];
-    LEImagesGrid *grid=[[LEImagesGrid alloc] initWithAutoLayoutSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:view.leViewContainer Anchor:LEAnchorInsideCenter Offset:CGPointZero CGSize:CGSizeMake(view.leCurrentFrameWidth, view.leCurrentFrameWidth)] Space:10 Cols:3 Max:15 ImageUrlPrefix:nil QiniuImageView2:NO ViewController:self];
+    [[LEBaseNavigation alloc] initWithDelegate:nil SuperView:view Title:@"LEImagesGridWithPreview"];
+    LEImagesGrid *grid=[[LEImagesGrid alloc] initWithAutoLayoutSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:view.leViewBelowCustomizedNavigation Anchor:LEAnchorInsideCenter Offset:CGPointZero CGSize:CGSizeMake(view.leCurrentFrameWidth, view.leCurrentFrameWidth)] Space:10 Cols:3 Max:15 ImageUrlPrefix:nil QiniuImageView2:NO ViewController:self];
     [grid setBackgroundColor:LEColorGrayLight];
     [grid leSetImageDataSource:@[@"https://www.baidu.com/img/bd_logo1.png",@"http://cdn.cocimg.com/assets/images/logo.png?15018"]];
 }
 @end
 
 @interface ViewController ()<LETableViewCellSelectionDelegate,LEImageCropperDelegate,LEMultiImagePickerDelegate>
-
 @end
-
 @implementation ViewController{
     UIImageView *curImage;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self setExtendedLayoutIncludesOpaqueBars:NO];
-    [self setEdgesForExtendedLayout:UIRectEdgeLeft&UIRectEdgeRight&UIRectEdgeBottom];
-    [self leSetNavigationTitle:@"LEImageFrameworks 测试"];
-    LEBaseTableView *tb=[[LEBaseTableView alloc] initWithSettings:[[LETableViewSettings alloc] initWithSuperViewContainer:self.view ParentView:self.view TableViewCell:@"TestCell" EmptyTableViewCell:nil GetDataDelegate:nil TableViewCellSelectionDelegate:self]];
-    [tb leOnRefreshedWithData:[@[@"LE_HMBannerView BannerStayAtTheTop", @"LE_HMBannerView BannerScrollWithCells" ,@"LEImageCellGroupsWithPicker",@"LEImagesGridWithPreview",@"LESingleImagePicker",@"LEMultiImagePicker"]mutableCopy]];
+- (void)leExtraInits {
+    LEBaseView *view=[[LEBaseView alloc] initWithViewController:self];
+    [[[LEBaseNavigation alloc] initWithDelegate:nil SuperView:view Title:@"LEImageFrameworks 测试"] setAlpha:1];
+    LEBaseTableView *tb=[[LEBaseTableView alloc] initWithSettings:[[LETableViewSettings alloc] initWithSuperViewContainer:view ParentView:view.leViewBelowCustomizedNavigation TableViewCell:@"TestCell" EmptyTableViewCell:nil GetDataDelegate:nil TableViewCellSelectionDelegate:self]];
+    [tb leOnRefreshedWithData:[@[@"未处理导航栏 BannerStayAtTheTop", @"未处理导航栏 BannerScrollWithCells" ,@"LEImageCellGroupsWithPicker",@"LEImagesGridWithPreview",@"LESingleImagePicker",@"LEMultiImagePicker"]mutableCopy]];
     [tb leSetTopRefresh:NO];
     [tb leSetBottomRefresh:NO];
     curImage=[LEUIFramework leGetImageViewWithSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:self.view Anchor:LEAnchorInsideBottomCenter Offset:CGPointMake(0, -LENavigationBarHeight-LEStatusBarHeight) CGSize:CGSizeMake(200, 100)] Image:nil];

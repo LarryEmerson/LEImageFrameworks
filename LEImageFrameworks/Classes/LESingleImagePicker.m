@@ -23,6 +23,9 @@
     curAspect=aspect;
     return [super initWithViewController:vc];
 }
+-(void) leSwipGestureLogic{
+    [self leNavigationLeftButtonTapped];
+}
 -(void) leNavigationLeftButtonTapped{
     [self cancelCropping];
     [super leViewBelowCustomizedNavigation];

@@ -34,11 +34,19 @@ typedef enum {
 #define LEKeyOfSettingsCellHeight @"height"
 #define LEKeyOfSettingsCellImageCorner @"corner"
 #define LEKeyOfSettingsCellLinespace @"linespace"
+#define LEKeyOfSettingsCellIconPlaceHolder @"imageholder"
 
+#define LEKeyOfSettingsCellRightEdgeKey @"rightedge"
+
+#define LEKeyOfSettingsCellRightEdge    (LELayoutSideSpace+LELayoutSideSpace20)
 #define LEKeyOfSettingsCellTitleFontsize LELayoutFontSize16
 #define LEKeyOfSettingsCellSubTitleFontsize LELayoutFontSize13
 #define LEKeyOfSettingsCellSubTitleColor LEColorTextGray
 #define LEKeyOfSettingsCellSideSpace LELayoutSideSpace
+#define LEKeyOfSettingsSubtitleWidth (LESCREEN_WIDTH-LEKeyOfSettingsCellRightEdge-6*LEKeyOfSettingsCellTitleFontsize)
+#define LEKeyOfSettingsSubtitleOffsetY ((LEDefaultCellHeight-LEKeyOfSettingsCellSubTitleFontsize)*0.5)
+
+
 @class LEBaseSettingsItem;
 @interface LEBaseSettingsCell : LEBaseCollectionViewCell
 -(void) leSetCellType:(LESettingsCellType) type ;

@@ -101,6 +101,9 @@
     [self setPage:index];
     return self;
 }
+-(void) leSwipGestureLogic{
+    [self leNavigationLeftButtonTapped];
+}
 -(void) leNavigationLeftButtonTapped{
     if(curDelegate){
         [curDelegate leOnDonePickingImagesWith:self.curCells];
@@ -172,8 +175,7 @@
     cellMax=max;
     curAddImage=add;
     curDeleteImage=delete;
-    self= [super initWithAutoLayoutSettings:settings];
-    [self leExtraInits];
+    self= [super initWithAutoLayoutSettings:settings]; 
     return self;
 }
 
@@ -211,7 +213,7 @@
         [curViewController presentViewController:imagePickerController animated:YES completion:^(void){
         }];
     }else{
-        LEMultiImagePicker *vc=[[LEMultiImagePicker alloc] initWithImagePickerDelegate:self];
+        LEMultiImagePicker *vc=[[LEMultiImagePicker alloc] initWithImagePickerDelegate:self RemainCount:cellMax-self.curCellCache.count+1 MaxCount:cellMax RootVC:curViewController];
         [curViewController.navigationController pushViewController:vc animated:YES];
     }
 }

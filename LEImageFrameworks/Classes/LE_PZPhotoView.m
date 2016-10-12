@@ -17,12 +17,16 @@
     CGPoint  _pointToCenterAfterResize;
     CGFloat  _scaleToRestoreAfterResize;
     float curAspect;
+    UIActivityIndicatorView *indicator;
 }
 -(void) leSetDelegate:(id<LE_PZPhotoViewDelegate>)delegate{
     self.photoViewDelegate=delegate;
 }
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
+        indicator=[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        [indicator setLeAutoLayoutSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:self Anchor:LEAnchorInsideCenter Offset:CGPointZero CGSize:indicator.bounds.size]];
+        [indicator leExecAutoLayout];
         self.imageView =[[UIImageView alloc]init];
         [self.imageView leSetImageDownloadDelegate:self];
         [self addSubview:self.imageView];
@@ -31,17 +35,19 @@
         [self.imageView addGestureRecognizer:singleTap];
     
         self.delegate = self;
-        self.showsVerticalScrollIndicator = NO;
-        self.showsHorizontalScrollIndicator = NO;
-        self.bouncesZoom = TRUE;
-        self.decelerationRate = UIScrollViewDecelerationRateFast;
+//        self.showsVerticalScrollIndicator = NO;
+//        self.showsHorizontalScrollIndicator = NO;
+//        self.bouncesZoom = TRUE;
+//        self.decelerationRate = UIScrollViewDecelerationRateFast;
     }
     return self;
 }
 -(void) leSetImageDownloadDelegate:(id<LEImageDownloadDelegate>) delegate{
     [self.imageView leSetImageDownloadDelegate:delegate];
 }
--(void) leOnDownloadedImageWith:(UIImage *) image{ 
+-(void) leOnDownloadedImageWith:(UIImage *) image{
+    [indicator stopAnimating];
+    [indicator setHidden:YES];
     if(curAspect<=0){
         [self.imageView setFrame:CGRectMake(0, 0, image.size.width, image.size.height)];
         [self setMaxMinZoomScalesForCurrentBounds];
@@ -49,13 +55,17 @@
     }
 }
 -(void) leOnDownloadImageWithError:(NSError *)error{
-    
+    [indicator stopAnimating];
+    [indicator setHidden:YES];
+    [self leAddLocalNotification:@"图片下载失败"];
 }
 -(void) leSetImageURL:(NSString *) url AndAspect:(float) aspect{
     curAspect=aspect;
     if(aspect>0){
         [self.imageView setFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.width/aspect)];
     }
+    [indicator setHidden:NO];
+    [indicator startAnimating];
     [self.imageView leSetImageWithUrlString:url];
     self.contentSize = self.imageView.frame.size;
     [self setMaxMinZoomScalesForCurrentBounds];

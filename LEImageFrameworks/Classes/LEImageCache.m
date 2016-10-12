@@ -15,7 +15,7 @@ static void * UIImageViewPlaceHolderKey = (void *) @"UIImageViewPlaceHolder";
 }
 - (void) setLePlaceholderImage:(UIImage *)lePlaceholderImage{
     objc_setAssociatedObject(self, UIImageViewPlaceHolderKey, lePlaceholderImage, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [self sd_setImageWithURL:nil placeholderImage:lePlaceholderImage];
+    //    [self sd_setImageWithURL:nil placeholderImage:lePlaceholderImage];
 }
 static void * UIImageDownloadDelegateKey = (void *) @"UIImageDownloadDelegateKey";
 -(id<LEImageDownloadDelegate>) leImageDownloadDelegate{
@@ -26,14 +26,14 @@ static void * UIImageDownloadDelegateKey = (void *) @"UIImageDownloadDelegateKey
 }
 
 -(void) leSetImageForQiniuWithUrlString:(NSString *) url Width:(int)w Height:(int) h{
-    [self leSetImageWithUrlString:[NSString stringWithFormat:@"%@?imageView2/1/w/%d/h/%d",url,w*(int)LESCREEN_SCALE,h*(int)LESCREEN_SCALE]];
+    [self leSetImageWithUrlString:[NSString stringWithFormat:@"%@?imageView2/1/w/%d/h/%d",url,w*LESCREEN_SCALE_INT,h*LESCREEN_SCALE_INT]];
 }
 -(void) leSetImageForQiniuWithUrlString:(NSString *) url{
     [self leSetImageWithUrlString:[NSString stringWithFormat:@"%@?imageView2/1/w/%d/h/%d",url,(int)self.bounds.size.width*(int)LESCREEN_SCALE,(int)self.bounds.size.height*(int)LESCREEN_SCALE]];
 }
 -(void) leSetImageWithUrlString:(NSString *) url {
     if(url){
-//        UIImage *img=[[LEImageCache sharedInstance] leGetImageFromCacheWithKey:url];
+        //        UIImage *img=[[LEImageCache sharedInstance] leGetImageFromCacheWithKey:url];
         [self sd_cancelCurrentImageLoad];
         UIImage *img=[[SDImageCache sharedImageCache] imageFromDiskCacheForKey:url];
         if(!img){
@@ -49,12 +49,12 @@ static void * UIImageDownloadDelegateKey = (void *) @"UIImageDownloadDelegateKey
             LEWeakSelf(self);
             [self sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:self.lePlaceholderImage options:SDWebImageRetryFailed completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL){
                 if(error){ 
-//                    [weakself setImage:weakself.lePlaceholderImage];
+                    //                    [weakself setImage:weakself.lePlaceholderImage];
                     if(weakself.leImageDownloadDelegate&&[weakself.leImageDownloadDelegate respondsToSelector:@selector(leOnDownloadImageWithError:)]){
                         [weakself.leImageDownloadDelegate leOnDownloadImageWithError:error];
                     }
                 }else if(image){
-//                    [[LEImageCache sharedInstance] leAddImage:image toCacheWithKey:imageURL.absoluteString];
+                    //                    [[LEImageCache sharedInstance] leAddImage:image toCacheWithKey:imageURL.absoluteString];
                     if(weakself.leImageDownloadDelegate&&[weakself.leImageDownloadDelegate respondsToSelector:@selector(leOnDownloadedImageWith:)]){
                         [weakself.leImageDownloadDelegate leOnDownloadedImageWith:image];
                     }
@@ -66,7 +66,7 @@ static void * UIImageDownloadDelegateKey = (void *) @"UIImageDownloadDelegateKey
 -(void) leAddToImageCacheWithUrl:(NSString *) url{
     if(self.image){
         [[LEImageCache sharedInstance] leAddImage:self.image toCacheWithKey:url];
-//        [[SDImageCache sharedImageCache] storeImage:self.image forKey:url];
+        //        [[SDImageCache sharedImageCache] storeImage:self.image forKey:url];
     }
 }
 -(void) leSetPlaceholder:(UIImage *) image{

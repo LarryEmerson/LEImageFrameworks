@@ -199,7 +199,7 @@
             break;
         case 5:
         {
-            LEMultiImagePicker *vc=[[LEMultiImagePicker alloc] initWithImagePickerDelegate:self];
+            LEMultiImagePicker *vc=[[LEMultiImagePicker alloc] initWithImagePickerDelegate:self RootVC:self];
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;

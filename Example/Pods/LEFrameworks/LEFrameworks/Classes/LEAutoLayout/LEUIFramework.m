@@ -36,6 +36,7 @@
     return [NSString stringWithFormat:@"%@",self];
 }
 -(void) leExtraInits{}
+-(void) leRelease{}
 @end
 
 @implementation UIView (LEExtension) 
@@ -44,7 +45,7 @@
 }
 -(void) leAddLocalNotification:(NSString *) notification{
     if(notification&&notification.length>0){
-        LELocalNotification *noti=[[LELocalNotification alloc] init];
+        LELocalNotification *noti=[LELocalNotification new];
         [noti leSetText:notification WithEnterTime:0.3 AndPauseTime:0.8 ReleaseWhenFinished:YES];
         [[UIApplication sharedApplication].keyWindow addSubview:noti];
     }
@@ -75,7 +76,15 @@
     UIImageView *img= [LEUIFramework leGetImageViewWithSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:self Anchor:LEAnchorInsideBottomCenter Offset:offset CGSize:CGSizeMake(width, 0.5)] Image:[color leImageStrechedFromSizeOne]];
     return img;
 }
-
+-(UIImageView *) leAddLeftSplitWithColor:(UIColor *) color Offset:(CGPoint) offset Height:(int) height{
+    UIImageView *img=[LEUIFramework leGetImageViewWithSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:self Anchor:LEAnchorInsideLeftCenter Offset:offset CGSize:CGSizeMake(0.5, height)] Image:[color leImageStrechedFromSizeOne]];
+    return img;
+}
+-(UIImageView *) leAddRightSplitWithColor:(UIColor *) color Offset:(CGPoint) offset Height:(int) height{
+    UIImageView *img= [LEUIFramework leGetImageViewWithSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:self Anchor:LEAnchorInsideRightCenter Offset:offset CGSize:CGSizeMake(0.5, height)] Image:[color leImageStrechedFromSizeOne]];
+    return img;
+}
+-(void) leReleaseView{}
 @end
 
 @implementation UITableView (LEExtension)
@@ -93,7 +102,9 @@
 @implementation UIColor (LEExtension)
 -(UIImage *)leImageStrechedFromSizeOne{
     UIImage *img=[self leImageWithSize:CGSizeMake(1, 1)];
-    return [img leMiddleStrechedImage];
+    UIImage *streched= [img leMiddleStrechedImage];
+    img=nil;
+    return streched;
 }
 -(UIImage *)leImageWithSize:(CGSize)size {
     CGRect rect = CGRectMake(0, 0, size.width, size.height);
@@ -122,11 +133,33 @@
     return obj;
 }
 -(CGSize) leGetSizeWithFont:(UIFont *)font MaxSize:(CGSize) size{
+    return [self leGetSizeWithFont:font MaxSize:size ParagraphStyle:nil];
+}
+-(CGSize) leGetSizeWithFont:(UIFont *)font MaxSize:(CGSize) size ParagraphStyle:(NSMutableParagraphStyle *) style{
+    NSMutableDictionary *dic=[NSMutableDictionary new];
+    [dic setObject:font forKey:NSFontAttributeName];
+    if(style){
+        [dic setObject:style forKey:NSParagraphStyleAttributeName];
+    }
+    CGRect rect = [self boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dic  context:nil];
+    rect.size.height=(int)rect.size.height+1;
+    return rect.size;
+}
+-(CGSize) leGetSizeWithFont:(UIFont *)font MaxSize:(CGSize) size LineSpcae:(int) linespace Alignment:(NSTextAlignment) alignment{
     if(!self){
         return CGSizeZero;
     }
-    CGRect rect = [self boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:font}  context:nil];
-    rect.size.height=(int)rect.size.height+2;
+    NSMutableDictionary *dic=[NSMutableDictionary new];
+    [dic setObject:font forKey:NSFontAttributeName];
+    if(linespace>0){
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        [paragraphStyle setLineSpacing:linespace];
+        [paragraphStyle setLineBreakMode:NSLineBreakByWordWrapping];
+        [paragraphStyle setAlignment:alignment];
+        [dic setObject:paragraphStyle forKey:NSParagraphStyleAttributeName];
+    }
+    CGRect rect = [self boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dic context:nil];
+    rect.size.height=(int)rect.size.height+1;
     return rect.size;
 }
 @end
@@ -155,6 +188,8 @@ static void * LEAutoLayoutLabelSettingsKey = (void *) @"LEAutoLayoutLabelSetting
                 size=[text leGetSizeWithFont:self.font MaxSize:CGSizeMake(width, height)];
                 if(self.leAutoLayoutLabelSettings.leLine==1&&self.leAutoLayoutLabelSettings.leHeight==0){
                     size.height=self.font.lineHeight;
+                }else{
+                    size.height=self.font.lineHeight*self.leAutoLayoutLabelSettings.leLine;
                 }
                 if(self.leAutoLayoutLabelSettings.leHeight!=0){
                     size.height=self.leAutoLayoutLabelSettings.leHeight;
@@ -759,7 +794,7 @@ LESingleton_implementation(LEUIFramework)
 }
 -(void) leExtraInits{
     self.leNavigationButtonFontsize=LELayoutFontSize16;
-    self.leImageNavigationBar=[LEColorWhite leImageStrechedFromSizeOne];
+    self.leImageNavigationBar=[LEColorClear leImageStrechedFromSizeOne];
     self.leColorNavigationBar=LEColorWhite;
     self.leColorNavigationContent=LEColorBlack;
     self.leColorViewContainer=[UIColor colorWithRed:0.9647 green:0.9647 blue:0.9686 alpha:1.0];
@@ -794,7 +829,8 @@ LESingleton_implementation(LEUIFramework)
     return [NSString stringWithFormat:@"%d",i];
 }
 +(NSString *) leNumberToString:(NSNumber *) num{
-    return [NSString stringWithFormat:@"%@",num];
+    //    return [NSString stringWithFormat:@"%@",num];
+    return [[[NSNumberFormatter alloc] init] stringFromNumber:num];
 }
 +(UIFont *) leGetSystemFontWithSize:(int)size{
     return [UIFont systemFontOfSize:size];
@@ -824,7 +860,9 @@ LESingleton_implementation(LEUIFramework)
     return CGSizeMake(size.width/2, size.height/2);
 }
 + (UIImage *) leGetUIImage:(NSString *) name{
-    return [UIImage imageNamed:name];
+    UIImage *img= [UIImage imageNamed:name];
+    name=nil;
+    return img;
 }
 + (UIImage *) leGetUIImage:(NSString *) name Streched:(BOOL) isStreched {
     UIImage *img=[LEUIFramework leGetUIImage:name];

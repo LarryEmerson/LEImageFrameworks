@@ -14,13 +14,18 @@
 
 @protocol LEPopupDelegate<NSObject>
 @optional
+-(void) leOnPopupBackgroundClicked;
 -(void) leOnPopupLeftButtonClicked;
 -(void) leOnPopupRightButtonClicked;
 -(void) leOnPopupCenterButtonClicked;
-
+-(void) leOnPopupBackgroundClickedWith:(NSString *) identification;
+-(void) leOnPopupLeftButtonClickedWith:(NSString *) identification;
+-(void) leOnPopupRightButtonClickedWith:(NSString *) identification;
+-(void) leOnPopupCenterButtonClickedWith:(NSString *) identification;
 @end
 
 @interface LEPopupSettings:NSObject
+@property (nonatomic) NSString *identification;
 @property (nonatomic) id<LEPopupDelegate> leDelegate;
 @property (nonatomic) NSString *leBckgroundImage;
 @property (nonatomic) int leSideEdge;

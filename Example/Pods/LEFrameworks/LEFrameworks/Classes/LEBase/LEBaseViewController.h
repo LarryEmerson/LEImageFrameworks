@@ -12,23 +12,25 @@
 @protocol LEViewControllerPopDelegate <NSObject>
 -(void) leOnViewControllerPopedWithPageName:(NSString *) order AndData:(id) data;
 @end
-@interface LEBaseViewController : UIViewController
+/**
+ *@brief 如果LEBaseViewController的子类（XXX）对应的view为LEBaseView的子类，并且LEBaseView的子类类名定义为“XXXPage"，则”XXXPage“类会被主动创建。如果需要重新定义子类的init方法，则需要复写XXX的方法：-(void) leExtraInits{}，这样可以避免XXX自动创建“XXXPage”。
+ */
+@interface LEBaseViewController : UIViewController 
 @property (nonatomic, readonly) id<LEViewControllerPopDelegate> lePopDelegate;
-//@property (nonatomic) UIViewController *superViewController;
--(id) initWithDelegate:(id<LEViewControllerPopDelegate>) delegate;
+-(id) initWithDelegate:(id<LEViewControllerPopDelegate>) delegate; 
 @end
 @interface LEBaseView : UIView
-@property (nonatomic, readonly) UISwipeGestureRecognizer *leRecognizerRight;
 @property (nonatomic, readonly) int leCurrentFrameWidth;
 @property (nonatomic, readonly) int leCurrentFrameHight;
+@property (nonatomic, readonly) int leFrameHightForCustomizedView;
 @property (nonatomic, readonly) UIView *leViewContainer;
 @property (nonatomic, readonly) UIView *leViewBelowCustomizedNavigation;
-@property (nonatomic, readonly) int leFrameHightForCustomizedView;
-@property (nonatomic, readonly) LEBaseViewController *leCurrentViewController;
+@property (nonatomic, readonly) UISwipeGestureRecognizer *leRecognizerRight;
+@property (nonatomic, weak, readonly) LEBaseViewController *leCurrentViewController;
 -(UIView *) leSuperViewContainer;
 -(id) initWithViewController:(LEBaseViewController *) vc;
 -(void) leSwipGestureLogic;
--(void) leOnSetRightSwipGesture:(BOOL) gesture;
+-(void) leOnSetRightSwipGesture:(BOOL) gesture; 
 @end
 
 @protocol LENavigationDelegate <NSObject>

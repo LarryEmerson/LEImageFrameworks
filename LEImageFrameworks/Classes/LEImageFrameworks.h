@@ -15,6 +15,7 @@
 #import "LE_PZPhotoView.h"  
 #import "LETableViewPageWithBanner.h"
 #import "LEBaseSettingsCell.h"
+#import "LEBaseConfigurableTableView.h"
 
 
 

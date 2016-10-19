@@ -206,7 +206,7 @@
 }
 -(void) leSetCellType:(LESettingsCellType) type{
     curType=type;
-    if(curItem.itemType!=type){
+    if(!curItem||curItem.itemType!=type){
         if(curItem){
             [curItem removeFromSuperview];
         }

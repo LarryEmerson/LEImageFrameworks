@@ -1,5 +1,7 @@
 # LEImageFrameworks
-## #import "LEImageFrameworks.h"
+```
+#import <LEImageFrameworks/LEImageFrameworks.h>
+```
 [![Version](https://img.shields.io/cocoapods/v/LEImageFrameworks.svg?style=flat)](http://cocoapods.org/pods/LEImageFrameworks) [![License](https://img.shields.io/cocoapods/l/LEImageFrameworks.svg?style=flat)](http://cocoapods.org/pods/LEImageFrameworks) [![Platform](https://img.shields.io/cocoapods/p/LEImageFrameworks.svg?style=flat)](http://cocoapods.org/pods/LEImageFrameworks)
  
 ## Installation 

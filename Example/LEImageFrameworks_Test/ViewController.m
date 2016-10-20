@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "LEImageFrameworks.h" 
+#import "TestConfigurableTableView.h"
 
 
 //DemoTableViewPageWithBannerImageView
@@ -150,65 +151,55 @@
     UIImageView *curImage;
     NSMutableArray *curData;
     LEBaseConfigurableTableView *tbConfig;
-    LEBaseConfigurableTableViewWithRefresh *tbConfigRefresh;
 }
 
 - (void)leExtraInits {
     LEBaseView *view=[[LEBaseView alloc] initWithViewController:self];
     [[[LEBaseNavigation alloc] initWithDelegate:nil SuperView:view Title:@"LEImageFrameworks 测试"] setAlpha:1];
-    LEBaseTableView *tb=[[LEBaseTableView alloc] initWithSettings:[[LETableViewSettings alloc] initWithSuperViewContainer:view ParentView:view.leViewBelowCustomizedNavigation TableViewCell:@"TestCell" EmptyTableViewCell:nil GetDataDelegate:nil TableViewCellSelectionDelegate:self]];
-    [tb leOnRefreshedWithData:[@[@"未处理导航栏 BannerStayAtTheTop", @"未处理导航栏 BannerScrollWithCells" ,@"LEImageCellGroupsWithPicker",@"LEImagesGridWithPreview",@"LESingleImagePicker",@"LEMultiImagePicker"]mutableCopy]];
-    [tb leSetTopRefresh:NO];
-    [tb leSetBottomRefresh:NO];
+    tbConfig=[[LEBaseConfigurableTableView alloc] initWithSuperView:view.leViewBelowCustomizedNavigation EmptyTableViewCell:nil TableViewCellSelectionDelegate:self];
     curImage=[LEUIFramework leGetImageViewWithSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:self.view Anchor:LEAnchorInsideBottomCenter Offset:CGPointMake(0, -LENavigationBarHeight-LEStatusBarHeight) CGSize:CGSizeMake(200, 100)] Image:nil];
     [curImage setAnimationDuration:1];
     [curImage setAlpha:0.6];
     [curImage setContentMode:UIViewContentModeCenter];
     [curImage setAnimationRepeatCount:0];
-    //
-//    L_Icon_Title_R_Arrow=0,
-//    L_Title_R_Subtitle,
-//    L_Title_R_Icon_Arrow,
-//    L_Title_R_Arrow,
-//    M_Submit,
-//    F_SectionSolid,
-//    L_Title_R_Switch,
-//    L_Title_R_Subtitle_Arrow
-    
-//    tbConfig=[[LEBaseConfigurableTableView alloc] initWithSuperView:view.leViewBelowCustomizedNavigation EmptyTableViewCell:nil TableViewCellSelectionDelegate:self];
-//    tbConfigRefresh=[[LEBaseConfigurableTableViewWithRefresh alloc] initWithSuperView:view.leViewBelowCustomizedNavigation EmptyTableViewCell:nil GetDataDelegate:self TableViewCellSelectionDelegate:self];
+    [self leOnRefreshData];
 }
 -(void) leOnRefreshData{
     curData=[NSMutableArray new];
-    [curData addObject:@{LEKeyOfSettingsCellType:LEIntToString(L_Icon_Title_R_Arrow),
-                         LEKeyOfSettingsCellIconPlaceHolder:[LEColorMask leImageWithSize:LESquareSize(LELayoutAvatarSize)],
-                         LEKeyOfSettingsCellLocalImage:[LEColorBlue leImageWithSize:LESquareSize(LELayoutAvatarSize)],
-                         LEKeyOfSettingsCellFunction:@"L_Icon_Title_R_Arrow"
-                         }];
-    [curData addObject:@{LEKeyOfSettingsCellType:LEIntToString(L_Title_R_Arrow),
-                         LEKeyOfSettingsCellTitle:@"L_Title_R_Arrow",
-                         LEKeyOfSettingsCellFunction:@"L_Title_R_Arrow"}];
-    [curData addObject:@{LEKeyOfSettingsCellType:LEIntToString(L_Title_R_Subtitle),
-                         LEKeyOfSettingsCellTitle:@"Title_R_Subtitle",
-                         LEKeyOfSettingsCellSubtitle:@"subtitlesubtitlesubtitlesubtitlesubtitlesubtitlesubtitlesubtitlesubtitlesubtitlesubtitlesubtitlesuubtitlesubtitle",
-                         LEKeyOfSettingsCellLinespace:LEIntToString(4),
-                         LEKeyOfSettingsCellFunction:@"L_Title_R_Subtitle",
-                         LEKeyOfSettingsCellRightEdgeKey:LEIntToString(LELayoutSideSpace)
-                         }];
-    //
-    //    [curData addObject:@{LEKeyOfSettingsCellType:LEIntToString(L_Title_R_Icon_Arrow),LEKeyOfSettingsCellTitle:@"更换头像",LEKeyOfSettingsCellImageCorner:LEIntToString(LELayoutAvatarSize/2),LEKeyOfSettingsCellImage:[NSString stringWithFormat:@"%@%@",@"",@""],LEKeyOfSettingsCellFunction:@"onAvatar"}];
-    //
-    [curData addObject:@{LEKeyOfSettingsCellType:LEIntToString(F_SectionSolid),LEKeyOfSettingsCellHeight:LEIntToString(LELayoutSideSpace),LEKeyOfSettingsCellColor:LEColorSplit}];
-    [curData addObject:@{LEKeyOfSettingsCellType:LEIntToString(L_Title_R_Arrow),LEKeyOfSettingsCellTitle:@"修改密码",LEKeyOfSettingsCellFunction:@"onPassword"}];
-    [curData addObject:@{LEKeyOfSettingsCellType:LEIntToString(L_Title_R_Arrow),LEKeyOfSettingsCellTitle:@"绑定新手机号",LEKeyOfSettingsCellFunction:@"onBindCell"}];
-    [curData addObject:@{LEKeyOfSettingsCellType:LEIntToString(M_Submit),LEKeyOfSettingsCellHeight:LEIntToString(LELayoutSideSpace*2+LENavigationBarHeight),LEKeyOfSettingsCellTitle:@"退出登录",LEKeyOfSettingsCellColor:LEColorWhite,LEKeyOfSettingsCellFunction:@"onLogout"}];
-    [tbConfigRefresh leOnRefreshedWithData:curData];
+    [curData addObject:@{LEConfigurableCellKey_Type:[NSNumber numberWithInt:L_Title_R_Arrow],
+                         LEConfigurableCellKey_Title:@"LEImageCellGroupsWithPicker",
+                         LEConfigurableCellKey_Function:@"onLEImageCellGroupsWithPicker"}];
+    [curData addObject:@{LEConfigurableCellKey_Type:[NSNumber numberWithInt:L_Title_R_Arrow],
+                         LEConfigurableCellKey_Title:@"LEImagesGridWithPreview",
+                         LEConfigurableCellKey_Function:@"onLEImagesGridWithPreview"}];
+    [curData addObject:@{LEConfigurableCellKey_Type:[NSNumber numberWithInt:L_Title_R_Arrow],
+                         LEConfigurableCellKey_Title:@"LESingleImagePicker",
+                         LEConfigurableCellKey_Function:@"onLESingleImagePicker"}];
+    [curData addObject:@{LEConfigurableCellKey_Type:[NSNumber numberWithInt:L_Title_R_Arrow],
+                         LEConfigurableCellKey_Title:@"LEMultiImagePicker",
+                         LEConfigurableCellKey_Function:@"onLEMultiImagePicker"}];
+    [curData addObject:@{LEConfigurableCellKey_Type:[NSNumber numberWithInt:L_Title_R_Arrow],
+                         LEConfigurableCellKey_Title:@"可配置化列表",
+                         LEConfigurableCellKey_Function:@"onLEBaseConfigurableTableView"}];
+    [tbConfig leOnRefreshedWithData:curData];
 }
--(void) leOnLoadMore{
-    LELogFunc
+-(void) onLEImageCellGroupsWithPicker{
+    TestCellGroupsWithPicker *vc=[[TestCellGroupsWithPicker alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
--(void) L_Icon_Title_R_Arrow{
-    LELogFunc
+-(void) onLEImagesGridWithPreview{
+    TestGridWithPreview *vc=[[TestGridWithPreview alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+-(void) onLESingleImagePicker{
+    [LESingleImagePicker leOnSingleImagePickerWithSuperView:self.view ViewController:self Title:@"LESingleImagePicker" Aspect:2 Delegate:self];
+}
+-(void) onLEMultiImagePicker{
+    LEMultiImagePicker *vc=[[LEMultiImagePicker alloc] initWithImagePickerDelegate:self RootVC:self];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+-(void) onLEBaseConfigurableTableView{
+    [self leThroughNavigationAnimatedPush:[TestConfigurableTableView new]];
 }
 -(void) leOnTableViewCellSelectedWithInfo:(NSDictionary *)info{
     NSIndexPath *index=[info objectForKey:LEKeyOfIndexPath];

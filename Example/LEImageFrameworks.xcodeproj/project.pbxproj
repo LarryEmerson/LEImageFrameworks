@@ -13,6 +13,7 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		778790206C740754275C67A4 /* Pods_LEImageFrameworks_Test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 925648524299752D36A0051B /* Pods_LEImageFrameworks_Test.framework */; };
+		80815FD81DB8A95400893B7A /* TestConfigurableTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 80815FD71DB8A95400893B7A /* TestConfigurableTableView.m */; };
 		8097794A1D2F799200E36104 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 809779491D2F799200E36104 /* main.m */; };
 		8097794D1D2F799200E36104 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8097794C1D2F799200E36104 /* AppDelegate.m */; };
 		809779501D2F799200E36104 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8097794F1D2F799200E36104 /* ViewController.m */; };
@@ -36,6 +37,8 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
+		80815FD61DB8A95400893B7A /* TestConfigurableTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestConfigurableTableView.h; sourceTree = "<group>"; };
+		80815FD71DB8A95400893B7A /* TestConfigurableTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestConfigurableTableView.m; sourceTree = "<group>"; };
 		809779461D2F799200E36104 /* LEImageFrameworks_Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LEImageFrameworks_Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		809779491D2F799200E36104 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8097794B1D2F799200E36104 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -152,6 +155,8 @@
 				8097794E1D2F799200E36104 /* ViewController.h */,
 				8097794F1D2F799200E36104 /* ViewController.m */,
 				809779511D2F799200E36104 /* Main.storyboard */,
+				80815FD61DB8A95400893B7A /* TestConfigurableTableView.h */,
+				80815FD71DB8A95400893B7A /* TestConfigurableTableView.m */,
 				809779541D2F799200E36104 /* Assets.xcassets */,
 				809779561D2F799200E36104 /* LaunchScreen.storyboard */,
 				809779591D2F799200E36104 /* Info.plist */,
@@ -392,6 +397,7 @@
 			files = (
 				809779501D2F799200E36104 /* ViewController.m in Sources */,
 				8097794D1D2F799200E36104 /* AppDelegate.m in Sources */,
+				80815FD81DB8A95400893B7A /* TestConfigurableTableView.m in Sources */,
 				8097794A1D2F799200E36104 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

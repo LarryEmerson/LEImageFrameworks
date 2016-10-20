@@ -13,7 +13,7 @@
 @end
 
 @implementation LEBaseSettingsItem
--(id) initWithType:(LESettingsCellType) type SettingsCell:(LEBaseSettingsCell*) cell{
+-(id) initWithType:(LEConfigurableCellType) type SettingsCell:(LEBaseSettingsCell*) cell{
     self=[super initWithAutoLayoutSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:cell EdgeInsects:UIEdgeInsetsZero]];
     self.itemType=type;
     self.settingsCell=cell;
@@ -39,11 +39,11 @@
     UIImageView *arrow;
 }
 -(void)leExtraInits{
-    label=[UILabel new].leSuperView(self).leAnchor(LEAnchorInsideLeftCenter).leOffset(CGPointMake(LEKeyOfSettingsCellSideSpace, 0)).leAutoLayout.leType;
-    arrow=[UIImageView new].leSuperView(self).leAnchor(LEAnchorInsideRightCenter).leOffset(CGPointMake(-LEKeyOfSettingsCellSideSpace, 0)).leSize(LESquareSize(LEKeyOfSettingsCellRightEdge-LEKeyOfSettingsCellSideSpace)).leAutoLayout.leType;
-    [arrow setContentMode:UIViewContentModeCenter];
+    label=[UILabel new].leSuperView(self).leAnchor(LEAnchorInsideLeftCenter).leOffset(CGPointMake(LELayoutSideSpace, 0)).leAutoLayout.leType;
+    arrow=[UIImageView new].leSuperView(self).leAnchor(LEAnchorInsideRightCenter).leOffset(CGPointMake(-LELayoutSideSpace, 0)).leSize(LESquareSize((LELayoutSideSpace+LELayoutSideSpace20)-LELayoutSideSpace)).leAutoLayout.leType;
+    [arrow setContentMode:UIViewContentModeCenter]; 
     [arrow leSetImage:[UIImage imageNamed:@"common_arrow_gray"]];
-    [label.leWidth(LESCREEN_WIDTH-LEKeyOfSettingsCellSideSpace-LEKeyOfSettingsCellRightEdge).leFont(LEFont(LEKeyOfSettingsCellTitleFontsize)).leLine(1) leLabelLayout];
+    [label.leWidth(LESCREEN_WIDTH-LELayoutSideSpace-(LELayoutSideSpace+LELayoutSideSpace20)).leFont(LEFont(LELayoutFontSize16)).leLine(1) leLabelLayout];
 }
 -(void) leSetData:(id) data{
     [label leSetText:[data objectForKey:LEKeyOfSettingsCellTitle]];
@@ -56,10 +56,10 @@
     UILabel *label;
 }
 -(void)leExtraInits{
-    label=[UILabel new].leSuperView(self).leAnchor(LEAnchorInsideLeftCenter).leOffset(CGPointMake(LEKeyOfSettingsCellSideSpace, 0)).leAutoLayout.leType;
+    label=[UILabel new].leSuperView(self).leAnchor(LEAnchorInsideLeftCenter).leOffset(CGPointMake(LELayoutSideSpace, 0)).leAutoLayout.leType;
     curSwitch=[UISwitch new];
-    [curSwitch.leSuperView(self).leAnchor(LEAnchorInsideRightCenter).leOffset(CGPointMake(-LEKeyOfSettingsCellSideSpace, 0)).leSize(curSwitch.bounds.size) leExecAutoLayout];
-    [label.leWidth(LESCREEN_WIDTH-LEKeyOfSettingsCellSideSpace*3-curSwitch.bounds.size.width).leFont(LEFont(LEKeyOfSettingsCellTitleFontsize)).leLine(1) leLabelLayout];
+    [curSwitch.leSuperView(self).leAnchor(LEAnchorInsideRightCenter).leOffset(CGPointMake(-LELayoutSideSpace, 0)).leSize(curSwitch.bounds.size) leExecAutoLayout];
+    [label.leWidth(LESCREEN_WIDTH-LELayoutSideSpace*3-curSwitch.bounds.size.width).leFont(LEFont(LELayoutFontSize16)).leLine(1) leLabelLayout];
     [curSwitch addTarget:self action:@selector(onTapped) forControlEvents:UIControlEventTouchUpInside];
 }
 -(void) leSetData:(id) data{
@@ -76,22 +76,22 @@
 }
 -(void)leExtraInits{
     UIView *anchor=[UIView new].leSuperView(self).leSize(CGSizeMake(1, LEDefaultCellHeight)).leAutoLayout;
-    label=[UILabel new].leSuperView(self).leRelativeView(anchor).leAnchor(LEAnchorOutsideRightCenter).leOffset(CGPointMake(LEKeyOfSettingsCellSideSpace-1, 0)).leAutoLayout.leType;
-    [label.leFont(LEFont(LEKeyOfSettingsCellTitleFontsize)).leLine(1).leText(@" ") leLabelLayout];
-    labelSub=[UILabel new].leSuperView(self).leAnchor(LEAnchorInsideTopRight).leOffset(CGPointMake(-LEKeyOfSettingsCellSideSpace, LEKeyOfSettingsSubtitleOffsetY)).leAutoLayout.leType;
-    [labelSub.leFont(LEFont(LEKeyOfSettingsCellSubTitleFontsize)).leColor(LEKeyOfSettingsCellSubTitleColor).leAlignment(NSTextAlignmentRight).leLine(0).leWidth(LEKeyOfSettingsSubtitleWidth) leLabelLayout];
+    label=[UILabel new].leSuperView(self).leRelativeView(anchor).leAnchor(LEAnchorOutsideRightCenter).leOffset(CGPointMake(LELayoutSideSpace-1, 0)).leAutoLayout.leType;
+    [label.leFont(LEFont(LELayoutFontSize16)).leLine(1).leText(@" ") leLabelLayout];
+    labelSub=[UILabel new].leSuperView(self).leAnchor(LEAnchorInsideTopRight).leOffset(CGPointMake(-LELayoutSideSpace, ((LEDefaultCellHeight-LELayoutFontSize13)*0.5))).leAutoLayout.leType;
+    [labelSub.leFont(LEFont(LELayoutFontSize13)).leColor(LEColorTextGray).leAlignment(NSTextAlignmentRight).leLine(0).leWidth((LESCREEN_WIDTH-LELayoutSideSpace+LELayoutSideSpace20-6*LELayoutFontSize16)) leLabelLayout];
 }
 -(void) leSetData:(id) data{
     [label leSetText:[data objectForKey:LEKeyOfSettingsCellTitle]];
     NSString *edge=[data objectForKey:LEKeyOfSettingsCellRightEdgeKey];
     if(edge){
-        [labelSub leSetOffset:CGPointMake(-abs([edge intValue]), LEKeyOfSettingsSubtitleOffsetY)];
+        [labelSub leSetOffset:CGPointMake(-abs([edge intValue]), ((LEDefaultCellHeight-LELayoutFontSize13)*0.5))];
     }
     [labelSub.leText([data objectForKey:LEKeyOfSettingsCellSubtitle]) leLabelLayout];
     if([data objectForKey:LEKeyOfSettingsCellLinespace]){
         [labelSub leSetLineSpace:[[data objectForKey:LEKeyOfSettingsCellLinespace] intValue]];
     }
-    CGSize size=CGSizeMake(self.bounds.size.width, MAX(LEKeyOfSettingsSubtitleOffsetY+(int)labelSub.bounds.size.height+LEKeyOfSettingsCellSideSpace, LEDefaultCellHeight));
+    CGSize size=CGSizeMake(self.bounds.size.width, MAX(((LEDefaultCellHeight-LELayoutFontSize13)*0.5)+(int)labelSub.bounds.size.height+((LEDefaultCellHeight-LELayoutFontSize13)*0.5), LEDefaultCellHeight));
     [self leSetSize:size];
 }
 @end
@@ -103,21 +103,21 @@
     UIImageView *arrow;
 }
 -(void) leExtraInits{
-    label=[UILabel new].leSuperView(self).leAnchor(LEAnchorInsideLeftCenter).leOffset(CGPointMake(LEKeyOfSettingsCellSideSpace, 0)).leAutoLayout.leType;
-    [label.leFont(LEFont(LEKeyOfSettingsCellTitleFontsize)).leLine(1) leLabelLayout];
-    arrow= [UIImageView new].leSuperView(self).leAnchor(LEAnchorInsideRightCenter).leOffset(CGPointMake(-LEKeyOfSettingsCellSideSpace, 0)).leSize(LESquareSize(LEKeyOfSettingsCellRightEdge-LEKeyOfSettingsCellSideSpace)).leAutoLayout.leType;
+    label=[UILabel new].leSuperView(self).leAnchor(LEAnchorInsideLeftCenter).leOffset(CGPointMake(LELayoutSideSpace, 0)).leAutoLayout.leType;
+    [label.leFont(LEFont(LELayoutFontSize16)).leLine(1) leLabelLayout];
+    arrow= [UIImageView new].leSuperView(self).leAnchor(LEAnchorInsideRightCenter).leOffset(CGPointMake(-LELayoutSideSpace, 0)).leSize(LESquareSize((LELayoutSideSpace+LELayoutSideSpace20)-LELayoutSideSpace)).leAutoLayout.leType;
     [arrow setContentMode:UIViewContentModeCenter];
     [arrow leSetImage:[UIImage imageNamed:@"common_arrow_gray"]];
-    subtitle=[UILabel new].leSuperView(self).leAnchor(LEAnchorInsideRightCenter).leOffset(CGPointMake(-LEKeyOfSettingsCellRightEdge, 0)).leAutoLayout.leType;
-    [subtitle.leFont(LEFont(LEKeyOfSettingsCellSubTitleFontsize)).leColor(LEKeyOfSettingsCellSubTitleColor).leLine(1).leAlignment(NSTextAlignmentRight) leLabelLayout];
+    subtitle=[UILabel new].leSuperView(self).leAnchor(LEAnchorInsideRightCenter).leOffset(CGPointMake(-(LELayoutSideSpace+LELayoutSideSpace20), 0)).leAutoLayout.leType;
+    [subtitle.leFont(LEFont(LELayoutFontSize13)).leColor(LEColorTextGray).leLine(1).leAlignment(NSTextAlignmentRight) leLabelLayout];
 }
 -(void) leSetData:(id) data{
     [label leSetText:[data objectForKey:LEKeyOfSettingsCellTitle]];
-    [subtitle.leWidth(LESCREEN_WIDTH-LEKeyOfSettingsCellRightEdge-LEKeyOfSettingsCellSideSpace-label.bounds.size.width-LELayoutSideSpace).leText([data objectForKey:LEKeyOfSettingsCellSubtitle]) leLabelLayout];
+    [subtitle.leWidth(LESCREEN_WIDTH-(LELayoutSideSpace+LELayoutSideSpace20)-LELayoutSideSpace-label.bounds.size.width-LELayoutSideSpace).leText([data objectForKey:LEKeyOfSettingsCellSubtitle]) leLabelLayout];
     //    if([data objectForKey:LEKeyOfSettingsCellLinespace]){
     //        [subtitle leSetLineSpace:[[data objectForKey:LEKeyOfSettingsCellLinespace] intValue]];
     //    }
-    //    [self leSetSize:CGSizeMake(self.bounds.size.width, MAX(LEKeyOfSettingsCellSideSpace*2+subtitle.bounds.size.height, LEDefaultCellHeight))];
+    //    [self leSetSize:CGSizeMake(self.bounds.size.width, MAX(LELayoutSideSpace*2+subtitle.bounds.size.height, LEDefaultCellHeight))];
 }
 @end
 //
@@ -128,12 +128,12 @@
     UILabel *label;
 }
 -(void) leExtraInits{
-    icon=[UIImageView new].leSuperView(self).leAnchor(LEAnchorInsideLeftCenter).leOffset(CGPointMake(LEKeyOfSettingsCellSideSpace, 0)).leSize(CGSizeMake(LELayoutAvatarSize, LELayoutAvatarSize)).leRoundCorner(LELayoutAvatarSize/2).leAutoLayout.leType;
-    label=[UILabel new].leSuperView(self).leRelativeView(icon).leAnchor(LEAnchorOutsideRightCenter).leOffset(CGPointMake(LEKeyOfSettingsCellSideSpace, 0)).leAutoLayout.leType;
-    UIImageView *arrow= [UIImageView new].leSuperView(self).leAnchor(LEAnchorInsideRightCenter).leOffset(CGPointMake(-LEKeyOfSettingsCellSideSpace, 0)).leSize(LESquareSize(LEKeyOfSettingsCellRightEdge-LEKeyOfSettingsCellSideSpace)).leAutoLayout.leType;
+    icon=[UIImageView new].leSuperView(self).leAnchor(LEAnchorInsideLeftCenter).leOffset(CGPointMake(LELayoutSideSpace, 0)).leSize(CGSizeMake(LELayoutAvatarSize, LELayoutAvatarSize)).leRoundCorner(LELayoutAvatarSize/2).leAutoLayout.leType;
+    label=[UILabel new].leSuperView(self).leRelativeView(icon).leAnchor(LEAnchorOutsideRightCenter).leOffset(CGPointMake(LELayoutSideSpace, 0)).leAutoLayout.leType;
+    UIImageView *arrow= [UIImageView new].leSuperView(self).leAnchor(LEAnchorInsideRightCenter).leOffset(CGPointMake(-LELayoutSideSpace, 0)).leSize(LESquareSize((LELayoutSideSpace+LELayoutSideSpace20)-LELayoutSideSpace)).leAutoLayout.leType;
     [arrow leSetImage:[UIImage imageNamed:@"common_arrow_gray"]];
     [arrow setContentMode:UIViewContentModeCenter];
-    [label.leFont(LEFont(LEKeyOfSettingsCellTitleFontsize)).leLine(1).leWidth(LEKeyOfSettingsSubtitleWidth) leLabelLayout];
+    [label.leFont(LEFont(LELayoutFontSize16)).leLine(1).leWidth((LESCREEN_WIDTH-LELayoutSideSpace+LELayoutSideSpace20-6*LELayoutFontSize16)) leLabelLayout];
 }
 -(void) leSetData:(id) data{
     [icon leSetImageWithUrlString:[data objectForKey:LEKeyOfSettingsCellImage]];
@@ -147,12 +147,12 @@
     UILabel *label;
 }
 -(void) leExtraInits{
-    label=[UILabel new].leSuperView(self).leAnchor(LEAnchorInsideLeftCenter).leOffset(CGPointMake(LEKeyOfSettingsCellSideSpace, 0)).leAutoLayout.leType;
-    UIImageView *arrow= [UIImageView new].leSuperView(self).leAnchor(LEAnchorInsideRightCenter).leOffset(CGPointMake(-LEKeyOfSettingsCellSideSpace, 0)).leSize(LESquareSize(LEKeyOfSettingsCellRightEdge-LEKeyOfSettingsCellSideSpace)).leAutoLayout.leType;
+    label=[UILabel new].leSuperView(self).leAnchor(LEAnchorInsideLeftCenter).leOffset(CGPointMake(LELayoutSideSpace, 0)).leAutoLayout.leType;
+    UIImageView *arrow= [UIImageView new].leSuperView(self).leAnchor(LEAnchorInsideRightCenter).leOffset(CGPointMake(-LELayoutSideSpace, 0)).leSize(LESquareSize((LELayoutSideSpace+LELayoutSideSpace20)-LELayoutSideSpace)).leAutoLayout.leType;
     [arrow leSetImage:[UIImage imageNamed:@"common_arrow_gray"]];
     [arrow setContentMode:UIViewContentModeCenter];
-    icon=[UIImageView new].leSuperView(self).leAnchor(LEAnchorInsideRightCenter).leOffset(CGPointMake(-LEKeyOfSettingsCellRightEdge, 0)).leSize(CGSizeMake(LELayoutAvatarSize, LELayoutAvatarSize)).leRoundCorner(LELayoutAvatarSize/2).leAutoLayout.leType;
-    [label.leFont(LEFont(LEKeyOfSettingsCellTitleFontsize)).leLine(1).leWidth(LESCREEN_WIDTH-LEKeyOfSettingsCellSideSpace-LEKeyOfSettingsCellRightEdge-LELayoutAvatarSize) leLabelLayout];
+    icon=[UIImageView new].leSuperView(self).leAnchor(LEAnchorInsideRightCenter).leOffset(CGPointMake(-(LELayoutSideSpace+LELayoutSideSpace20), 0)).leSize(CGSizeMake(LELayoutAvatarSize, LELayoutAvatarSize)).leRoundCorner(LELayoutAvatarSize/2).leAutoLayout.leType;
+    [label.leFont(LEFont(LELayoutFontSize16)).leLine(1).leWidth(LESCREEN_WIDTH-LELayoutSideSpace-(LELayoutSideSpace+LELayoutSideSpace20)-LELayoutAvatarSize) leLabelLayout];
 }
 -(void) leSetData:(id) data{
     UIImage *placeHolder=[data objectForKey:LEKeyOfSettingsCellIconPlaceHolder];
@@ -172,7 +172,7 @@
 }
 -(void) leExtraInits{
     [self setBackgroundColor:[LEUIFramework sharedInstance].leColorViewContainer];
-    btn=[UIButton new].leSuperView(self).leEdgeInsects(UIEdgeInsetsMake(LEKeyOfSettingsCellSideSpace, LEKeyOfSettingsCellSideSpace, LEKeyOfSettingsCellSideSpace, LEKeyOfSettingsCellSideSpace)).leAutoLayout.leType;
+    btn=[UIButton new].leSuperView(self).leEdgeInsects(UIEdgeInsetsMake(LELayoutSideSpace, LELayoutSideSpace, LELayoutSideSpace, LELayoutSideSpace)).leAutoLayout.leType;
     [btn.leButtonSize(btn.bounds.size).leFont(LEFont(LELayoutFontSize14)).leTapEvent(@selector(onTapped),self) leButtonLayout];
 }
 -(void) leSetData:(id) data{
@@ -197,14 +197,14 @@
 
 @implementation LEBaseSettingsCell{
     
-    LESettingsCellType curType;
+    LEConfigurableCellType curType;
     LEBaseSettingsItem *curItem;
 }
 -(void) leExtraInits{
     [self setBackgroundColor:LEColorWhite];
     self.selectedBackgroundView=[LEUIFramework leGetImageViewWithSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:self EdgeInsects:UIEdgeInsetsZero] Image:[LEColorMask leImageStrechedFromSizeOne]];
 }
--(void) leSetCellType:(LESettingsCellType) type{
+-(void) leSetCellType:(LEConfigurableCellType) type{
     curType=type;
     if(!curItem||curItem.itemType!=type){
         if(curItem){
@@ -213,7 +213,7 @@
         curItem=[self getItemWithType:type];
     }
 }
--(LEBaseSettingsItem *) getItemWithType:(LESettingsCellType) type{
+-(LEBaseSettingsItem *) getItemWithType:(LEConfigurableCellType) type{
     LEBaseSettingsItem *item=nil;
     switch (type) {
         case L_Title_R_Arrow:
@@ -250,7 +250,7 @@
 }
 -(void) leSetData:(id)data IndexPath:(NSIndexPath *)path{
     [super leSetData:data IndexPath:path];
-    LESettingsCellType type=[[data objectForKey:LEKeyOfSettingsCellType] intValue];
+    LEConfigurableCellType type=[[data objectForKey:LEKeyOfSettingsCellType] intValue];
     [self leSetCellType:type];
     [curItem leSetData:data];
     self.selectedBackgroundView=[LEUIFramework leGetImageViewWithSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:self EdgeInsects:UIEdgeInsetsZero] Image:[[data objectForKey:LEKeyOfSettingsCellFunction]?LEColorMask:LEColorClear leImageStrechedFromSizeOne]];

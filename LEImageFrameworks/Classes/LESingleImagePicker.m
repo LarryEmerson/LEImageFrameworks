@@ -121,7 +121,7 @@
 @end
 @implementation LESingleImagePicker{
     id<LEImageCropperDelegate> curDelegate;
-    UIViewController *curViewController;
+    __weak UIViewController *curViewController;
     float curAspect;
     UIImagePickerController *imagePickerController;
     UIImagePickerControllerSourceType imagePickerSourceType;

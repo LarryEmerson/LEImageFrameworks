@@ -24,7 +24,7 @@ LESingleton_interface(LEConfigurableCellManager)
 
 typedef enum {
     /** 可设定title:Title(标题)、TitleFontsize(标题字号)、Color(标题颜色) */
-    L_Title_R_Arrow,
+    L_Title_R_Arrow=0,
     /** 可设定title:Title(标题)、TitleFontsize(标题字号)、Color(标题颜色)，switch:Switch(是否打开) */
     L_Title_R_Switch,
     /** 可设定title:Title(标题)、TitleFontsize(标题字号)、Color(标题颜色)，subtitle:Subtitle(副标题)、SubTitleFontsize(副标题字号)、SubTitleColor(副标题颜色)、Linespace(副标题行间距)、RightEdgeKey(副标题右间距) */

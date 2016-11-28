@@ -14,6 +14,7 @@
 //SET
 - (void) leSetDelegate:(id<LE_PZPhotoViewDelegate>) delegate;
 //
+- (void) leSetImage:(UIImage *) image AndAspect:(float) aspect;
 - (void) leSetImageURL:(NSString *) url AndAspect:(float) aspect;
 - (void) leSetImageDownloadDelegate:(id<LEImageDownloadDelegate>) delegate;
 - (void) leUpdateZoomScale:(CGFloat)newScale;

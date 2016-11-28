@@ -54,6 +54,17 @@
         [self leUpdateZoomScale:self.minimumZoomScale];
     }
 }
+- (void) leSetImage:(UIImage *) image AndAspect:(float) aspect{
+    curAspect=aspect;
+    [self.imageView setImage:image];
+    [indicator stopAnimating];
+    [indicator setHidden:YES];
+    if(curAspect<=0){
+        [self.imageView setFrame:CGRectMake(0, 0, image.size.width, image.size.height)];
+        [self setMaxMinZoomScalesForCurrentBounds];
+        [self leUpdateZoomScale:self.minimumZoomScale];
+    }
+}
 -(void) leOnDownloadImageWithError:(NSError *)error{
     [indicator stopAnimating];
     [indicator setHidden:YES];

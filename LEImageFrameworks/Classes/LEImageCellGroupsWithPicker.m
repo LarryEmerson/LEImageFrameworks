@@ -164,7 +164,7 @@
     UIImagePickerController *imagePickerController;
     UIImagePickerControllerSourceType imagePickerSourceType;
     int cellWidth;
-    UIViewController *curViewController;
+    __weak UIViewController *curViewController;
     UIImage *curAddImage;
     UIImage *curDeleteImage;
 }

@@ -61,7 +61,7 @@
     int cellSpace;
     int cellCols;
     int cellMax;
-    UIViewController *curViewController;
+    __weak UIViewController *curViewController;
     NSString *curURLPrefix;
     BOOL qiniuImageView2;
 }

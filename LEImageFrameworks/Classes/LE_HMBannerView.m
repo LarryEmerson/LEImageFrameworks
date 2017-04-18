@@ -26,7 +26,7 @@
 @property (nonatomic, strong) UIPageControl *pageControl;
 @property (nonatomic, assign) BOOL enableRolling;
 //
-@property (nonatomic, assign) id <LE_HMBannerViewDelegate> delegate;
+@property (nonatomic, weak  ) id <LE_HMBannerViewDelegate> delegate;
 @property (nonatomic, strong) NSArray *imagesArray;
 @property (nonatomic, assign) LEBannerViewScrollDirection scrollDirection;
 @property (nonatomic, assign) NSTimeInterval rollingDelayTime;
@@ -87,9 +87,7 @@
         }
         for (NSInteger i = 0; i < 3; i++) {
             LE_HMBannerViewImageView *imageView =nil;
-            LESuppressPerformSelectorLeakWarning(
-                                                 imageView=[[curImageViewClassName leGetInstanceFromClassName] performSelector:NSSelectorFromString(@"init")];
-                                                 );
+            imageView=(LE_HMBannerViewImageView *)[[curImageViewClassName leGetInstanceFromClassName] init];
             [imageView setFrame:leScrollView.bounds];
             imageView.userInteractionEnabled = YES;
             imageView.tag = Banner_StartTag+i;
@@ -160,6 +158,8 @@
     }else if (pageStyle == PageStyle_None){
         [self.pageControl setHidden:YES];
     }
+    [self.pageControl setHidden:pageStyle == PageStyle_None||self.imagesArray.count==1];
+    
 }
 
 - (void)leShowClose:(BOOL)show{
@@ -290,9 +290,13 @@
         return;
     }
     [self leStopRolling];
-    self.enableRolling = YES;
-    [self refreshScrollView];
-    [self performSelector:@selector(rollingScrollAction) withObject:nil afterDelay:self.rollingDelayTime];
+    if(self.imagesArray.count==1){
+        [self refreshScrollView];
+    }else{
+        self.enableRolling = YES;
+        [self refreshScrollView];
+        [self performSelector:@selector(rollingScrollAction) withObject:nil afterDelay:self.rollingDelayTime];
+    }
 }
 - (void)leStopRolling{
     self.enableRolling = NO;

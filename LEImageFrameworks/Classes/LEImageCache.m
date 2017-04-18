@@ -34,7 +34,8 @@ static void * UIImageDownloadDelegateKey = (void *) @"UIImageDownloadDelegateKey
 -(void) leSetImageWithUrlString:(NSString *) url {
     if(url){
         //        UIImage *img=[[LEImageCache sharedInstance] leGetImageFromCacheWithKey:url];
-        [self sd_cancelCurrentImageLoad];
+         [self sd_cancelCurrentAnimationImagesLoad];
+//        [self sd_cancelCurrentImageLoad];
         UIImage *img=[[SDImageCache sharedImageCache] imageFromDiskCacheForKey:url];
         if(!img){
             img=[[SDImageCache sharedImageCache] imageFromMemoryCacheForKey:url];

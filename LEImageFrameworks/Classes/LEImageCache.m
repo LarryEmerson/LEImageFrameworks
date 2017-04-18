@@ -36,9 +36,9 @@ static void * UIImageDownloadDelegateKey = (void *) @"UIImageDownloadDelegateKey
         //        UIImage *img=[[LEImageCache sharedInstance] leGetImageFromCacheWithKey:url];
          [self sd_cancelCurrentAnimationImagesLoad];
 //        [self sd_cancelCurrentImageLoad];
-        UIImage *img=[[SDImageCache sharedImageCache] imageFromDiskCacheForKey:url];
+        UIImage *img=[[SDImageCache sharedImageCache] imageFromMemoryCacheForKey:url];
         if(!img){
-            img=[[SDImageCache sharedImageCache] imageFromMemoryCacheForKey:url];
+            img=[[SDImageCache sharedImageCache] imageFromDiskCacheForKey:url];
         }
         if(img){
             [self setImage:img];

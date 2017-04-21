@@ -24,7 +24,7 @@
     id<LEImagePickerPreviewDelegate> curDelegate;
     LEBaseNavigation *navi;
 }
--(void) leExtraInits{
+-(void) leAdditionalInits{
     arrayPhotos=[[NSMutableArray alloc] init];
     width=self.leCurrentFrameWidth;
     height=self.leCurrentFrameHight;
@@ -122,7 +122,7 @@
     [[[LEImagePickerPreviewPage alloc] initWithViewController:self Delegate:delegate Cells:cells Index:index DeleteIcon:delete] setUserInteractionEnabled:YES];
     return self;
 }
--(void) leExtraInits{}
+-(void) leAdditionalInits{}
 @end
 @protocol LEImagePickerCellDelegate <NSObject>
 -(void) onImagePickerCellClickedWith:(LEImagePickerCell *) cell;
@@ -139,11 +139,11 @@
 -(id) initWithFrame:(CGRect)frame Delegate:(id<LEImagePickerCellDelegate>) delegate{
     curDelegate=delegate;
     self=[super initWithFrame:frame];
-    [self leExtraInits];
+    [self leAdditionalInits];
     return self;
 }
 
--(void) leExtraInits{
+-(void) leAdditionalInits{
     [self setUserInteractionEnabled:YES];
     tapButton=[LEUIFramework leGetButtonWithSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:self EdgeInsects:UIEdgeInsetsZero] ButtonSettings:[[LEAutoLayoutUIButtonSettings alloc] initWithTitle:nil FontSize:0 Font:nil Image:nil BackgroundImage:nil Color:nil SelectedColor:nil MaxWidth:0 SEL:@selector(onClick) Target:self]];
     [tapButton setBackgroundImage:[LEColorMask2 leImageStrechedFromSizeOne] forState:UIControlStateHighlighted];
@@ -258,7 +258,7 @@
     self.curCellCache =array;
     [self reLayoutCells];
 }
--(void) leExtraInits{
+-(void) leAdditionalInits{
     //    if(cellSpace==0){
     //        cellSpace=LayoutSideSpace;
     //    }

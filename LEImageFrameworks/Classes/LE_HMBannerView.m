@@ -11,7 +11,7 @@
 @implementation LE_HMBannerViewImageView
 -(id) init{ 
     self=[super init];
-    [self leExtraInits];
+    [self leAdditionalInits];
     return self;
 }
 -(void) leSetData:(NSDictionary *) data{

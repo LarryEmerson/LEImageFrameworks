@@ -34,7 +34,7 @@
     [self finishCropping];
     [self.leCurrentViewController lePopSelfAnimated];
 }
--(void) leExtraInits{
+-(void) leAdditionalInits{
     LEBaseNavigation *navi=[[LEBaseNavigation alloc] initWithSuperViewAsDelegate:self Title:nil];
     [navi leSetRightNavigationItemWith:@"完成" Image:nil];
     [navi leSetLeftNavigationItemWith:@"取消" Image:nil Color:nil];
@@ -113,7 +113,7 @@
     }
     return self;
 }
--(void) leExtraInits{}
+-(void) leAdditionalInits{}
 @end
 
 @interface LESingleImagePicker ()<UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,LEImageCropperDelegate>

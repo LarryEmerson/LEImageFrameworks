@@ -29,7 +29,7 @@
     qiniuImageView2=qiniu;
     return [super initWithViewController:vc];
 }
--(void) leExtraInits{ 
+-(void) leAdditionalInits{ 
     arrayPhotos=[[NSMutableArray alloc] init];
     width=self.leCurrentFrameWidth;
     height=self.leCurrentFrameHight;
@@ -89,5 +89,5 @@
     page=[[LEImagesPreviewPage alloc] initWithViewController:self ImageDataSource:imageDataSource Index:curIndex ImageUrlPrefix:prefix QiniuImageView2:qiniu];
     return self;
 }
--(void) leExtraInits{}
+-(void) leAdditionalInits{}
 @end

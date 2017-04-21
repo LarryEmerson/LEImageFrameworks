@@ -18,7 +18,7 @@
     self.itemType=type;
     self.settingsCell=cell;
     self.curDelegate=cell;
-    [self leExtraInits];
+    [self leAdditionalInits];
     [self leAddBottomSplitWithColor:LEColorSplit Offset:CGPointZero Width:LESCREEN_WIDTH];
     return self;
 }
@@ -38,7 +38,7 @@
     UILabel *label;
     UIImageView *arrow;
 }
--(void)leExtraInits{
+-(void)leAdditionalInits{
     label=[UILabel new].leSuperView(self).leAnchor(LEAnchorInsideLeftCenter).leOffset(CGPointMake(LELayoutSideSpace, 0)).leAutoLayout.leType;
     arrow=[UIImageView new].leSuperView(self).leAnchor(LEAnchorInsideRightCenter).leOffset(CGPointMake(-LELayoutSideSpace, 0)).leSize(LESquareSize((LELayoutSideSpace+LELayoutSideSpace20)-LELayoutSideSpace)).leAutoLayout.leType;
     [arrow setContentMode:UIViewContentModeCenter]; 
@@ -55,7 +55,7 @@
     UISwitch *curSwitch;
     UILabel *label;
 }
--(void)leExtraInits{
+-(void)leAdditionalInits{
     label=[UILabel new].leSuperView(self).leAnchor(LEAnchorInsideLeftCenter).leOffset(CGPointMake(LELayoutSideSpace, 0)).leAutoLayout.leType;
     curSwitch=[UISwitch new];
     [curSwitch.leSuperView(self).leAnchor(LEAnchorInsideRightCenter).leOffset(CGPointMake(-LELayoutSideSpace, 0)).leSize(curSwitch.bounds.size) leExecAutoLayout];
@@ -74,7 +74,7 @@
     UILabel *label;
     UILabel *labelSub;
 }
--(void)leExtraInits{
+-(void)leAdditionalInits{
     UIView *anchor=[UIView new].leSuperView(self).leSize(CGSizeMake(1, LEDefaultCellHeight)).leAutoLayout;
     label=[UILabel new].leSuperView(self).leRelativeView(anchor).leAnchor(LEAnchorOutsideRightCenter).leOffset(CGPointMake(LELayoutSideSpace-1, 0)).leAutoLayout.leType;
     [label.leFont(LEFont(LELayoutFontSize16)).leLine(1).leText(@" ") leLabelLayout];
@@ -102,7 +102,7 @@
     UILabel *subtitle;
     UIImageView *arrow;
 }
--(void) leExtraInits{
+-(void) leAdditionalInits{
     label=[UILabel new].leSuperView(self).leAnchor(LEAnchorInsideLeftCenter).leOffset(CGPointMake(LELayoutSideSpace, 0)).leAutoLayout.leType;
     [label.leFont(LEFont(LELayoutFontSize16)).leLine(1) leLabelLayout];
     arrow= [UIImageView new].leSuperView(self).leAnchor(LEAnchorInsideRightCenter).leOffset(CGPointMake(-LELayoutSideSpace, 0)).leSize(LESquareSize((LELayoutSideSpace+LELayoutSideSpace20)-LELayoutSideSpace)).leAutoLayout.leType;
@@ -127,7 +127,7 @@
     UIImageView *icon;
     UILabel *label;
 }
--(void) leExtraInits{
+-(void) leAdditionalInits{
     icon=[UIImageView new].leSuperView(self).leAnchor(LEAnchorInsideLeftCenter).leOffset(CGPointMake(LELayoutSideSpace, 0)).leSize(CGSizeMake(LELayoutAvatarSize, LELayoutAvatarSize)).leRoundCorner(LELayoutAvatarSize/2).leAutoLayout.leType;
     label=[UILabel new].leSuperView(self).leRelativeView(icon).leAnchor(LEAnchorOutsideRightCenter).leOffset(CGPointMake(LELayoutSideSpace, 0)).leAutoLayout.leType;
     UIImageView *arrow= [UIImageView new].leSuperView(self).leAnchor(LEAnchorInsideRightCenter).leOffset(CGPointMake(-LELayoutSideSpace, 0)).leSize(LESquareSize((LELayoutSideSpace+LELayoutSideSpace20)-LELayoutSideSpace)).leAutoLayout.leType;
@@ -146,7 +146,7 @@
     UIImageView *icon;
     UILabel *label;
 }
--(void) leExtraInits{
+-(void) leAdditionalInits{
     label=[UILabel new].leSuperView(self).leAnchor(LEAnchorInsideLeftCenter).leOffset(CGPointMake(LELayoutSideSpace, 0)).leAutoLayout.leType;
     UIImageView *arrow= [UIImageView new].leSuperView(self).leAnchor(LEAnchorInsideRightCenter).leOffset(CGPointMake(-LELayoutSideSpace, 0)).leSize(LESquareSize((LELayoutSideSpace+LELayoutSideSpace20)-LELayoutSideSpace)).leAutoLayout.leType;
     [arrow leSetImage:[UIImage imageNamed:@"common_arrow_gray"]];
@@ -170,7 +170,7 @@
 @implementation Item_M_Submit{
     UIButton *btn;
 }
--(void) leExtraInits{
+-(void) leAdditionalInits{
     [self setBackgroundColor:[LEUIFramework sharedInstance].leColorViewContainer];
     btn=[UIButton new].leSuperView(self).leEdgeInsects(UIEdgeInsetsMake(LELayoutSideSpace, LELayoutSideSpace, LELayoutSideSpace, LELayoutSideSpace)).leAutoLayout.leType;
     [btn.leButtonSize(btn.bounds.size).leFont(LEFont(LELayoutFontSize14)).leTapEvent(@selector(onTapped),self) leButtonLayout];
@@ -200,7 +200,7 @@
     LEConfigurableCellType curType;
     LEBaseSettingsItem *curItem;
 }
--(void) leExtraInits{
+-(void) leAdditionalInits{
     [self setBackgroundColor:LEColorWhite];
     self.selectedBackgroundView=[LEUIFramework leGetImageViewWithSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:self EdgeInsects:UIEdgeInsetsZero] Image:[LEColorMask leImageStrechedFromSizeOne]];
 }

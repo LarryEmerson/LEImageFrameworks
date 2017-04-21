@@ -107,7 +107,7 @@
 -(id) initWithDelegate:(id)delegate{
     frameDelegate=delegate;
     self= [super init];
-    [self leExtraInits];
+    [self leAdditionalInits];
     if(frameDelegate){
         [frameDelegate leOnFrameResizedWithHeight:self.frame.size.height];
     }
@@ -221,7 +221,7 @@
     [curTableView leSetBottomRefresh:bottom];
 }
 
--(void) leExtraInits{
+-(void) leAdditionalInits{
     if(curBannerStyle==BannerStayAtTheTop){
         bannerContainer=[[LEBannerContainer alloc] initWithFrame:CGRectMake(0, 0, self.leCurrentFrameWidth, self.leCurrentFrameWidth*LEDefaultBannerHeightRate) Delegate:self SubviewClassName:curBannerSubviewClassName BannerImageViewClassName:curBannerImageViewClassName];
         [self.leViewContainer addSubview:bannerContainer];
@@ -346,5 +346,5 @@
 -(void) leOnTableViewCellSelectedWithInfo:(NSDictionary *)info{
     LELogObject(info);
 }
--(void) leExtraInits{}
+-(void) leAdditionalInits{}
 @end

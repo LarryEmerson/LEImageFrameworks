@@ -14,7 +14,8 @@
 @end
 @implementation LEConfigurableCellManager
 LESingleton_implementation(LEConfigurableCellManager)
--(void) leExtraInits{
+-(void) leAdditionalInits{
+//-(void) leAdditionalInits{
     self.registedItems=[NSMutableDictionary new];
     self.arrowImage=[[LEUIFramework sharedInstance] leGetImageFromLEFrameworksWithName:@"LE_tableview_icon_arrow"];
 }
@@ -41,7 +42,7 @@ LESingleton_implementation(LEConfigurableCellManager)
     self.leIndex=index;
     [self leSetHeight:LEDefaultCellHeight];
     tapEvent=[UIButton new].leSuperView(self).leEdgeInsects(UIEdgeInsetsZero).leTapEvent(@selector(onTapped),self).leBackgroundImageHighlighted([LEColorMask leImageStrechedFromSizeOne]).leAutoLayout.leType;
-    [self leExtraInits];
+    [self leAdditionalInits];
     [self leAddBottomSplitWithColor:LEColorSplit Offset:CGPointZero Width:LESCREEN_WIDTH];
     return self;
 }
@@ -77,7 +78,7 @@ LESingleton_implementation(LEConfigurableCellManager)
     UILabel *label;
     UIImageView *arrow;
 }
--(void)leExtraInits{
+-(void)leAdditionalInits{
     label=[UILabel new].leSuperView(self).leAnchor(LEAnchorInsideLeftCenter).leOffset(CGPointMake(LELayoutSideSpace, 0)).leAutoLayout.leType;
     arrow=[UIImageView new].leSuperView(self).leAnchor(LEAnchorInsideRightCenter).leOffset(CGPointMake(-LELayoutSideSpace, 0)).leSize(LESquareSize(LELayoutAvatarSize)).leAutoLayout.leType;
     [arrow setContentMode:UIViewContentModeCenter];
@@ -106,7 +107,7 @@ LESingleton_implementation(LEConfigurableCellManager)
     UISwitch *curSwitch;
     UILabel *label;
 }
--(void)leExtraInits{
+-(void)leAdditionalInits{
     label=[UILabel new].leSuperView(self).leAnchor(LEAnchorInsideLeftCenter).leOffset(CGPointMake(LELayoutSideSpace, 0)).leAutoLayout.leType;
     curSwitch=[UISwitch new];
     [curSwitch.leSuperView(self).leAnchor(LEAnchorInsideRightCenter).leOffset(CGPointMake(-LELayoutSideSpace, 0)).leSize(curSwitch.bounds.size) leExecAutoLayout];
@@ -141,7 +142,7 @@ LESingleton_implementation(LEConfigurableCellManager)
     UILabel *label;
     UILabel *labelSub;
 }
--(void)leExtraInits{
+-(void)leAdditionalInits{
     UIView *anchor=[UIView new].leSuperView(self).leSize(CGSizeMake(1, LEDefaultCellHeight)).leAutoLayout;
     label=[UILabel new].leSuperView(self).leRelativeView(anchor).leAnchor(LEAnchorOutsideRightCenter).leOffset(CGPointMake(LELayoutSideSpace-1, 0)).leFont(LEFont(LELayoutFontSize16)).leLine(1).leColor(LEColorBlack).leAutoLayout.leType;
     labelSub=[UILabel new].leSuperView(self).leAnchor(LEAnchorInsideTopRight).leOffset(CGPointMake(-LELayoutSideSpace, (LEDefaultCellHeight-LELayoutFontSize13)*0.5)).leFont(LEFont(LELayoutFontSize13)).leColor(LEColorTextGray).leAlignment(NSTextAlignmentRight).leLine(0).leWidth((LESCREEN_WIDTH-LELayoutSideSpace*3-6*LELayoutFontSize16)).leAutoLayout.leType;
@@ -200,7 +201,7 @@ LESingleton_implementation(LEConfigurableCellManager)
     UILabel *labelSub;
     UIImageView *arrow;
 }
--(void) leExtraInits{
+-(void) leAdditionalInits{
     label=[UILabel new].leSuperView(self).leAnchor(LEAnchorInsideLeftCenter).leOffset(CGPointMake(LELayoutSideSpace, 0)).leAutoLayout.leType;
     [label.leFont(LEFont(LELayoutFontSize16)).leLine(1) leLabelLayout];
     arrow= [UIImageView new].leSuperView(self).leAnchor(LEAnchorInsideRightCenter).leOffset(CGPointMake(-LELayoutSideSpace, 0)).leSize(LESquareSize(LELayoutAvatarSize)).leAutoLayout.leType;
@@ -248,7 +249,7 @@ LESingleton_implementation(LEConfigurableCellManager)
     UIImageView *icon;
     UILabel *label;
 }
--(void) leExtraInits{
+-(void) leAdditionalInits{
     icon=[UIImageView new].leSuperView(self).leAnchor(LEAnchorInsideLeftCenter).leOffset(CGPointMake(LELayoutSideSpace, 0)).leSize(LESquareSize(LELayoutAvatarSize)).leRoundCorner(LELayoutAvatarSize/2).leAutoLayout.leType;
     label=[UILabel new].leSuperView(self).leRelativeView(icon).leAnchor(LEAnchorOutsideRightCenter).leOffset(CGPointMake(LELayoutSideSpace, 0)).leFont(LEFont(LELayoutFontSize16)).leLine(1).leWidth((LESCREEN_WIDTH-LELayoutSideSpace*3-LELayoutAvatarSize*2)).leAutoLayout.leType;
     UIImageView *arrow= [UIImageView new].leSuperView(self).leAnchor(LEAnchorInsideRightCenter).leOffset(CGPointMake(-LELayoutSideSpace, 0)).leSize(LESquareSize(LELayoutAvatarSize)).leAutoLayout.leType;
@@ -296,7 +297,7 @@ LESingleton_implementation(LEConfigurableCellManager)
     UIImageView *icon;
     UILabel *label;
 }
--(void) leExtraInits{
+-(void) leAdditionalInits{
     label=[UILabel new].leSuperView(self).leAnchor(LEAnchorInsideLeftCenter).leOffset(CGPointMake(LELayoutSideSpace, 0)).leAutoLayout.leType;
     UIImageView *arrow= [UIImageView new].leSuperView(self).leAnchor(LEAnchorInsideRightCenter).leOffset(CGPointMake(-LELayoutSideSpace, 0)).leSize(LESquareSize(LELayoutAvatarSize)).leAutoLayout.leType;
     [arrow leSetImage:[LEConfigurableCellManager sharedInstance].arrowImage];
@@ -345,7 +346,7 @@ LESingleton_implementation(LEConfigurableCellManager)
 @implementation LEItem_M_Submit{
     UIButton *btn;
 }
--(void) leExtraInits{
+-(void) leAdditionalInits{
     [self leSetHeight:LENavigationBarHeight+LELayoutSideSpace*2];
     [self setBackgroundColor:[LEUIFramework sharedInstance].leColorViewContainer];
     btn=[UIButton new].leSuperView(self).leEdgeInsects(UIEdgeInsetsMake(LELayoutSideSpace, LELayoutSideSpace, LELayoutSideSpace, LELayoutSideSpace)).leAutoLayout.leType;
@@ -380,7 +381,7 @@ LESingleton_implementation(LEConfigurableCellManager)
 @interface LEItem_F_SectionSolid : LEBaseConfigurableTableViewCellItem
 @end
 @implementation LEItem_F_SectionSolid
--(void) leExtraInits{
+-(void) leAdditionalInits{
     [self leSetHeight:LEDefaultSectionHeight];
 }
 -(void) leSetData:(id) data{

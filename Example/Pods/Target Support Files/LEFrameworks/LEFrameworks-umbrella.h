@@ -22,6 +22,7 @@
 #import "LEBaseTableViewSection.h"
 #import "LEBaseTableViewSectionWithIcon.h"
 #import "LEBaseTableViewV2.h"
+#import "LEBaseTableViewV3.h"
 #import "LEBaseTableViewWithRefresh.h"
 #import "LEBaseViewController.h"
 #import "LERefresh.h"

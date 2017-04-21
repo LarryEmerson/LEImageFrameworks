@@ -18,7 +18,7 @@
     int linespace;
     
 }
--(void) leExtraInits{
+-(void) leAdditionalInits{
     linespace=4;
     [self leSetHeight:LELayoutSideSpace*3+LELayoutFontSize16*2+LELayoutFontSize12+linespace];
     icon=[UIImageView new].leSuperView(self).leAnchor(LEAnchorInsideLeftCenter).leOffset(CGPointMake(LELayoutSideSpace, 0)).leSize(LESquareSize(self.bounds.size.height-LELayoutSideSpace*2)).leAutoLayout.leType;
@@ -39,7 +39,7 @@
 @implementation TestConfigurableTableView{
     LEBaseConfigurableTableViewWithRefresh *tb;
 }
--(void) leExtraInits{
+-(void) leAdditionalInits{
     LEBaseView *base=[[LEBaseView alloc] initWithViewController:self];
     [[LEBaseNavigation alloc] initWithDelegate:nil SuperView:base Title:@"测试LEBaseConfigurableTableView"];
     tb=[[LEBaseConfigurableTableViewWithRefresh alloc] initWithSuperView:base.leViewBelowCustomizedNavigation EmptyTableViewCell:nil GetDataDelegate:self TableViewCellSelectionDelegate:self];

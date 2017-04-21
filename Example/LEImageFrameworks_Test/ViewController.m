@@ -17,7 +17,7 @@
 @implementation DemoTableViewPageWithBannerImageView{
     UILabel *curLabel;
 }
--(void) leExtraInits{
+-(void) leAdditionalInits{
     curLabel=[LEUIFramework leGetLabelWithSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:self Anchor:LEAnchorInsideBottomRight Offset:CGPointMake(-LEStatusBarHeight/2, -LEStatusBarHeight/2) CGSize:CGSizeZero] LabelSettings:[[LEAutoLayoutLabelSettings alloc] initWithText:nil FontSize:15 Font:nil Width:LESCREEN_WIDTH-LEStatusBarHeight Height:0 Color:LEColorBlack Line:0 Alignment:NSTextAlignmentRight]];
     [curLabel setBackgroundColor:LEColorMask2];
 }
@@ -36,7 +36,7 @@
 @implementation DemoTableViewPageWithBannerSubView{
     UILabel *curText;
 }
--(void) leExtraInits{
+-(void) leAdditionalInits{
     curText=[LEUIFramework leGetLabelWithSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:self Anchor:LEAnchorInsideTopLeft Offset:CGPointMake(LENavigationBarHeight/4, LENavigationBarHeight/4) CGSize:CGSizeZero] LabelSettings:[[LEAutoLayoutLabelSettings alloc] initWithText:nil FontSize:15 Font:nil Width:LESCREEN_WIDTH-LENavigationBarHeight/2 Height:0 Color:LEColorBlack Line:0 Alignment:NSTextAlignmentLeft]];
     [self setBackgroundColor:[UIColor colorWithRed:1.000 green:0.000 blue:0.000 alpha:0.520]];
     [curText setBackgroundColor:[UIColor colorWithRed:0.503 green:0.780 blue:1.000 alpha:0.510]];
@@ -53,7 +53,7 @@
 @implementation DemoTableViewPageWithBannerCell{
     UILabel *curLabel;
 }
--(void) leExtraInits{
+-(void) leAdditionalInits{
     [self leSetEnableArrow:YES];
     [self leSetBottomSplit:YES];
     int space=10;
@@ -73,7 +73,7 @@
 @implementation DemoTableViewPageWithBanner{
     NSString *subviewString;
 }
--(void) leExtraInits{
+-(void) leAdditionalInits{
     subviewString=@"这一句可以写一句很长的句子，然后测试一下看看是否自动换行";
     [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(leOnRefreshData) userInfo:nil repeats:NO];
 }
@@ -111,7 +111,7 @@
 @implementation TestCell{
     UILabel *label;
 }
--(void) leExtraInits{
+-(void) leAdditionalInits{
     label=[LEUIFramework leGetLabelWithSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:self Anchor:LEAnchorInsideLeftCenter Offset:CGPointMake(LELayoutSideSpace, 0) CGSize:CGSizeZero] LabelSettings:[[LEAutoLayoutLabelSettings alloc] initWithText:@"" FontSize:14 Font:nil Width:0 Height:0 Color:LEColorBlack Line:1 Alignment:NSTextAlignmentLeft]];
 }
 -(void) leSetData:(id)data IndexPath:(NSIndexPath *)path{
@@ -124,7 +124,7 @@
 @end
 @implementation TestCellGroupsWithPicker
 
--(void) leExtraInits{
+-(void) leAdditionalInits{
     LEBaseView *view=[[LEBaseView alloc] initWithViewController:self];
     [[LEBaseNavigation alloc] initWithDelegate:nil SuperView:view Title:@"LEImageCellGroupsWithPicker"];
     LEImageCellGroupsWithPicker *picker=[[LEImageCellGroupsWithPicker alloc] initWithAutoLayoutSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:view.leViewBelowCustomizedNavigation Anchor:LEAnchorInsideCenter Offset:CGPointZero CGSize:CGSizeMake(view.leCurrentFrameWidth,view.leCurrentFrameWidth)] Space:2 Cols:4 Max:9 AddImage:[LEColorBlue leImageStrechedFromSizeOne] DeleteImage:[LEColorTest leImageWithSize:CGSizeMake(20, 40)] ViewController:self];
@@ -136,7 +136,7 @@
 @end
 @implementation TestGridWithPreview
 
--(void) leExtraInits{
+-(void) leAdditionalInits{
     LEBaseView *view=[[LEBaseView alloc] initWithViewController:self];
     [[LEBaseNavigation alloc] initWithDelegate:nil SuperView:view Title:@"LEImagesGridWithPreview"];
     LEImagesGrid *grid=[[LEImagesGrid alloc] initWithAutoLayoutSettings:[[LEAutoLayoutSettings alloc] initWithSuperView:view.leViewBelowCustomizedNavigation Anchor:LEAnchorInsideCenter Offset:CGPointZero CGSize:CGSizeMake(view.leCurrentFrameWidth, view.leCurrentFrameWidth)] Space:10 Cols:3 Max:15 ImageUrlPrefix:nil QiniuImageView2:NO ViewController:self];
@@ -153,7 +153,7 @@
     LEBaseConfigurableTableView *tbConfig;
 }
 
-- (void)leExtraInits {
+- (void)leAdditionalInits {
     LEBaseView *view=[[LEBaseView alloc] initWithViewController:self];
     [[[LEBaseNavigation alloc] initWithDelegate:nil SuperView:view Title:@"LEImageFrameworks 测试"] setAlpha:1];
     tbConfig=[[LEBaseConfigurableTableView alloc] initWithSuperView:view.leViewBelowCustomizedNavigation EmptyTableViewCell:nil TableViewCellSelectionDelegate:self];

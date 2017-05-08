@@ -1,4 +1,6 @@
 # LEImageFrameworks
+最新开发库LEUIMaker中已经整合了LEImageFrameworks的所有内容，详见https://github.com/LarryEmerson/LEUIMaker （ImageFrameworks、LEBanner、LEConfigurableList）
+
 ```
 #import <LEImageFrameworks/LEImageFrameworks.h>
 ```

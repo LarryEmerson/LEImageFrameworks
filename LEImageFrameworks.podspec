@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 s.name             = 'LEImageFrameworks'
-s.version          = '0.3.1'
+s.version          = '0.3.2'
 s.summary          = '图片缓存，滚动广告，单张图片选择，图片切割，朋友圈图片选择器封装，朋友圈图片查看器封装'
 
 # This description is used to generate tags and improve search results.
@@ -36,5 +36,5 @@ s.source_files = 'LEImageFrameworks/Classes/*.{h,m}'
 # s.public_header_files = 'Pod/Classes/**/*.h'
 # s.frameworks = 'UIKit', 'MapKit'
 s.dependency 'LEFrameworks'
-s.dependency 'SDWebImage'
+s.dependency 'SDWebImage/GIF'
 end

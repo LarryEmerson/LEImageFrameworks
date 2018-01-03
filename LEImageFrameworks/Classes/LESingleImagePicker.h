@@ -5,10 +5,7 @@
 //  Created by emerson larry on 16/3/15.
 //  Copyright © 2016年 LarryEmerson. All rights reserved.
 //
-
-#import "LEFrameworks.h"
-
-
+#import <LEFrameworks/LEFrameworks.h> 
 
 @protocol LEImageCropperDelegate <NSObject>
 - (void)leOnDoneCroppedWithImage:(UIImage *)image;

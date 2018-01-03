@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LEImageCache.h"  
-#import "LEFrameworks.h"
-@interface LEImagePickerCell : UIImageView 
+#import "LEImageCache.h"   
+#import <LEFrameworks/LEFrameworks.h>
+@interface LEImagePickerCell : UIImageView
 @end
 @interface LEImageCellGroupsWithPicker : UIView
 @property (nonatomic) NSMutableArray *curCellCache;

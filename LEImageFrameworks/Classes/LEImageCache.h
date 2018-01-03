@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-
-#import "LEUIFramework.h"
+#import <LEFrameworks/LEFrameworks.h> 
 #import <QuartzCore/QuartzCore.h>
 #import "UIImageView+WebCache.h"
 

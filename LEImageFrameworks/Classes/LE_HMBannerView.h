@@ -7,8 +7,8 @@
 //  Copyright (c) 2013年 Babytree. All rights reserved.
 //
 
-#import <UIKit/UIKit.h> 
-#import "LEUIFramework.h"
+#import <UIKit/UIKit.h>
+#import <LEFrameworks/LEFrameworks.h>
 #import "LEImageCache.h"
 #import "UIImage+GIF.h"
 

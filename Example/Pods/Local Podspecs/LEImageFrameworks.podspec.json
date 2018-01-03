@@ -1,6 +1,6 @@
 {
   "name": "LEImageFrameworks",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "summary": "图片缓存，滚动广告，单张图片选择，图片切割，朋友圈图片选择器封装，朋友圈图片查看器封装",
   "homepage": "https://github.com/LarryEmerson/LEImageFrameworks",
   "license": {
@@ -12,7 +12,7 @@
   },
   "source": {
     "git": "https://github.com/LarryEmerson/LEImageFrameworks.git",
-    "tag": "0.3.1"
+    "tag": "0.3.2"
   },
   "platforms": {
     "ios": "7.0"
@@ -22,7 +22,7 @@
     "LEFrameworks": [
 
     ],
-    "SDWebImage": [
+    "SDWebImage/GIF": [
 
     ]
   }

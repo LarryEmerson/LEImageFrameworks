@@ -5,10 +5,7 @@
 //  Created by Larry Emerson on 15/9/8.
 //  Copyright (c) 2015年 360cbs. All rights reserved.
 //
-
-#import "LEBaseTableView.h"
-#import "LEBaseTableViewCell.h"
-#import "LEBaseViewController.h"
+#import <LEFrameworks/LEFrameworks.h>
 #import "LE_HMBannerView.h"
 
 #define LEDefaultBannerHeightRate 0.5

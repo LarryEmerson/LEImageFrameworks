@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LE_PZPhotoView.h"
-#import "LEUIFramework.h"  
+#import "LE_PZPhotoView.h" 
+#import <LEFrameworks/LEFrameworks.h>
 @interface LEShowHDImage : UIView<UIScrollViewDelegate,LE_PZPhotoViewDelegate>
 - (id)initWithUrl:(NSString *) url AndAspect:(float) aspect;
 + (void) leShowHDImageWithUrl:(NSString *) url Aspect:(float) aspect; 

@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LEImageCache.h" 
-#import "LEFrameworks.h"
+#import "LEImageCache.h"  
+#import <LEFrameworks/LEFrameworks.h>
 #import "LEImagesPreview.h"
 
 @interface LEImagesGrid : UIView

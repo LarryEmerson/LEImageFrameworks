@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		778790206C740754275C67A4 /* Pods_LEImageFrameworks_Test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 925648524299752D36A0051B /* Pods_LEImageFrameworks_Test.framework */; };
 		80815FD81DB8A95400893B7A /* TestConfigurableTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 80815FD71DB8A95400893B7A /* TestConfigurableTableView.m */; };
 		8097794A1D2F799200E36104 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 809779491D2F799200E36104 /* main.m */; };
 		8097794D1D2F799200E36104 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8097794C1D2F799200E36104 /* AppDelegate.m */; };
@@ -19,14 +18,12 @@
 
 /* Begin PBXFileReference section */
 		163D8A1B4F04FE3CA271A8B8 /* LEImageFrameworks.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LEImageFrameworks.podspec; path = ../LEImageFrameworks.podspec; sourceTree = "<group>"; };
-		20DB1474E0AFD83EF5337958 /* Pods_LEImageFrameworks_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LEImageFrameworks_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3662FFB4EF7551A78D91D3A5 /* Pods-LEImageFrameworks_Test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LEImageFrameworks_Test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LEImageFrameworks_Test/Pods-LEImageFrameworks_Test.debug.xcconfig"; sourceTree = "<group>"; };
 		3FED0B69BB9AF370371A1D9E /* Pods-LEImageFrameworks_Test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LEImageFrameworks_Test.release.xcconfig"; path = "Pods/Target Support Files/Pods-LEImageFrameworks_Test/Pods-LEImageFrameworks_Test.release.xcconfig"; sourceTree = "<group>"; };
 		47ADD78A12C35FFC3BF81AB1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		80815FD61DB8A95400893B7A /* TestConfigurableTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestConfigurableTableView.h; sourceTree = "<group>"; };
 		80815FD71DB8A95400893B7A /* TestConfigurableTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestConfigurableTableView.m; sourceTree = "<group>"; };
 		809779461D2F799200E36104 /* LEImageFrameworks_Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LEImageFrameworks_Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -39,7 +36,6 @@
 		809779541D2F799200E36104 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		809779571D2F799200E36104 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		809779591D2F799200E36104 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		925648524299752D36A0051B /* Pods_LEImageFrameworks_Test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LEImageFrameworks_Test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B56B15C40B0D8DC9F382FBB0 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -48,7 +44,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				778790206C740754275C67A4 /* Pods_LEImageFrameworks_Test.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,9 +84,6 @@
 				6003F58D195388D20070C39A /* Foundation.framework */,
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
-				6003F5AF195388D20070C39A /* XCTest.framework */,
-				20DB1474E0AFD83EF5337958 /* Pods_LEImageFrameworks_Tests.framework */,
-				925648524299752D36A0051B /* Pods_LEImageFrameworks_Test.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -208,13 +200,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LEImageFrameworks_Test-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A73D22EB8E832AE386638FC0 /* [CP] Copy Pods Resources */ = {
@@ -238,9 +233,20 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-LEImageFrameworks_Test/Pods-LEImageFrameworks_Test-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework",
+				"${BUILT_PRODUCTS_DIR}/LEFoundation/LEFoundation.framework",
+				"${BUILT_PRODUCTS_DIR}/LEFrameworks/LEFrameworks.framework",
+				"${BUILT_PRODUCTS_DIR}/LEImageFrameworks/LEImageFrameworks.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLAnimatedImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LEFoundation.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LEFrameworks.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LEImageFrameworks.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

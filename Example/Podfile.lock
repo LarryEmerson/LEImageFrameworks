@@ -1,13 +1,17 @@
 PODS:
-  - LEFoundation (0.1.7)
-  - LEFrameworks (0.6.4):
+  - FLAnimatedImage (1.0.12)
+  - LEFoundation (0.1.9)
+  - LEFrameworks (0.6.6):
     - LEFoundation
-  - LEImageFrameworks (0.3.1):
+  - LEImageFrameworks (0.3.2):
     - LEFrameworks
-    - SDWebImage
-  - SDWebImage (4.0.0):
-    - SDWebImage/Core (= 4.0.0)
-  - SDWebImage/Core (4.0.0)
+    - SDWebImage/GIF
+  - SDWebImage (4.2.2):
+    - SDWebImage/Core (= 4.2.2)
+  - SDWebImage/Core (4.2.2)
+  - SDWebImage/GIF (4.2.2):
+    - FLAnimatedImage (~> 1.0)
+    - SDWebImage/Core
 
 DEPENDENCIES:
   - LEImageFrameworks (from `../`)
@@ -15,14 +19,15 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   LEImageFrameworks:
-    :path: "../"
+    :path: ../
 
 SPEC CHECKSUMS:
-  LEFoundation: a490ec109d741927dfadb238d984e1689e1581e3
-  LEFrameworks: c92bffbbac5c4bf84fa9a2faafe43702e9816640
-  LEImageFrameworks: e55f206bd4c5abaff581ae2d75d350480af90765
-  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  LEFoundation: 854f466d03ab18f3b40251bb629105ff2f8843ce
+  LEFrameworks: 46d56fb2c17455e3a902b8fed25f445d9708d7b0
+  LEImageFrameworks: a0eeb6cedc986dc399461a19363b075ae0a3ce06
+  SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
 
 PODFILE CHECKSUM: dab3c4d6ea5afcd3d1e1390ba03f32350259e3fd
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.4.0.rc.1

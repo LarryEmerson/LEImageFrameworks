@@ -1,0 +1,6 @@
+framework module LEImageFrameworks {
+  umbrella header "LEImageFrameworks.h"
+
+  export *
+  module * { export * }
+}

@@ -25,7 +25,7 @@ s.author           = { 'LarryEmerson' => 'larryemerson@163.com' }
 s.source           = { :git => 'https://github.com/LarryEmerson/LEImageFrameworks.git', :tag => s.version.to_s }
 # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-s.ios.deployment_target = '7.0'
+s.ios.deployment_target = '8.1'
 
 s.source_files = 'LEImageFrameworks/Classes/*.{h,m}'
 
@@ -35,6 +35,6 @@ s.source_files = 'LEImageFrameworks/Classes/*.{h,m}'
 
 # s.public_header_files = 'Pod/Classes/**/*.h'
 # s.frameworks = 'UIKit', 'MapKit'
-s.dependency 'LEFrameworks'
+s.dependency 'LEFrameworks' 
 s.dependency 'SDWebImage/GIF'
 end

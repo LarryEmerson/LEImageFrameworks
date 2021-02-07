@@ -40,6 +40,7 @@
     NSString *curImageViewClassName;
     LEBannerViewPageStyle curPageStyle;
     CGPoint curPageStyleOffset;
+    CGRect oriFrame;
 }
 - (void) leSetDelegate:(id<LE_HMBannerViewDelegate>) dele{
     self.delegate=dele;
@@ -100,15 +101,25 @@
             }
             [leScrollView addSubview:imageView];
         }
-        self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(LELayoutSideSpace, frame.size.height-LEHMBannerOffset, LEHMBannerWidth, LEHMBannerOffset)];
+        self.pageControl = [[UIPageControl alloc] initWithFrame:oriFrame];
+        [self addSubview:self.pageControl];
         self.pageControl.numberOfPages = self.imagesArray.count;
         [self.pageControl setUserInteractionEnabled:NO];
-        [self addSubview:self.pageControl];
-        
         self.pageControl.currentPage = 0;
         //[self refreshScrollView];
     }
     return self;
+}
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    if (@available(iOS 14.0, *)) {
+        if (curPageStyle == PageStyle_Right){
+            CGRect frame = self.pageControl.frame;
+            frame.size.width = [self.pageControl sizeForNumberOfPages:self.pageControl.numberOfPages].width;
+            frame.origin.x = self.frame.size.width-frame.size.width+LEHMBannerOffset*2;
+            self.pageControl.frame = frame;
+        }
+    }
 }
 - (void)leReloadBannerWithData:(NSArray *)images{
     if (self.enableRolling) {
@@ -159,7 +170,6 @@
         [self.pageControl setHidden:YES];
     }
     [self.pageControl setHidden:pageStyle == PageStyle_None||self.imagesArray.count==1];
-    
 }
 
 - (void)leShowClose:(BOOL)show{
